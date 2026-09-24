@@ -59,13 +59,6 @@ a:hover { color: var(--gold); }
 .wrap { max-width: 72rem; margin: 0 auto; padding-inline: max(1rem, env(safe-area-inset-left, 0px)); }
 
 /* Top bar */
-.bar {
-  position: fixed; inset: 0 0 auto 0; z-index: 40;
-  padding-top: env(safe-area-inset-top, 0px);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.bar.scrolled { background: rgba(7, 5, 13, 0.92); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(8px); }
-.bar .wrap { height: var(--bar-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .logo { color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: 0.06em; font-size: 1.05rem; }
 .logo span { color: var(--gold); }
 .menu-btn {
@@ -219,11 +212,6 @@ a:hover { color: var(--gold); }
 .card .org { margin: -0.5rem 0 0; color: var(--gold); font-size: 0.88rem; font-weight: 500; }
 .card p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.65; }
 .card code { font-family: var(--f-mono); font-size: 0.85em; }
-.ba { display: grid; gap: 0.5rem; font-size: 0.88rem; line-height: 1.5; }
-.ba div { border-radius: 10px; padding: 0.6rem 0.8rem; }
-.ba .was { background: var(--was-bg); color: var(--was); }
-.ba .now { background: var(--now-bg); color: var(--now); }
-.ba b { display: block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.1rem; }
 .card .chips li { font-size: 0.78rem; padding: 0.15rem 0.6rem; }
 .card-links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; padding-top: 0.4rem; }
 .card-links a { font-weight: 600; font-size: 0.92rem; text-decoration: none; color: var(--gold); }
@@ -290,9 +278,7 @@ footer a { color: var(--muted); }
     background: rgba(7, 5, 13, 0.97); border-bottom: 1px solid var(--line);
   }
   .nav a { padding: 0.7rem 1rem; }
-  .bar:not(.open) .nav { display: none; }
-  .bar.open { background: rgba(7, 5, 13, 0.97); }
-}
+    }
 @media (max-width: 680px) {
   .grid { grid-template-columns: minmax(0, 1fr); }
   .squad-top { grid-template-columns: minmax(0, 1fr); }
@@ -367,7 +353,7 @@ footer a { color: var(--muted); }
         <div>
           <p>I'm an <strong>AI Data Engineer at Handshake</strong>. I build the hard, verifiable tasks used to evaluate coding agents, along with the environments they run in and the tooling that gets them through review. That means digest-pinned Dockerfiles, reference solutions that really compute the answer, and pytest suites that grade real output.</p>
           <p>Before that I spent a year at <strong>Scale AI</strong>. There I led a distributed technical squad of <strong>35</strong> on an LLM coding-data programme, from scoping the task sets through to delivery. Together we shipped 11,000+ hours of work at a 3.9/5 average quality rating, and I was lead reviewer on more than half of my assigned projects.</p>
-          <p>I studied <strong>Computer Science and Social Sciences at IIIT Delhi</strong>, graduating in 2025 with a Dean's List year behind me. On Codeforces I'm a Specialist. I also like taking broken old code and making it trustworthy again, and the open-source projects below are four of those.</p>
+          <p>I studied <strong>Computer Science and Social Sciences at IIIT Delhi</strong>, graduating in 2025 with a Dean's List year behind me. On Codeforces I'm a Specialist. Outside work I build and maintain open-source projects, four of which are below.</p>
         </div>
         <dl class="tiles">
           <div class="tile"><dt>35</dt><dd>people in the squad I led at Scale AI</dd></div>
@@ -481,7 +467,7 @@ footer a { color: var(--muted); }
       <div class="head">
         <p class="eyebrow">10 projects</p>
         <h2 id="proj-h">What I have built</h2>
-        <p class="sub">Six from work, described without client details, and four open-source repositories I rebuilt from broken states.</p>
+        <p class="sub">Six from work, described without client details, and four open-source projects with their source on GitHub.</p>
       </div>
 
       <div class="filters" role="group" aria-label="Filter projects">
@@ -567,10 +553,7 @@ footer a { color: var(--muted); }
           <div class="card-body">
             <h3 id="c7">research-harvest</h3>
             <p>Searches PubMed and OpenAlex, merges the results, removes papers found in both, and reads the methods, cohort size and best score out of each abstract. The extraction is the hard part: anything clever enough to catch every phrasing also catches a p-value and calls it a cohort.</p>
-            <div class="ba">
-              <div class="was"><b>Was</b>Headless Chrome with a five second sleep per article, 35 MB of committed <code>chromedriver.exe</code>, and empty Scholar output.</div>
-              <div class="now"><b>Now</b>Official REST APIs, dedupe on DOI then source id then title, and 115 tests that run offline against recorded fixtures.</div>
-            </div>
+            <p>Built on the official REST APIs and deduplicated on DOI, then source id, then normalised title. 115 tests at 95% coverage, all running offline against recorded fixtures.</p>
             <ul class="chips"><li>Python</li><li>REST APIs</li><li>pytest</li></ul>
             <div class="card-links"><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">Source on GitHub</a></div>
           </div>
@@ -581,10 +564,7 @@ footer a { color: var(--muted); }
           <div class="card-body">
             <h3 id="c8">SilverPass</h3>
             <p>Passport services for someone who is 78 and cannot read 16px type. 20px base text with three size steps, high contrast mode, full English and Hindi, and the first two hours at every centre held for applicants aged 60 and over.</p>
-            <div class="ba">
-              <div class="was"><b>Was</b>A 28-line <code>server.js</code> that crashed on startup, requiring a <code>routes/</code> folder that was never committed.</div>
-              <div class="now"><b>Now</b>Express and React, a status machine that refuses illegal transitions, and two storage backends held to one contract test.</div>
-            </div>
+            <p>Express API and React client with a status machine that refuses illegal transitions. A JSON store and MongoDB are held to one contract test, and CI runs the 135-test suite once per backend.</p>
             <ul class="chips"><li>Express</li><li>React</li><li>MongoDB</li><li>Accessibility</li></ul>
             <div class="card-links"><a href="https://github.com/vipul21435/SilverPass">Source on GitHub</a></div>
           </div>
@@ -595,10 +575,7 @@ footer a { color: var(--muted); }
           <div class="card-body">
             <h3 id="c9">CourseBot360</h3>
             <p>Answers questions like "is there a lab in OS?" about 31 university courses. It is a deterministic intent parser on purpose: a static site cannot hide an API key, and a parser is fast, free, works offline and cannot invent a prerequisite.</p>
-            <div class="ba">
-              <div class="was"><b>Was</b>A zip committed whole that threw <code>ReferenceError: speak is not defined</code> on every reply.</div>
-              <div class="now"><b>Now</b>An intent engine that never touches the DOM and returns answers as data, so a whole conversation runs in a test.</div>
-            </div>
+            <p>The intent engine never touches the DOM and returns answers as data, so a whole conversation runs in a test. 108 tests, deployed by GitHub Actions.</p>
             <ul class="chips"><li>JavaScript</li><li>Testing</li><li>GitHub Pages</li></ul>
             <div class="card-links"><a href="https://vipul21435.github.io/CourseBot360-main/">Try it live</a><a href="https://github.com/vipul21435/CourseBot360-main">Source on GitHub</a></div>
           </div>
@@ -609,10 +586,7 @@ footer a { color: var(--muted); }
           <div class="card-body">
             <h3 id="c10">Cab Booking System</h3>
             <p>Fleet and booking management in PHP and MySQL for customers, drivers and admins. It runs with <code>docker compose up</code>.</p>
-            <div class="ba">
-              <div class="was"><b>Was</b>A hardcoded admin backdoor, unsalted MD5 passwords, 60 injectable queries and a file inclusion hole in the router.</div>
-              <div class="now"><b>Now</b>Every query bound, bcrypt at cost 12 with an in-place migration, and a Docker smoke test in CI that signs in and checks for leaks.</div>
-            </div>
+            <p>Every query is parameterised and passwords use bcrypt at cost 12. CI lints on PHP 8.0, 8.2 and 8.3, then boots the stack in Docker, signs the admin in and checks that a wrong password leaks no SQL.</p>
             <ul class="chips"><li>PHP</li><li>MySQL</li><li>Docker</li><li>Security</li></ul>
             <div class="card-links"><a href="https://github.com/vipul21435/CabBooking-PHP">Source on GitHub</a></div>
           </div>
