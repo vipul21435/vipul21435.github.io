@@ -5,28 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vipul Raj Jha</title>
 <meta name="description" content="Vipul Raj Jha, AI Data Engineer at Handshake. Evaluation environments and tooling for coding agents, squad lead for a team of 35 at Scale AI, and four rebuilt open-source projects.">
-<meta name="theme-color" content="#0f0028">
+<meta name="theme-color" content="#07050d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700;800&display=swap">
 <style>
 :root {
   color-scheme: dark;
-  --bg: #0f0028;
-  --bg-2: #160735;
-  --card: #1d0c42;
-  --card-2: #261256;
-  --line: #3b2372;
+  --bg: #07050d;
+  --bg-2: #0c0915;
+  --card: #13101f;
+  --card-2: #1b1630;
+  --line: #2a2342;
   --ink: #f2edff;
-  --muted: #bcaedf;
+  --muted: #b1a9c8;
   --violet: #8033fc;
   --violet-2: #a979ff;
   --gold: #ffbf00;
   --pink: #f44185;
   --was: #ff9fb8;
-  --was-bg: #3a0f2e;
+  --was-bg: #2a0d1c;
   --now: #8fe8b6;
-  --now-bg: #0f2f2a;
+  --now-bg: #0b231d;
 
   --f-sans: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -64,7 +64,7 @@ a:hover { color: var(--gold); }
   padding-top: env(safe-area-inset-top, 0px);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.bar.scrolled { background: rgba(15, 0, 40, 0.92); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(8px); }
+.bar.scrolled { background: rgba(7, 5, 13, 0.92); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(8px); }
 .bar .wrap { height: var(--bar-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .logo { color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: 0.06em; font-size: 1.05rem; }
 .logo span { color: var(--gold); }
@@ -85,7 +85,7 @@ a:hover { color: var(--gold); }
   position: relative; overflow: hidden;
   min-height: min(100svh, 52rem);
   display: grid; align-items: center;
-  background: linear-gradient(180deg, #0f0028 0%, #2a0c62 55%, #5a22c4 100%);
+  background: radial-gradient(ellipse 80% 60% at 70% 100%, #2a1260 0%, transparent 70%), linear-gradient(180deg, #07050d 0%, #0e0920 60%, #160c33 100%);
   padding-block: calc(var(--bar-h) + 3rem) 9rem;
 }
 .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -113,13 +113,13 @@ a:hover { color: var(--gold); }
 .btn:hover { transform: translateY(-2px); }
 .btn-gold { background: var(--gold); color: var(--bg); }
 .btn-gold:hover { background: #ffd24d; color: var(--bg); }
-.btn-ghost { border-color: var(--ink); color: var(--ink); background: rgba(15, 0, 40, 0.35); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: rgba(7, 5, 13, 0.35); }
 .btn-ghost:hover { background: var(--ink); color: var(--bg); }
 .mountains { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 1; pointer-events: none; }
 .mountains svg { display: block; width: 100%; height: clamp(7rem, 18vw, 14rem); }
-.m1 { fill: #3a168a; }
-.m2 { fill: #22094f; }
-.m3 { fill: #0f0028; }
+.m1 { fill: #1f1244; }
+.m2 { fill: #120b28; }
+.m3 { fill: #07050d; }
 
 /* Sections */
 .sec { padding-block: 5.5rem; }
@@ -167,7 +167,7 @@ a:hover { color: var(--gold); }
 
 /* Squad lead */
 .squad {
-  background: linear-gradient(135deg, #2b0f63 0%, #1a0842 60%, #0f0028 100%);
+  background: linear-gradient(135deg, #1c1238 0%, #110c22 55%, #07050d 100%);
   border: 1px solid var(--line); border-radius: 22px; padding: clamp(1.5rem, 4vw, 3rem);
   display: grid; gap: 2rem;
 }
@@ -178,7 +178,7 @@ a:hover { color: var(--gold); }
 .big35 b { display: block; font-size: clamp(4.5rem, 12vw, 7rem); line-height: 1; font-weight: 800; background: linear-gradient(180deg, var(--gold), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .big35 span { color: var(--muted); font-size: 0.9rem; }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; counter-reset: step; }
-.steps li { counter-increment: step; background: rgba(15, 0, 40, 0.55); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem; }
+.steps li { counter-increment: step; background: rgba(7, 5, 13, 0.55); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem; }
 .steps li::before { content: "0" counter(step); content: "0" counter(step) / ""; display: block; font-family: var(--f-mono); color: var(--gold); font-size: 0.85rem; margin-bottom: 0.3rem; }
 .steps h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
 .steps p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
@@ -208,7 +208,7 @@ a:hover { color: var(--gold); }
   position: relative; height: 7.5rem; padding: 1rem 1.2rem; display: flex; flex-direction: column; justify-content: space-between;
   background: linear-gradient(135deg, var(--c1, #5a22c4), var(--c2, #1d0c42));
 }
-.cover .kind { align-self: flex-start; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(15, 0, 40, 0.55); padding: 0.2rem 0.65rem; border-radius: 999px; }
+.cover .kind { align-self: flex-start; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(7, 5, 13, 0.55); padding: 0.2rem 0.65rem; border-radius: 999px; }
 .cover code { font-family: var(--f-mono); font-size: 0.85rem; color: #fff; opacity: 0.92; overflow-wrap: anywhere; }
 .cover code::before { content: "$ "; content: "$ " / ""; color: var(--gold); }
 .card-body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
@@ -235,11 +235,11 @@ a:hover { color: var(--gold); }
 .win p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
 
 /* Contact */
-.contact { position: relative; overflow: hidden; background: linear-gradient(0deg, #30073f 0%, #1c0845 60%, var(--bg-2) 100%); }
+.contact { position: relative; overflow: hidden; background: linear-gradient(0deg, #150c2c 0%, #0e0a1c 60%, var(--bg-2) 100%); }
 .contact canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .contact .wrap { position: relative; z-index: 1; }
 .connect { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
-.form { background: rgba(15, 0, 40, 0.7); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem; display: grid; gap: 1rem; }
+.form { background: rgba(7, 5, 13, 0.7); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem; display: grid; gap: 1rem; }
 .form label { display: grid; gap: 0.35rem; font-weight: 500; font-size: 0.92rem; }
 .form input, .form textarea {
   font: 400 1rem var(--f-sans); color: var(--ink); background: var(--card); border: 1px solid var(--line);
@@ -250,7 +250,7 @@ a:hover { color: var(--gold); }
 .form .hint { margin: 0; color: var(--muted); font-size: 0.85rem; }
 .form .btn { justify-self: start; }
 .reach { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
-.reach li { background: rgba(15, 0, 40, 0.7); border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1.1rem; display: grid; gap: 0.1rem; }
+.reach li { background: rgba(7, 5, 13, 0.7); border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1.1rem; display: grid; gap: 0.1rem; }
 .reach .k { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
 .reach a { color: var(--ink); font-weight: 500; overflow-wrap: anywhere; text-decoration: none; }
 .reach a:hover { color: var(--gold); text-decoration: underline; }
@@ -279,11 +279,11 @@ footer a { color: var(--muted); }
   .nav {
     position: absolute; top: calc(var(--bar-h) + env(safe-area-inset-top, 0px)); left: 0; right: 0;
     flex-direction: column; gap: 0; padding: 0.5rem 1rem 1rem;
-    background: rgba(15, 0, 40, 0.97); border-bottom: 1px solid var(--line);
+    background: rgba(7, 5, 13, 0.97); border-bottom: 1px solid var(--line);
   }
   .nav a { padding: 0.7rem 1rem; }
   .bar:not(.open) .nav { display: none; }
-  .bar.open { background: rgba(15, 0, 40, 0.97); }
+  .bar.open { background: rgba(7, 5, 13, 0.97); }
 }
 @media (max-width: 680px) {
   .grid { grid-template-columns: minmax(0, 1fr); }
@@ -333,7 +333,7 @@ footer a { color: var(--muted); }
       <p class="hello">Hi, I'm</p>
       <h1 id="name">Vipul Raj Jha</h1>
       <p class="typed-line" aria-hidden="true"><span class="typed" id="typed">AI Data Engineer at Handshake</span><span class="caret"></span></p>
-      <p class="sr-only">AI Data Engineer at Handshake. Squad lead for a team of 35 at Scale AI. Builder of evaluation environments for coding agents. Codeforces Specialist, rated 1485.</p>
+      <p class="sr-only">AI Data Engineer at Handshake. Squad lead at Scale AI, shipped 11,000+ hours with a squad of 35. Builder of evaluation environments for coding agents. Codeforces Specialist, rated 1485.</p>
       <p class="intro">I build the tasks, containers and tooling used to evaluate coding agents. Most of my day is production code. Based in Delhi, India.</p>
       <div class="cta">
         <a class="btn btn-gold" href="#projects">See my work</a>
@@ -358,13 +358,13 @@ footer a { color: var(--muted); }
       <div class="about">
         <div>
           <p>I'm an <strong>AI Data Engineer at Handshake</strong>. I build the hard, verifiable tasks used to evaluate coding agents, along with the environments they run in and the tooling that gets them through review. That means digest-pinned Dockerfiles, reference solutions that really compute the answer, and pytest suites that grade real output.</p>
-          <p>Before that I spent a year at <strong>Scale AI</strong>. There I led a distributed technical squad of <strong>35</strong> on an LLM coding-data programme, from scoping the task sets through to delivery, and I was lead reviewer on more than half of my assigned projects.</p>
+          <p>Before that I spent a year at <strong>Scale AI</strong>. There I led a distributed technical squad of <strong>35</strong> on an LLM coding-data programme, from scoping the task sets through to delivery. Together we shipped 11,000+ hours of work at a 3.9/5 average quality rating, and I was lead reviewer on more than half of my assigned projects.</p>
           <p>I studied <strong>Computer Science and Social Sciences at IIIT Delhi</strong>, graduating in 2025 with a Dean's List year behind me. On Codeforces I'm a Specialist. I also like taking broken old code and making it trustworthy again, and the open-source projects below are four of those.</p>
         </div>
         <dl class="tiles">
           <div class="tile"><dt>35</dt><dd>people in the squad I led at Scale AI</dd></div>
           <div class="tile"><dt>100%</dt><dd>of my task submissions accepted at Handshake</dd></div>
-          <div class="tile"><dt>11,000+</dt><dd>hours shipped at a 3.9/5 average quality rating</dd></div>
+          <div class="tile"><dt>11,000+</dt><dd>hours shipped with my squad of 35, at 3.9/5 quality</dd></div>
           <div class="tile"><dt>4.3/5</dt><dd>across 51 internal quality reviews</dd></div>
           <div class="tile"><dt>65%</dt><dd>less regression testing time at Zinnia</dd></div>
           <div class="tile"><dt>1485</dt><dd>Codeforces rating, Specialist</dd></div>
@@ -399,7 +399,7 @@ footer a { color: var(--muted); }
             <p class="role">AI Engineer and squad lead</p>
             <ul>
               <li>Led a distributed technical squad of <strong>35</strong> on an LLM coding-data programme. I scoped the task sets, wrote the rubrics and technical assessments, built the review workflow and ran delivery.</li>
-              <li><strong>11,000+ hours</strong> shipped at a <strong>3.9/5</strong> average quality rating.</li>
+              <li><strong>11,000+ hours</strong> shipped with my squad of 35, at a <strong>3.9/5</strong> average quality rating.</li>
               <li>Lead reviewer on more than half my assigned projects, including multi-model coding and reasoning evaluation. <strong>4.3/5</strong> across 51 internal quality reviews.</li>
               <li>Promoted to the platform's senior reviewer tier and held its top contributor designation.</li>
               <li>Python validation pipelines, RLHF and SFT feedback loops, fine-tuning with LoRA and PEFT, and RAG pipelines with Model Context Protocol.</li>
@@ -458,7 +458,7 @@ footer a { color: var(--muted); }
           <li><h3>Delivery</h3><p>Ran delivery for the whole distributed squad.</p></li>
         </ol>
         <dl class="squad-figs">
-          <div><dt>11,000+</dt><dd>hours of task work shipped</dd></div>
+          <div><dt>11,000+</dt><dd>hours shipped with my squad of 35</dd></div>
           <div><dt>3.9/5</dt><dd>average quality rating</dd></div>
           <div><dt>4.3/5</dt><dd>my own score across 51 quality reviews</dd></div>
         </dl>
@@ -487,7 +487,7 @@ footer a { color: var(--muted); }
       <div class="grid" id="grid">
 
         <article class="card" data-tags="work ai" aria-labelledby="c1">
-          <div class="cover" style="--c1:#7a2cff;--c2:#2a0c62"><span class="kind">Professional</span><code>grade --byte-exact</code></div>
+          <div class="cover" style="--c1:#7a2cff;--c2:#100b1f"><span class="kind">Professional</span><code>grade --byte-exact</code></div>
           <div class="card-body">
             <h3 id="c1">Adversarial coding-agent tasks</h3>
             <p class="org">Handshake</p>
@@ -498,7 +498,7 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="work ai" aria-labelledby="c2">
-          <div class="cover" style="--c1:#c2318a;--c2:#2a0c62"><span class="kind">Professional</span><code>fail -> pass, verified</code></div>
+          <div class="cover" style="--c1:#c2318a;--c2:#100b1f"><span class="kind">Professional</span><code>fail -> pass, verified</code></div>
           <div class="card-body">
             <h3 id="c2">Repositories rebuilt at a historical commit</h3>
             <p class="org">Handshake</p>
@@ -509,7 +509,7 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="work" aria-labelledby="c3">
-          <div class="cover" style="--c1:#4b3bd6;--c2:#1d0c42"><span class="kind">Professional</span><code>build-lock acquired</code></div>
+          <div class="cover" style="--c1:#4b3bd6;--c2:#100b1f"><span class="kind">Professional</span><code>build-lock acquired</code></div>
           <div class="card-body">
             <h3 id="c3">Submission pipeline tooling</h3>
             <p class="org">Handshake</p>
@@ -520,18 +520,18 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="work ai" aria-labelledby="c4">
-          <div class="cover" style="--c1:#e0a100;--c2:#5a22c4"><span class="kind">Squad lead</span><code>squad=35 hours=11000+</code></div>
+          <div class="cover" style="--c1:#e0a100;--c2:#1b1236"><span class="kind">Squad lead</span><code>squad=35 hours=11000+</code></div>
           <div class="card-body">
             <h3 id="c4">LLM coding-data programme</h3>
             <p class="org">Scale AI</p>
-            <p>Led a distributed squad of 35 from scope to delivery. I scoped the task sets, wrote the rubrics and technical assessments, and built the review workflow. The programme shipped 11,000+ hours at a 3.9/5 average quality rating.</p>
+            <p>Led a distributed squad of 35 from scope to delivery. I scoped the task sets, wrote the rubrics and technical assessments, and built the review workflow. Together we shipped 11,000+ hours at a 3.9/5 average quality rating.</p>
             <ul class="chips"><li>Leadership</li><li>Rubric design</li><li>Review workflow</li></ul>
             <div class="card-links"><a href="#squad">How I ran it</a></div>
           </div>
         </article>
 
         <article class="card" data-tags="work ai" aria-labelledby="c5">
-          <div class="cover" style="--c1:#9b2cc9;--c2:#1d0c42"><span class="kind">Professional</span><code>reviews=51 score=4.3</code></div>
+          <div class="cover" style="--c1:#9b2cc9;--c2:#100b1f"><span class="kind">Professional</span><code>reviews=51 score=4.3</code></div>
           <div class="card-body">
             <h3 id="c5">Multi-model coding and reasoning evaluation</h3>
             <p class="org">Scale AI</p>
@@ -542,7 +542,7 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="work ai" aria-labelledby="c6">
-          <div class="cover" style="--c1:#2d6be0;--c2:#2a0c62"><span class="kind">Professional</span><code>rlhf sft lora peft rag</code></div>
+          <div class="cover" style="--c1:#2d6be0;--c2:#100b1f"><span class="kind">Professional</span><code>rlhf sft lora peft rag</code></div>
           <div class="card-body">
             <h3 id="c6">Validation and fine-tuning pipelines</h3>
             <p class="org">Scale AI</p>
@@ -553,7 +553,7 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="oss ai" aria-labelledby="c7">
-          <div class="cover" style="--c1:#1f9a6e;--c2:#1d0c42"><span class="kind">Open source</span><code>115 passed, 95% coverage</code></div>
+          <div class="cover" style="--c1:#1f9a6e;--c2:#100b1f"><span class="kind">Open source</span><code>115 passed, 95% coverage</code></div>
           <div class="card-body">
             <h3 id="c7">research-harvest</h3>
             <p>Searches PubMed and OpenAlex, merges the results, removes papers found in both, and reads the methods, cohort size and best score out of each abstract. The extraction is the hard part: anything clever enough to catch every phrasing also catches a p-value and calls it a cohort.</p>
@@ -567,7 +567,7 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="oss web" aria-labelledby="c8">
-          <div class="cover" style="--c1:#d65a2c;--c2:#2a0c62"><span class="kind">Open source</span><code>135 tests x 2 backends</code></div>
+          <div class="cover" style="--c1:#d65a2c;--c2:#100b1f"><span class="kind">Open source</span><code>135 tests x 2 backends</code></div>
           <div class="card-body">
             <h3 id="c8">SilverPass</h3>
             <p>Passport services for someone who is 78 and cannot read 16px type. 20px base text with three size steps, high contrast mode, full English and Hindi, and the first two hours at every centre held for applicants aged 60 and over.</p>
@@ -581,7 +581,7 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="oss web" aria-labelledby="c9">
-          <div class="cover" style="--c1:#0f8fb3;--c2:#1d0c42"><span class="kind">Open source</span><code>108 tests, deployed</code></div>
+          <div class="cover" style="--c1:#0f8fb3;--c2:#100b1f"><span class="kind">Open source</span><code>108 tests, deployed</code></div>
           <div class="card-body">
             <h3 id="c9">CourseBot360</h3>
             <p>Answers questions like "is there a lab in OS?" about 31 university courses. It is a deterministic intent parser on purpose: a static site cannot hide an API key, and a parser is fast, free, works offline and cannot invent a prerequisite.</p>
@@ -595,7 +595,7 @@ footer a { color: var(--muted); }
         </article>
 
         <article class="card" data-tags="oss web" aria-labelledby="c10">
-          <div class="cover" style="--c1:#b8324f;--c2:#2a0c62"><span class="kind">Open source</span><code>php -l 8.0 8.2 8.3 ok</code></div>
+          <div class="cover" style="--c1:#b8324f;--c2:#100b1f"><span class="kind">Open source</span><code>php -l 8.0 8.2 8.3 ok</code></div>
           <div class="card-body">
             <h3 id="c10">Cab Booking System</h3>
             <p>Fleet and booking management in PHP and MySQL for customers, drivers and admins. It runs with <code>docker compose up</code>.</p>
@@ -759,7 +759,7 @@ footer a { color: var(--muted); }
   // Typed roles in the hero.
   var roles = [
     "AI Data Engineer at Handshake",
-    "Squad lead for a team of 35",
+    "Shipped 11,000+ hours with a squad of 35",
     "Builder of evaluation environments",
     "Codeforces Specialist, 1485"
   ];
@@ -873,13 +873,13 @@ footer a { color: var(--muted); }
         for (var j = i + 1; j < pts.length; j++) {
           var q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = dx * dx + dy * dy;
           if (d < 12000) {
-            ctx.strokeStyle = "rgba(169, 121, 255," + (0.35 * (1 - d / 12000)) + ")";
+            ctx.strokeStyle = "rgba(169, 121, 255," + (0.28 * (1 - d / 12000)) + ")";
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
           }
         }
       }
-      ctx.fillStyle = "rgba(242, 237, 255, 0.85)";
+      ctx.fillStyle = "rgba(242, 237, 255, 0.7)";
       for (var k = 0; k < pts.length; k++) {
         ctx.beginPath(); ctx.arc(pts[k].x, pts[k].y, pts[k].r, 0, 6.2832); ctx.fill();
       }
