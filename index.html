@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vipul Raj Jha</title>
+<meta name="description" content="Vipul Raj Jha, AI Data Engineer in Delhi. Evaluation environments and tooling for coding agents, and four rebuilt projects with the before and after.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --paper: #f2f5f7;
+  --surface: #ffffff;
+  --ink: #15202b;
+  --muted: #556473;
+  --rule: #d5dde4;
+  --accent: #1e5a9c;
+  --accent-soft: #e2ecf6;
+  --del-ink: #8e2424;
+  --del-bg: #fbeaea;
+  --add-ink: #17613d;
+  --add-bg: #e5f3ea;
+  --focus: #1e5a9c;
+
+  --f-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --s-0: 0.875rem;
+  --s-1: 1.0625rem;
+  --s-2: 1.25rem;
+  --s-3: 1.625rem;
+  --s-4: clamp(2.5rem, 7vw, 4.25rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #10161d;
+    --surface: #161e27;
+    --ink: #e4e9ee;
+    --muted: #9aa8b6;
+    --rule: #2a3542;
+    --accent: #8cb8ec;
+    --accent-soft: #1a2a3c;
+    --del-ink: #f3aaaa;
+    --del-bg: #2b1a1c;
+    --add-ink: #9fdbb7;
+    --add-bg: #14261c;
+    --focus: #8cb8ec;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #10161d;
+  --surface: #161e27;
+  --ink: #e4e9ee;
+  --muted: #9aa8b6;
+  --rule: #2a3542;
+  --accent: #8cb8ec;
+  --accent-soft: #1a2a3c;
+  --del-ink: #f3aaaa;
+  --del-bg: #2b1a1c;
+  --add-ink: #9fdbb7;
+  --add-bg: #14261c;
+  --focus: #8cb8ec;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--s-1);
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+.skip {
+  position: absolute; left: 1rem; top: -4rem;
+  background: var(--ink); color: var(--paper);
+  padding: 0.6rem 1rem; font-family: var(--f-display); font-weight: 700;
+  z-index: 10;
+}
+.skip:focus { top: 1rem; }
+
+.wrap {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding-inline: max(1rem, env(safe-area-inset-left, 0px));
+}
+
+/* Top bar */
+.bar {
+  border-bottom: 1px solid var(--rule);
+}
+.bar .wrap {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1rem;
+}
+.bar .name {
+  font-family: var(--f-display); font-weight: 800; font-size: var(--s-1);
+  color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
+}
+.bar ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem;
+  font-family: var(--f-display); font-weight: 500; font-size: var(--s-0);
+}
+.bar ul a { color: var(--muted); text-decoration: none; }
+.bar ul a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Hero */
+.hero { padding-block: clamp(2.5rem, 7vw, 5rem) 2.5rem; }
+.hero h1 {
+  font-family: var(--f-display); font-weight: 800;
+  font-size: var(--s-4); line-height: 1.02; letter-spacing: -0.03em;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+.hero h1 .who {
+  display: block;
+  font-size: var(--s-2); font-weight: 500; letter-spacing: 0;
+  color: var(--muted); margin-bottom: 0.75rem;
+}
+.hero .lede { font-size: var(--s-2); line-height: 1.5; max-width: 38rem; margin: 0 0 0.75rem; }
+.hero .lede + .lede { font-size: var(--s-1); }
+.hero .where { color: var(--muted); margin: 0; }
+
+.figures {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0; margin: 2.5rem 0 0; padding: 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.figures div { padding: 1rem 1.25rem 1.1rem 0; }
+.figures div + div { padding-left: 1.25rem; border-left: 1px solid var(--rule); }
+.figures dt {
+  font-family: var(--f-mono); font-weight: 500; font-size: var(--s-3);
+  font-variant-numeric: tabular-nums; letter-spacing: -0.02em; color: var(--ink);
+}
+.figures dd { margin: 0.2rem 0 0; font-size: var(--s-0); line-height: 1.45; color: var(--muted); }
+
+/* Sections */
+section { padding-block: 3rem; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
+.hero + section { border-top: 0; }
+.sec {
+  display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem 2.5rem;
+}
+.sec > h2 {
+  font-family: var(--f-display); font-weight: 700; font-size: var(--s-0);
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+  margin: 0.35rem 0 0;
+}
+.sec > .body { min-width: 0; }
+.body > p, .body > ul { max-width: 40rem; }
+
+/* Work */
+.job { display: grid; gap: 0.6rem; }
+.job + .job { margin-top: 2.25rem; padding-top: 2.25rem; border-top: 1px dashed var(--rule); }
+.job header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
+.job h3 { font-family: var(--f-display); font-weight: 700; font-size: var(--s-2); margin: 0; letter-spacing: -0.01em; }
+.when { font-family: var(--f-mono); font-size: var(--s-0); color: var(--muted); font-variant-numeric: tabular-nums; }
+.job p { margin: 0; max-width: 40rem; }
+.job ul { margin: 0; padding-left: 1.15rem; max-width: 40rem; display: grid; gap: 0.4rem; }
+.job li::marker { color: var(--muted); }
+.job .summary { color: var(--muted); }
+.streams { display: grid; gap: 1.1rem; margin-top: 0.4rem; }
+.stream { display: grid; gap: 0.3rem; padding-left: 1rem; border-left: 2px solid var(--rule); }
+.stream h4 { font-family: var(--f-display); font-weight: 700; font-size: var(--s-1); margin: 0; }
+.stream .tag { font-family: var(--f-mono); font-size: 0.78rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+
+.lead {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 6px;
+  padding: clamp(1rem, 3vw, 1.5rem); display: grid; gap: 0.8rem; scroll-margin-top: 1rem;
+}
+.lead .eyebrow {
+  font-family: var(--f-display); font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 0;
+}
+.lead h4 { font-family: var(--f-display); font-weight: 800; font-size: var(--s-2); margin: 0; letter-spacing: -0.01em; }
+.lead ol { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; max-width: 40rem; }
+.lead ol li::marker { font-family: var(--f-mono); color: var(--muted); font-size: 0.85em; }
+.lead-figs { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; margin: 0.2rem 0 0; padding-top: 0.8rem; border-top: 1px solid var(--rule); }
+.lead-figs div { display: grid; gap: 0.1rem; }
+.lead-figs dt { font-family: var(--f-mono); font-weight: 500; font-size: var(--s-2); font-variant-numeric: tabular-nums; }
+.lead-figs dd { margin: 0; font-size: var(--s-0); color: var(--muted); }
+
+.stat {
+  font-family: var(--f-mono); font-size: 0.92em; font-weight: 500;
+  background: var(--accent-soft); color: var(--ink);
+  padding: 0.05em 0.35em; border-radius: 3px; white-space: nowrap;
+}
+
+/* Projects */
+.intro { margin: 0 0 2rem; color: var(--muted); max-width: 40rem; }
+.projects { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+.project {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: clamp(1.1rem, 3vw, 1.75rem);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; min-width: 0;
+}
+.project header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
+.project h3 { font-family: var(--f-display); font-weight: 800; font-size: var(--s-3); letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
+.project h3 a { color: var(--ink); text-decoration: none; }
+.project h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.tech { font-family: var(--f-mono); font-size: var(--s-0); color: var(--muted); }
+.project > p { margin: 0; max-width: 42rem; }
+
+.diff {
+  font-family: var(--f-mono); font-size: 0.85rem; line-height: 1.55;
+  border: 1px solid var(--rule); border-radius: 4px; overflow: hidden;
+}
+.diff h4 {
+  margin: 0; padding: 0.45rem 0.9rem;
+  font-family: var(--f-mono); font-weight: 500; font-size: 0.78rem;
+  letter-spacing: 0.04em; color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+}
+.diff ul { list-style: none; margin: 0; padding: 0.4rem 0; }
+.diff li { padding: 0.12rem 0.9rem 0.12rem 2.2rem; position: relative; }
+.diff li::before { position: absolute; left: 0.9rem; font-weight: 500; }
+.diff .was { background: var(--del-bg); color: var(--del-ink); }
+.diff .was li::before { content: "-"; content: "-" / ""; }
+.diff .now { background: var(--add-bg); color: var(--add-ink); }
+.diff .now li::before { content: "+"; content: "+" / ""; }
+.diff .was + .now { border-top: 1px solid var(--rule); }
+.diff code { font-family: inherit; }
+
+.sample {
+  margin: 0; font-family: var(--f-mono); font-size: 0.8rem; line-height: 1.5;
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 0.75rem 0.9rem; overflow-x: auto; white-space: pre;
+}
+.sample-label { font-family: var(--f-display); font-size: var(--s-0); color: var(--muted); margin: 0 0 -0.5rem; }
+
+.note { margin: 0; font-size: var(--s-0); color: var(--muted); max-width: 42rem; font-style: italic; }
+
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; font-family: var(--f-display); font-weight: 500; font-size: var(--s-0); }
+
+/* Stack */
+.stack { display: grid; gap: 0.9rem; margin: 0; }
+.stack div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 0.25rem 1rem; }
+.stack dt { font-family: var(--f-display); font-weight: 700; font-size: var(--s-0); padding-top: 0.15rem; }
+.stack dd { margin: 0; }
+
+/* Contact */
+.contact { display: grid; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.contact li { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; align-items: baseline; }
+.contact .k { font-family: var(--f-display); font-weight: 700; font-size: var(--s-0); color: var(--muted); }
+.contact a { overflow-wrap: anywhere; }
+
+footer.foot { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color: var(--muted); font-size: var(--s-0); }
+
+@media (max-width: 760px) {
+  .sec { grid-template-columns: minmax(0, 1fr); }
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figures div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .figures div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+}
+@media (max-width: 480px) {
+  .stack div, .contact li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+  .figures dt { font-size: var(--s-2); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="bar" aria-label="Site">
+  <div class="wrap">
+    <a class="name" href="#top">Vipul Raj Jha</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#squad">Squad lead</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+
+  <header class="hero" id="top">
+    <h1><span class="who">Vipul Raj Jha</span>AI Data Engineer.</h1>
+    <p class="lede">I build evaluation environments and tooling for coding agents. Containers that build and verify reproducibly, tasks hard enough to defeat frontier models, and the pipelines that gate all of it.</p>
+    <p class="lede">Before that I was a squad lead at Scale AI, running an LLM coding-data programme from scoping through delivery.</p>
+    <p class="where">CS and Social Sciences from IIIT Delhi, 2025. Based in Delhi.</p>
+
+    <dl class="figures">
+      <div><dt>100%</dt><dd>of task submissions accepted at Handshake</dd></div>
+      <div><dt>11,000+</dt><dd>hours shipped at Scale AI, 3.9/5 average quality</dd></div>
+      <div><dt>4.3/5</dt><dd>across 51 internal quality reviews</dd></div>
+      <div><dt>1485</dt><dd>Codeforces rating, Specialist</dd></div>
+    </dl>
+  </header>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec">
+      <h2 id="work-h">Work</h2>
+      <div class="body">
+
+        <article class="job">
+          <header><h3>Handshake</h3><span class="when">Jul 2026 to now</span></header>
+          <p class="summary">Evaluation tasks and environments for coding agents. Every submission I have made across three programmes has been accepted, a <span class="stat">100%</span> acceptance rate.</p>
+          <div class="streams">
+            <div class="stream">
+              <h4>Adversarial evaluation tasks</h4>
+              <p>Hard, verifiable tasks for coding-agent evaluation. Each ships self-contained: a digest-pinned Dockerfile that builds the environment for both the agent and the verifier, a reference solution that solves the problem by genuine computation, and a pytest suite that grades the agent's real output instead of matching strings.</p>
+              <p>A task is only hard if the naive reading of the data looks correct and is wrong, and the deciding cases are hidden from the sample but fully determined by it. It still has to be gradeable byte-exact. Getting there has meant generating synthetic corpora, proving computationally that each admits exactly one consistent interpretation, and recovering hidden structure with integer linear algebra and modular arithmetic.</p>
+            </div>
+            <div class="stream">
+              <h4>Repositories rebuilt at a historical commit</h4>
+              <p>Reproducible environments for arbitrary open-source repositories at a specific commit. I pin dependencies until a suite that failed before a fix passes after it, then verify that flip against the reference solution.</p>
+            </div>
+            <div class="stream">
+              <h4>Submission pipeline tooling</h4>
+              <p>Per-repository build recipes, collision detection against a shared ledger, build locks, dedupe caches, and the scripts that stop a multi-folder submission pipeline from burning the same work twice. Every task goes in as a pull request and iterates against automated review gates until each check is green.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="job">
+          <header><h3>Scale AI</h3><span class="when">Jul 2025 to Jul 2026</span></header>
+          <p class="summary">A year on LLM coding and reasoning data: leading a squad, reviewing other people's work, and building the pipelines that checked it.</p>
+
+          <div class="lead" id="squad">
+            <p class="eyebrow">Squad lead</p>
+            <h4>LLM coding-data programme</h4>
+            <p>I led a distributed technical squad on this programme and owned it from scope to delivery.</p>
+            <ol>
+              <li>Scoped the task sets the squad worked from.</li>
+              <li>Wrote the evaluation rubrics and the technical assessments.</li>
+              <li>Built the review workflow.</li>
+              <li>Ran delivery.</li>
+            </ol>
+            <dl class="lead-figs">
+              <div><dt>11,000+</dt><dd>hours of task work shipped</dd></div>
+              <div><dt>3.9/5</dt><dd>average quality rating</dd></div>
+            </dl>
+          </div>
+
+          <div class="streams">
+            <div class="stream">
+              <h4>Multi-model coding and reasoning evaluation</h4>
+              <p>Lead reviewer here and on more than half the projects I was assigned. That work earned <span class="stat">4.3/5</span> across 51 internal quality reviews, a promotion into the platform's senior reviewer tier, and its top contributor designation.</p>
+            </div>
+            <div class="stream">
+              <h4>Validation, feedback and fine-tuning</h4>
+              <p>Python validation pipelines for data quality assurance and model output monitoring. RLHF and SFT feedback loops, fine-tuning with LoRA and PEFT, and RAG pipelines using Model Context Protocol for context-aware evaluation.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="job">
+          <header><h3>Zinnia Digital Services</h3><span class="when">Apr 2025 to Jun 2025</span></header>
+          <p>End-to-end QA automation in Python and Selenium for insurance client applications, and two phases of their CI/CD pipeline. Regression testing time came down about <span class="stat">65%</span>, and manual estimation lost more than three hours per release cycle. REST API contract validation across several releases.</p>
+        </article>
+
+        <article class="job">
+          <header><h3>IIIT Delhi labs</h3><span class="when">Jul 2023 to Aug 2024</span></header>
+          <ul>
+            <li>HCD Lab, with Ariel University, Israel. AI-assisted design evaluation modules in Java across 150+ structured design evaluations. Co-authored a peer-reviewed publication.</li>
+            <li>ETiDM Lab. A Blender-inspired 3D modelling application in Unity and C#, with 3-axis manipulation, validated through user testing.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="sec">
+      <h2 id="projects-h">Projects</h2>
+      <div class="body">
+        <p class="intro">Four old repositories I rebuilt in September 2026. Each one was broken when I started. The red lines are what I found, the green lines are what is on main now, with CI passing.</p>
+
+        <div class="projects">
+
+          <article class="project" aria-labelledby="p1">
+            <header>
+              <h3 id="p1"><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">research-harvest</a></h3>
+              <span class="tech">Python</span>
+            </header>
+            <p>Searches PubMed and OpenAlex, merges the results, drops papers that appear in both, and reads what each abstract reports: the methods used, the cohort size and the best score claimed. The extraction is the hard part. An abstract is written for a human, so anything clever enough to catch every phrasing also catches a p-value and calls it a cohort.</p>
+            <div class="diff">
+              <h4>research-harvest, before and after</h4>
+              <ul class="was" aria-label="Before">
+                <li>Two scripts driving headless Chrome over PubMed and Google Scholar</li>
+                <li>A five second sleep between every article</li>
+                <li>35 MB of <code>chromedriver.exe</code> committed, twice</li>
+                <li>Scholar output empty, because Scholar blocks automated access</li>
+              </ul>
+              <ul class="now" aria-label="After">
+                <li>PubMed and OpenAlex over their official REST APIs</li>
+                <li>Dedupe on DOI, then source id, then normalised title, keeping the fuller record</li>
+                <li>115 tests, 95% coverage, run offline against recorded PubMed XML and OpenAlex JSON</li>
+              </ul>
+            </div>
+            <p class="sample-label">A real output row</p>
+            <pre class="sample" tabindex="0" aria-label="Sample output row">Machine learning based dynamic consensus model for predicting blood-brain barrier permeability | 2023 | XGBoost; Random Forest | 8153 | ACCURACY 0.978</pre>
+            <ul class="links"><li><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">Source on GitHub</a></li></ul>
+          </article>
+
+          <article class="project" aria-labelledby="p2">
+            <header>
+              <h3 id="p2"><a href="https://github.com/vipul21435/SilverPass">SilverPass</a></h3>
+              <span class="tech">Express, React, MongoDB</span>
+            </header>
+            <p>Passport services for someone who is 78, has never used a government site and cannot read 16px type. Text starts at 20px with three size steps in the top bar, there is a high contrast mode, and everything is in English and Hindi. The first two hours of every day at every centre are held for applicants aged 60 and over, because the queue is the real barrier.</p>
+            <div class="diff">
+              <h4>SilverPass, before and after</h4>
+              <ul class="was" aria-label="Before">
+                <li>A 28-line <code>server.js</code> that crashed on startup</li>
+                <li>It required a <code>routes/</code> folder that was never committed</li>
+              </ul>
+              <ul class="now" aria-label="After">
+                <li>Express API and React client, 135 strings in each language</li>
+                <li>A test fails the build if either language is missing a key or a placeholder</li>
+                <li>A status machine that refuses illegal transitions</li>
+                <li>JSON file store and MongoDB held to one contract test so neither can drift</li>
+                <li>135 tests, and CI runs the server suite twice, once per backend</li>
+              </ul>
+            </div>
+            <ul class="links"><li><a href="https://github.com/vipul21435/SilverPass">Source on GitHub</a></li></ul>
+          </article>
+
+          <article class="project" aria-labelledby="p3">
+            <header>
+              <h3 id="p3"><a href="https://github.com/vipul21435/CourseBot360-main">CourseBot360</a></h3>
+              <span class="tech">JavaScript, GitHub Pages</span>
+            </header>
+            <p>Answers questions about university courses. Try "info about DSA", "is there a lab in OS?" or "list CSE courses with quizzes under 10%". The intent engine never touches the DOM, so a whole conversation runs in a test in milliseconds. Answers come back as data, which keeps string concatenation out of <code>innerHTML</code> entirely.</p>
+            <div class="diff">
+              <h4>CourseBot360, before and after</h4>
+              <ul class="was" aria-label="Before">
+                <li>An extracted zip committed whole, nested folder and all</li>
+                <li><code>ReferenceError: speak is not defined</code> on every single reply</li>
+              </ul>
+              <ul class="now" aria-label="After">
+                <li>Intent engine separated from the page, answers returned as <code>{ text, blocks }</code></li>
+                <li>108 tests, deployed by GitHub Actions</li>
+              </ul>
+            </div>
+            <p class="note">There is no language model in it, on purpose. A static site cannot hold an API key without handing it to every visitor. For 31 fixed courses a parser over a local JSON file is faster, costs nothing, works offline and cannot invent a prerequisite.</p>
+            <ul class="links">
+              <li><a href="https://vipul21435.github.io/CourseBot360-main/">Try it live</a></li>
+              <li><a href="https://github.com/vipul21435/CourseBot360-main">Source on GitHub</a></li>
+            </ul>
+          </article>
+
+          <article class="project" aria-labelledby="p4">
+            <header>
+              <h3 id="p4"><a href="https://github.com/vipul21435/CabBooking-PHP">Cab Booking System</a></h3>
+              <span class="tech">PHP, MySQL, Docker</span>
+            </header>
+            <p>Fleet and booking management. Customers book and track rides, drivers see their jobs, admins manage the fleet and staff. It runs with <code>docker compose up</code>.</p>
+            <div class="diff">
+              <h4>Cab Booking System, before and after</h4>
+              <ul class="was" aria-label="Before">
+                <li>A free template with a hardcoded admin backdoor</li>
+                <li>Database credentials in the source</li>
+                <li>Unsalted MD5 passwords, one seeded hash was literally "password"</li>
+                <li>60 queries built by string concatenation, several taking <code>$_GET</code> straight into SQL</li>
+                <li>Local file inclusion in the page router</li>
+                <li><code>.env</code> and the schema dump reachable over HTTP</li>
+              </ul>
+              <ul class="now" aria-label="After">
+                <li>All 60 queries bound</li>
+                <li>bcrypt at cost 12, with an in-place migration so no existing account was locked out</li>
+                <li>CI runs <code>php -l</code> on PHP 8.0, 8.2 and 8.3</li>
+                <li>A Docker smoke test boots the stack and signs the admin in</li>
+                <li>It checks a wrong password leaks no SQL and an MD5 account comes back as bcrypt</li>
+              </ul>
+            </div>
+            <ul class="links"><li><a href="https://github.com/vipul21435/CabBooking-PHP">Source on GitHub</a></li></ul>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" aria-labelledby="stack-h">
+    <div class="sec">
+      <h2 id="stack-h">Stack</h2>
+      <div class="body">
+        <dl class="stack">
+          <div><dt>Languages</dt><dd>Python, C++, JavaScript, Java, SQL, PHP, C#, Bash</dd></div>
+          <div><dt>Build and test</dt><dd>Docker, GitHub Actions, pytest, vitest, node:test</dd></div>
+          <div><dt>ML</dt><dd>PyTorch, Hugging Face, scikit-learn, LoRA and PEFT, RAG, embeddings and vector search</dd></div>
+          <div><dt>Web and data</dt><dd>Node, React, Express, Vite, MySQL, MongoDB, Selenium</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="more" aria-labelledby="more-h">
+    <div class="sec">
+      <h2 id="more-h">Education</h2>
+      <div class="body">
+        <article class="job">
+          <header><h3>IIIT Delhi</h3><span class="when">Aug 2021 to May 2025</span></header>
+          <p>B.Tech in Computer Science and Social Sciences. Dean's List 2023-24.</p>
+          <p>Codeforces Specialist, rated 1485, with a world rank of 979 in Round 994 out of more than 35,000 entrants. Over 1000 DSA problems solved.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="sec">
+      <h2 id="contact-h">Contact</h2>
+      <div class="body">
+        <ul class="contact">
+          <li><span class="k">Email</span><a href="mailto:vipul21435@iiitd.ac.in">vipul21435@iiitd.ac.in</a></li>
+          <li><span class="k">GitHub</span><a href="https://github.com/vipul21435">github.com/vipul21435</a></li>
+          <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">linkedin.com/in/vipul-raj-jha-491b2023a</a></li>
+          <li><span class="k">Codeforces</span><a href="https://codeforces.com/profile/Vipul21435">codeforces.com/profile/Vipul21435</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">Vipul Raj Jha, Delhi. Plain HTML and CSS, no JavaScript.</div>
+</footer>
+</body>
+</html>
