@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vipul Raj Jha</title>
-<meta name="description" content="Vipul Raj Jha, AI Data Engineer at Handshake. Evaluation environments and tooling for coding agents, squad lead for a team of 35 at Scale AI, and four rebuilt open-source projects.">
+<meta name="description" content="Vipul Raj Jha, AI Data Engineer at Handshake. Evaluation environments and tooling for coding agents, squad lead for a team of 35 at Scale AI, and open-source projects with detailed write-ups.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:title" content="Vipul Raj Jha, AI Data Engineer">
 <meta property="og:description" content="Evaluation environments and tooling for coding agents. Squad lead for a team of 35 at Scale AI.">
@@ -13,318 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700;800&display=swap">
-<style>
-:root {
-  color-scheme: dark;
-  --bg: #09090b;
-  --bg-2: #0f0f12;
-  --card: #151518;
-  --card-2: #1d1d21;
-  --line: #2c2c32;
-  --ink: #f0f0f2;
-  --muted: #a3a3ab;
-  --violet: #5c5c66;
-  --violet-2: #b4b4bc;
-  --gold: #e8e8ec;
-  --pink: #8a8a94;
-  --was: #f0a3a3;
-  --was-bg: #2a1414;
-  --now: #9fd8b4;
-  --now-bg: #122019;
-
-  --f-sans: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --bar-h: 4.25rem;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-padding-top: calc(var(--bar-h) + 0.75rem); }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--f-sans);
-  font-size: 1rem;
-  line-height: 1.7;
-  -webkit-text-size-adjust: 100%;
-}
-img, svg, canvas { max-width: 100%; }
-a { color: var(--violet-2); }
-a:hover { color: var(--gold); }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.skip {
-  position: absolute; left: 1rem; top: -5rem; z-index: 50;
-  background: var(--gold); color: var(--bg); font-weight: 700;
-  padding: 0.6rem 1rem; border-radius: 6px; text-decoration: none;
-}
-.skip:focus { top: 1rem; }
-
-.wrap { max-width: 72rem; margin: 0 auto; padding-inline: max(1rem, env(safe-area-inset-left, 0px)); }
-
-/* Top bar */
-.bar {
-  position: fixed; inset: 0 0 auto 0; z-index: 40;
-  padding-top: env(safe-area-inset-top, 0px);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.bar.scrolled { background: rgba(9, 9, 11, 0.92); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(8px); }
-.bar .wrap { height: var(--bar-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.logo { color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: 0.06em; font-size: 1.05rem; }
-.logo span { color: var(--gold); }
-.menu-btn {
-  display: none; background: none; color: var(--ink); font: 600 0.9rem var(--f-sans);
-  border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 1rem; cursor: pointer;
-}
-.nav { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
-.nav a {
-  display: block; color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.92rem;
-  padding: 0.4rem 0.8rem; border-radius: 999px; transition: color 0.2s, background-color 0.2s;
-}
-.nav a:hover { color: var(--ink); background: var(--card); }
-.nav a[aria-current="true"] { color: var(--bg); background: var(--gold); }
-
-/* Hero */
-.hero {
-  position: relative; overflow: hidden;
-  min-height: min(100svh, 52rem);
-  display: grid; align-items: center;
-  background: radial-gradient(ellipse 60% 60% at 75% 45%, #25252b 0%, transparent 70%), linear-gradient(180deg, #09090b 0%, #111114 60%, #19191d 100%);
-  padding-block: calc(var(--bar-h) + 3rem) 9rem;
-}
-.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-inner {
-  position: relative; z-index: 2; width: 100%;
-  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 2rem; align-items: center;
-}
-.hero-text { min-width: 0; }
-.portrait { position: relative; margin: 0; width: min(26rem, 100%); aspect-ratio: 1 / 1; justify-self: end; }
-.portrait canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.portrait img {
-  position: absolute; top: 21%; left: 21%; width: 58%; height: 58%;
-  border-radius: 50%; object-fit: cover; object-position: 50% 35%;
-  border: 2px solid #3a3a42;
-  box-shadow: 0 0 0 8px rgba(9, 9, 11, 0.75), 0 30px 60px -15px #000;
-}
-.hello { margin: 0; color: var(--gold); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.9rem; }
-.hero h1 {
-  margin: 0.4rem 0 0.2rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em;
-  font-size: clamp(2.75rem, 9vw, 5.75rem);
-}
-.typed-line { margin: 0; font-size: clamp(1.25rem, 3.4vw, 2rem); font-weight: 600; min-height: 1.6em; }
-.typed {
-  background: linear-gradient(90deg, #ffffff, #8a8a94);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.caret { display: inline-block; width: 0.08em; height: 1em; margin-left: 0.1em; background: var(--gold); vertical-align: -0.12em; animation: blink 1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0; } }
-.hero .intro { max-width: 36rem; color: var(--muted); font-size: 1.08rem; margin: 1rem 0 2rem; }
-.cta { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-.btn {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font: 600 1rem var(--f-sans); text-decoration: none; cursor: pointer;
-  padding: 0.8rem 1.5rem; border-radius: 999px; border: 2px solid transparent;
-  transition: transform 0.2s ease, background-color 0.2s, color 0.2s;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn-gold { background: var(--gold); color: var(--bg); }
-.btn-gold:hover { background: #ffffff; color: var(--bg); }
-.btn-ghost { border-color: var(--ink); color: var(--ink); background: rgba(9, 9, 11, 0.35); }
-.btn-ghost:hover { background: var(--ink); color: var(--bg); }
-.mountains { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 1; pointer-events: none; }
-.mountains svg { display: block; width: 100%; height: clamp(7rem, 18vw, 14rem); }
-.m1 { fill: #1e1e23; }
-.m2 { fill: #131316; }
-.m3 { fill: #09090b; }
-
-/* Sections */
-.sec { padding-block: 5.5rem; }
-.sec-alt { background: var(--bg-2); }
-.head { text-align: center; margin: 0 auto 3rem; max-width: 42rem; }
-.eyebrow { margin: 0; color: var(--gold); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; }
-.head h2 {
-  margin: 0.3rem 0 0; font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 800; line-height: 1.15;
-  background: linear-gradient(90deg, #ffffff 25%, #8a8a94); -webkit-background-clip: text; background-clip: text; color: transparent;
-  text-wrap: balance;
-}
-.head p.sub { color: var(--muted); margin: 0.8rem 0 0; }
-
-/* About */
-.about { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 3rem; align-items: start; }
-.about p { margin: 0 0 1rem; color: var(--muted); font-size: 1.05rem; }
-.about p strong { color: var(--ink); font-weight: 600; }
-.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; margin: 0; }
-.tile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.2rem; }
-.tile dt { font-family: var(--f-mono); font-weight: 500; font-size: 1.75rem; line-height: 1.2; color: var(--gold); font-variant-numeric: tabular-nums; }
-.tile dd { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.45; }
-
-/* Skills */
-.skills { display: grid; gap: 1.2rem; max-width: 56rem; margin: 0 auto; }
-.skill { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem 1.5rem; display: grid; gap: 0.8rem; }
-.skill .say { margin: 0; font-size: clamp(1.1rem, 2.6vw, 1.4rem); font-weight: 600; }
-.skill .rot { color: var(--gold); display: inline-block; min-width: 8ch; }
-.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; }
-.chips li { font-size: 0.84rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: var(--card-2); border: 1px solid var(--line); color: var(--ink); }
-.chips li.on { background: var(--violet); border-color: var(--violet); }
-
-/* Experience */
-.timeline { list-style: none; margin: 0 auto; padding: 0; max-width: 56rem; position: relative; display: grid; gap: 1.6rem; }
-.timeline::before { content: ""; position: absolute; left: 0.55rem; top: 0.5rem; bottom: 0.5rem; width: 2px; background: linear-gradient(var(--gold), var(--violet), transparent); }
-.job { position: relative; padding-left: 2.6rem; }
-.job::before { content: ""; position: absolute; left: 0.15rem; top: 1.6rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--bg); border: 3px solid var(--gold); }
-.job-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.4rem 1.5rem; }
-.job-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.2rem 1rem; }
-.job h3 { margin: 0; font-size: 1.3rem; font-weight: 700; }
-.when { font-family: var(--f-mono); font-size: 0.82rem; color: var(--muted); }
-.role { margin: 0.1rem 0 0.8rem; color: var(--gold); font-weight: 600; font-size: 0.98rem; }
-.job ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.45rem; color: var(--muted); }
-.job li::marker { color: var(--violet-2); }
-.job li strong { color: var(--ink); font-weight: 600; }
-.job-link { margin: 0.9rem 0 0; }
-.job-link a, .win a { color: var(--gold); font-weight: 600; font-size: 0.92rem; text-decoration: none; }
-.job-link a:hover, .win a:hover { text-decoration: underline; }
-
-/* Squad lead */
-.squad {
-  background: linear-gradient(135deg, #202025 0%, #141417 55%, #09090b 100%);
-  border: 1px solid var(--line); border-radius: 22px; padding: clamp(1.5rem, 4vw, 3rem);
-  display: grid; gap: 2rem;
-}
-.squad-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; }
-.squad-top p { margin: 0; color: var(--muted); font-size: 1.08rem; max-width: 38rem; }
-.squad-top p strong { color: var(--ink); }
-.big35 { text-align: center; }
-.big35 b { display: block; font-size: clamp(4.5rem, 12vw, 7rem); line-height: 1; font-weight: 800; background: linear-gradient(180deg, var(--gold), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.big35 span { color: var(--muted); font-size: 0.9rem; }
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; counter-reset: step; }
-.steps li { counter-increment: step; background: rgba(9, 9, 11, 0.55); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem; }
-.steps li::before { content: "0" counter(step); content: "0" counter(step) / ""; display: block; font-family: var(--f-mono); color: var(--gold); font-size: 0.85rem; margin-bottom: 0.3rem; }
-.steps h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
-.steps p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
-.squad-figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
-.squad-figs dt { font-family: var(--f-mono); font-size: 1.6rem; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
-.squad-figs dd { margin: 0; color: var(--muted); font-size: 0.88rem; }
-
-/* Projects */
-.filters { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem; margin: 0 0 1rem; }
-.filters .lbl { color: var(--muted); font-size: 0.9rem; margin-right: 0.3rem; }
-.filters button {
-  font: 500 0.9rem var(--f-sans); color: var(--ink); background: var(--card); cursor: pointer;
-  border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 1.1rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
-.filters button:hover { border-color: var(--gold); }
-.filters button[aria-pressed="true"] { background: var(--gold); color: var(--bg); border-color: var(--gold); }
-.filter-status { text-align: center; color: var(--muted); font-size: 0.88rem; margin: 0 0 2rem; }
-.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
-.card {
-  background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
-  display: flex; flex-direction: column; min-width: 0;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-.card { transform-style: preserve-3d; will-change: transform; }
-.card:hover { transform: translateY(-4px); border-color: var(--violet); box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.9); }
-.cover {
-  position: relative; height: 7.5rem; padding: 1rem 1.2rem; display: flex; flex-direction: column; justify-content: space-between;
-  background: linear-gradient(135deg, var(--c1, #3b3b43), var(--c2, #101012));
-}
-.cover .kind { align-self: flex-start; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(9, 9, 11, 0.55); padding: 0.2rem 0.65rem; border-radius: 999px; }
-.cover code { font-family: var(--f-mono); font-size: 0.85rem; color: #fff; opacity: 0.92; overflow-wrap: anywhere; }
-.cover code::before { content: "$ "; content: "$ " / ""; color: var(--gold); }
-.card-body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
-.card h3 { margin: 0; font-size: 1.3rem; line-height: 1.25; }
-.card .org { margin: -0.5rem 0 0; color: var(--gold); font-size: 0.88rem; font-weight: 500; }
-.card p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.65; }
-.card code { font-family: var(--f-mono); font-size: 0.85em; }
-.card .chips li { font-size: 0.78rem; padding: 0.15rem 0.6rem; }
-.card-links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; padding-top: 0.4rem; }
-.card-links a { font-weight: 600; font-size: 0.92rem; text-decoration: none; color: var(--gold); }
-.card-links a:hover { text-decoration: underline; }
-.card-links .private { font-size: 0.85rem; color: var(--muted); }
-
-/* Achievements */
-.wins { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-.win { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; display: grid; gap: 0.4rem; align-content: start; }
-.win b { font-family: var(--f-mono); font-weight: 500; font-size: 1.9rem; color: var(--gold); line-height: 1.2; }
-.win h3 { margin: 0; font-size: 1.02rem; }
-.win p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
-
-/* Contact */
-.contact { position: relative; overflow: hidden; background: linear-gradient(0deg, #17171b 0%, #0f0f12 60%, var(--bg-2) 100%); }
-.contact canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.contact .wrap { position: relative; z-index: 1; }
-.connect { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
-.form { background: rgba(9, 9, 11, 0.7); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem; display: grid; gap: 1rem; }
-.form label { display: grid; gap: 0.35rem; font-weight: 500; font-size: 0.92rem; }
-.form input, .form textarea {
-  font: 400 1rem var(--f-sans); color: var(--ink); background: var(--card); border: 1px solid var(--line);
-  border-radius: 10px; padding: 0.7rem 0.9rem; width: 100%;
-}
-.form textarea { min-height: 8rem; resize: vertical; }
-.form input:focus-visible, .form textarea:focus-visible { outline-offset: 1px; }
-.form .hint { margin: 0; color: var(--muted); font-size: 0.85rem; }
-.form .btn { justify-self: start; }
-.form .btn[disabled] { opacity: 0.6; cursor: wait; transform: none; }
-.form-status { margin: 0; font-size: 0.92rem; min-height: 1.4em; }
-.form-status.ok { color: var(--now); }
-.form-status.err { color: var(--was); }
-.form-status a { color: inherit; }
-.reach { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
-.reach li { background: rgba(9, 9, 11, 0.7); border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1.1rem; display: grid; gap: 0.1rem; }
-.reach .k { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
-.reach a { color: var(--ink); font-weight: 500; overflow-wrap: anywhere; text-decoration: none; }
-.reach a:hover { color: var(--gold); text-decoration: underline; }
-.mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
-.copy { font: 600 0.8rem var(--f-sans); background: var(--card-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.8rem; cursor: pointer; }
-.copy:hover { border-color: var(--gold); }
-
-footer { background: var(--bg); border-top: 1px solid var(--line); padding-block: 1.6rem 2rem; color: var(--muted); font-size: 0.9rem; }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.6rem 1.5rem; }
-footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0; padding: 0; }
-footer a { color: var(--muted); }
-
-.to-top {
-  position: fixed; right: max(1rem, env(safe-area-inset-right, 0px)); bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 30;
-  background: var(--gold); color: var(--bg); font: 700 0.85rem var(--f-sans); text-decoration: none;
-  width: 3.2rem; height: 3.2rem; border-radius: 50%; display: grid; place-items: center;
-  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
-}
-.to-top:hover { color: var(--bg); transform: translateY(-2px); }
-
-@media (max-width: 900px) {
-  .about, .connect { grid-template-columns: minmax(0, 1fr); }
-  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
-  .portrait { order: -1; justify-self: start; width: min(16rem, 70%); }
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .wins { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .menu-btn { display: inline-block; }
-  .nav {
-    position: absolute; top: calc(var(--bar-h) + env(safe-area-inset-top, 0px)); left: 0; right: 0;
-    flex-direction: column; gap: 0; padding: 0.5rem 1rem 1rem;
-    background: rgba(9, 9, 11, 0.97); border-bottom: 1px solid var(--line);
-  }
-  .nav a { padding: 0.7rem 1rem; }
-  .bar:not(.open) .nav { display: none; }
-  .bar.open { background: rgba(9, 9, 11, 0.97); }
-}
-@media (max-width: 680px) {
-  .grid { grid-template-columns: minmax(0, 1fr); }
-  .squad-top { grid-template-columns: minmax(0, 1fr); }
-  .big35 { text-align: left; }
-  .squad-figs { grid-template-columns: minmax(0, 1fr); }
-  .sec { padding-block: 4rem; }
-}
-@media (max-width: 440px) {
-  .steps, .wins, .tiles { grid-template-columns: minmax(0, 1fr); }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .card:hover, .btn:hover { transform: none; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
-}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -350,22 +39,22 @@ footer a { color: var(--muted); }
 <main id="main">
 
   <section class="hero" id="home" aria-labelledby="name">
-    <canvas id="heroField" aria-hidden="true"></canvas>
+    <canvas id="heroField" data-particles="90" aria-hidden="true"></canvas>
     <div class="wrap hero-inner" id="heroInner">
       <div class="hero-text">
-      <p class="hello">Hi, I'm</p>
-      <h1 id="name">Vipul Raj Jha</h1>
-      <p class="typed-line" aria-hidden="true"><span class="typed" id="typed">AI Data Engineer at Handshake</span><span class="caret"></span></p>
-      <p class="sr-only">AI Data Engineer at Handshake. Squad lead at Scale AI, shipped 11,000+ hours with a squad of 35. Builder of evaluation environments for coding agents. Codeforces Specialist, rated 1485.</p>
-      <p class="intro">I build the tasks, containers and tooling used to evaluate coding agents. Most of my day is production code. Based in Delhi, India.</p>
-      <div class="cta">
-        <a class="btn btn-gold" href="#projects">See my work</a>
-        <a class="btn btn-ghost" href="#contact">Say hello</a>
-      </div>
+        <p class="hello">Hi, I'm</p>
+        <h1 id="name">Vipul Raj Jha</h1>
+        <p class="typed-line" aria-hidden="true"><span class="typed" id="typed">AI Data Engineer at Handshake</span><span class="caret"></span></p>
+        <p class="sr-only">AI Data Engineer at Handshake. Squad lead at Scale AI, shipped 11,000+ hours with a squad of 35. Builder of evaluation environments for coding agents. Codeforces Specialist, rated 1485.</p>
+        <p class="intro">I build the tasks, containers and tooling used to evaluate coding agents. Most of my day is production code. Based in Delhi, India.</p>
+        <div class="cta">
+          <a class="btn btn-gold" href="#projects">See my work</a>
+          <a class="btn btn-ghost" href="#contact">Say hello</a>
+        </div>
       </div>
       <figure class="portrait">
         <canvas id="hero3d" aria-hidden="true"></canvas>
-        <img src="profile.jpg" alt="Vipul Raj Jha" width="560" height="560">
+        <img src="profile.jpg" alt="Vipul Raj Jha" width="800" height="800">
       </figure>
     </div>
     <div class="mountains" id="mountains" aria-hidden="true">
@@ -419,6 +108,7 @@ footer a { color: var(--muted); }
               <li>Wrote the pipeline tooling: build recipes, collision detection against a shared ledger, build locks and dedupe caches.</li>
               <li><strong>100% acceptance rate</strong> across all three programmes.</li>
             </ul>
+            <p class="job-link"><a href="projects/agent-evaluation.html">How this work is built</a></p>
           </article>
         </li>
         <li class="job">
@@ -432,6 +122,7 @@ footer a { color: var(--muted); }
               <li>Promoted to the platform's senior reviewer tier and held its top contributor designation.</li>
               <li>Python validation pipelines, RLHF and SFT feedback loops, fine-tuning with LoRA and PEFT, and RAG pipelines with Model Context Protocol.</li>
             </ul>
+            <p class="job-link"><a href="projects/llm-data-programme.html">How I ran the programme</a></p>
           </article>
         </li>
         <li class="job">
@@ -492,6 +183,7 @@ footer a { color: var(--muted); }
           <div><dt>3.9/5</dt><dd>average quality rating</dd></div>
           <div><dt>4.3/5</dt><dd>my own score across 51 quality reviews</dd></div>
         </dl>
+        <p class="squad-more"><a class="btn btn-ghost" href="projects/llm-data-programme.html">Read how I ran it</a></p>
       </div>
     </div>
   </section>
@@ -501,7 +193,12 @@ footer a { color: var(--muted); }
       <div class="head">
         <p class="eyebrow">10 projects</p>
         <h2 id="proj-h">What I have built</h2>
-        <p class="sub">Six from work, described without client details, and four open-source projects with their source on GitHub.</p>
+        <p class="sub">Six from work, described without client details, and four open-source projects. Open any card for the full write-up.</p>
+        <ol class="flow flow-center" aria-label="How to explore a project">
+          <li><span class="step"><span class="num">1</span> Pick a project</span></li>
+          <li><span class="step"><span class="num">2</span> Read how it works</span></li>
+          <li><span class="step"><span class="num">3</span> Open the code on GitHub</span></li>
+        </ol>
       </div>
 
       <div class="filters" role="group" aria-label="Filter projects">
@@ -516,113 +213,113 @@ footer a { color: var(--muted); }
 
       <div class="grid" id="grid">
 
-        <article class="card" data-tags="work ai" aria-labelledby="c1">
+        <article class="card" data-tags="work ai">
           <div class="cover" style="--c1:#3b3b43;--c2:#101012"><span class="kind">Professional</span><code>grade --byte-exact</code></div>
           <div class="card-body">
-            <h3 id="c1">Adversarial coding-agent tasks</h3>
+            <h3><a href="projects/agent-evaluation.html#tasks">Adversarial coding-agent tasks</a></h3>
             <p class="org">Handshake</p>
             <p>Tasks where the naive reading of the data looks correct and is wrong, and the deciding cases are hidden from the sample but fully determined by it. I generate synthetic corpora, prove computationally that each admits exactly one consistent interpretation, and recover hidden structure with integer linear algebra and modular arithmetic.</p>
             <ul class="chips"><li>Docker</li><li>pytest</li><li>Python</li><li>Linear algebra</li></ul>
-            <div class="card-links"><span class="private">Client work, source not public</span></div>
+            <span class="more" aria-hidden="true">View details -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="work ai" aria-labelledby="c2">
-          <div class="cover" style="--c1:#2f2f36;--c2:#101012"><span class="kind">Professional</span><code>fail -> pass, verified</code></div>
+        <article class="card" data-tags="work ai">
+          <div class="cover" style="--c1:#2f2f36;--c2:#101012"><span class="kind">Professional</span><code>fail -&gt; pass, verified</code></div>
           <div class="card-body">
-            <h3 id="c2">Repositories rebuilt at a historical commit</h3>
+            <h3><a href="projects/agent-evaluation.html#environments">Repositories rebuilt at a historical commit</a></h3>
             <p class="org">Handshake</p>
             <p>Reproducible environments for arbitrary open-source repositories at a specific commit. I pin dependencies until a test suite that failed before a fix passes after it, then verify that flip against the reference solution.</p>
             <ul class="chips"><li>Docker</li><li>Dependency pinning</li><li>pytest</li></ul>
-            <div class="card-links"><span class="private">Client work, source not public</span></div>
+            <span class="more" aria-hidden="true">View details -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="work" aria-labelledby="c3">
+        <article class="card" data-tags="work">
           <div class="cover" style="--c1:#45454e;--c2:#101012"><span class="kind">Professional</span><code>build-lock acquired</code></div>
           <div class="card-body">
-            <h3 id="c3">Submission pipeline tooling</h3>
+            <h3><a href="projects/agent-evaluation.html#tooling">Submission pipeline tooling</a></h3>
             <p class="org">Handshake</p>
             <p>Per-repository build recipes, collision detection against a shared ledger, build locks, dedupe caches, and the scripts that stop a multi-folder submission pipeline from burning the same work twice. Every task goes in as a pull request and iterates against automated review gates until each check is green.</p>
             <ul class="chips"><li>Build recipes</li><li>Locks and caches</li><li>Pull request gates</li></ul>
-            <div class="card-links"><span class="private">Client work, source not public</span></div>
+            <span class="more" aria-hidden="true">View details -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="work ai" aria-labelledby="c4">
+        <article class="card" data-tags="work ai">
           <div class="cover" style="--c1:#34343b;--c2:#101012"><span class="kind">Squad lead</span><code>squad=35 hours=11000+</code></div>
           <div class="card-body">
-            <h3 id="c4">LLM coding-data programme</h3>
+            <h3><a href="projects/llm-data-programme.html#squad">LLM coding-data programme</a></h3>
             <p class="org">Scale AI</p>
             <p>Led a distributed squad of 35 from scope to delivery. I scoped the task sets, wrote the rubrics and technical assessments, and built the review workflow. Together we shipped 11,000+ hours at a 3.9/5 average quality rating.</p>
             <ul class="chips"><li>Leadership</li><li>Rubric design</li><li>Review workflow</li></ul>
-            <div class="card-links"><a href="#squad">How I ran it</a></div>
+            <span class="more" aria-hidden="true">View details -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="work ai" aria-labelledby="c5">
+        <article class="card" data-tags="work ai">
           <div class="cover" style="--c1:#4a4a52;--c2:#101012"><span class="kind">Professional</span><code>reviews=51 score=4.3</code></div>
           <div class="card-body">
-            <h3 id="c5">Multi-model coding and reasoning evaluation</h3>
+            <h3><a href="projects/llm-data-programme.html#review">Multi-model coding and reasoning evaluation</a></h3>
             <p class="org">Scale AI</p>
             <p>Lead reviewer on multi-model coding and reasoning evaluation, and on more than half the projects I was assigned. Scored 4.3/5 across 51 internal quality reviews, was promoted into the platform's senior reviewer tier and held its top contributor designation.</p>
             <ul class="chips"><li>LLM evaluation</li><li>Code review</li><li>Reasoning</li></ul>
-            <div class="card-links"><span class="private">Client work, source not public</span></div>
+            <span class="more" aria-hidden="true">View details -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="work ai" aria-labelledby="c6">
+        <article class="card" data-tags="work ai">
           <div class="cover" style="--c1:#2b2b31;--c2:#101012"><span class="kind">Professional</span><code>rlhf sft lora peft rag</code></div>
           <div class="card-body">
-            <h3 id="c6">Validation and fine-tuning pipelines</h3>
+            <h3><a href="projects/llm-data-programme.html#pipelines">Validation and fine-tuning pipelines</a></h3>
             <p class="org">Scale AI</p>
             <p>Python validation pipelines for data quality assurance and model output monitoring. RLHF and SFT feedback loops, fine-tuning with LoRA and PEFT, and RAG pipelines using Model Context Protocol for context-aware evaluation.</p>
             <ul class="chips"><li>Python</li><li>LoRA and PEFT</li><li>RLHF</li><li>RAG</li><li>MCP</li></ul>
-            <div class="card-links"><span class="private">Client work, source not public</span></div>
+            <span class="more" aria-hidden="true">View details -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="oss ai" aria-labelledby="c7">
+        <article class="card" data-tags="oss ai">
           <div class="cover" style="--c1:#404048;--c2:#101012"><span class="kind">Open source</span><code>115 passed, 95% coverage</code></div>
           <div class="card-body">
-            <h3 id="c7">research-harvest</h3>
+            <h3><a href="projects/research-harvest.html">research-harvest</a></h3>
             <p>Searches PubMed and OpenAlex, merges the results, removes papers found in both, and reads the methods, cohort size and best score out of each abstract. The extraction is the hard part: anything clever enough to catch every phrasing also catches a p-value and calls it a cohort.</p>
             <p>Built on the official REST APIs and deduplicated on DOI, then source id, then normalised title. 115 tests at 95% coverage, all running offline against recorded fixtures.</p>
             <ul class="chips"><li>Python</li><li>REST APIs</li><li>pytest</li></ul>
-            <div class="card-links"><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">Source on GitHub</a></div>
+            <span class="more" aria-hidden="true">View details and code -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="oss web" aria-labelledby="c8">
-          <div class="cover" style="--c1:#37373e;--c2:#101012"><span class="kind">Open source</span><code>135 tests x 2 backends</code></div>
+        <article class="card" data-tags="oss web">
+          <div class="cover" style="--c1:#37373e;--c2:#101012"><span class="kind">Open source</span><code>135 tests, 2 backends</code></div>
           <div class="card-body">
-            <h3 id="c8">SilverPass</h3>
-            <p>Passport services for someone who is 78 and cannot read 16px type. 20px base text with three size steps, high contrast mode, full English and Hindi, and the first two hours at every centre held for applicants aged 60 and over.</p>
-            <p>Express API and React client with a status machine that refuses illegal transitions. A JSON store and MongoDB are held to one contract test, and CI runs the 135-test suite once per backend.</p>
+            <h3><a href="projects/silverpass.html">SilverPass</a></h3>
+            <p>Passport services for someone who is 78 and cannot read 16px type. 20px base text with three size steps, high contrast mode, an English and Hindi interface, and the first two hours at every centre held for people aged 60 and over.</p>
+            <p>Express API and React client with a status machine that refuses illegal transitions. A JSON store and MongoDB are held to one contract test, and CI runs the server tests once per backend. 135 tests in all.</p>
             <ul class="chips"><li>Express</li><li>React</li><li>MongoDB</li><li>Accessibility</li></ul>
-            <div class="card-links"><a href="https://github.com/vipul21435/SilverPass">Source on GitHub</a></div>
+            <span class="more" aria-hidden="true">View details and code -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="oss web" aria-labelledby="c9">
+        <article class="card" data-tags="oss web">
           <div class="cover" style="--c1:#4f4f57;--c2:#101012"><span class="kind">Open source</span><code>108 tests, deployed</code></div>
           <div class="card-body">
-            <h3 id="c9">CourseBot360</h3>
-            <p>Answers questions like "is there a lab in OS?" about 31 university courses. It is a deterministic intent parser on purpose: a static site cannot hide an API key, and a parser is fast, free, works offline and cannot invent a prerequisite.</p>
+            <h3><a href="projects/coursebot360.html">CourseBot360</a></h3>
+            <p>Answers questions like "is there a lab in OS?" about 31 university courses. It is a deterministic intent parser on purpose: a static site cannot hide an API key, and a parser is fast, free, needs no server and cannot invent a prerequisite.</p>
             <p>The intent engine never touches the DOM and returns answers as data, so a whole conversation runs in a test. 108 tests, deployed by GitHub Actions.</p>
             <ul class="chips"><li>JavaScript</li><li>Testing</li><li>GitHub Pages</li></ul>
-            <div class="card-links"><a href="https://vipul21435.github.io/CourseBot360-main/">Try it live</a><a href="https://github.com/vipul21435/CourseBot360-main">Source on GitHub</a></div>
+            <span class="more" aria-hidden="true">View details and code -&gt;</span>
           </div>
         </article>
 
-        <article class="card" data-tags="oss web" aria-labelledby="c10">
+        <article class="card" data-tags="oss web">
           <div class="cover" style="--c1:#303036;--c2:#101012"><span class="kind">Open source</span><code>php -l 8.0 8.2 8.3 ok</code></div>
           <div class="card-body">
-            <h3 id="c10">Cab Booking System</h3>
-            <p>Fleet and booking management in PHP and MySQL for customers, drivers and admins. It runs with <code>docker compose up</code>.</p>
-            <p>Every query is parameterised and passwords use bcrypt at cost 12. CI lints on PHP 8.0, 8.2 and 8.3, then boots the stack in Docker, signs the admin in and checks that a wrong password leaks no SQL.</p>
-            <ul class="chips"><li>PHP</li><li>MySQL</li><li>Docker</li><li>Security</li></ul>
-            <div class="card-links"><a href="https://github.com/vipul21435/CabBooking-PHP">Source on GitHub</a></div>
+            <h3><a href="projects/cab-booking.html">Cab Booking System</a></h3>
+            <p>Fleet and booking management in PHP and MySQL. Customers book a cab and follow its status, drivers move each job from confirmed to dropped off, and staff run the fleet. It runs with <code>docker compose up</code>.</p>
+            <p>Passwords use bcrypt at cost 12, and old MD5 hashes are upgraded in place at sign-in. CI lints on PHP 8.0, 8.2 and 8.3, then boots the stack in Docker, signs the admin in and checks that a wrong password leaks no SQL.</p>
+            <ul class="chips"><li>PHP</li><li>MySQL</li><li>Docker</li><li>GitHub Actions</li></ul>
+            <span class="more" aria-hidden="true">View details and code -&gt;</span>
           </div>
         </article>
 
@@ -673,7 +370,7 @@ footer a { color: var(--muted); }
   </section>
 
   <section class="sec contact" id="contact" aria-labelledby="contact-h">
-    <canvas id="contactField" aria-hidden="true"></canvas>
+    <canvas id="contactField" data-particles="70" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Get in touch</p>
@@ -681,19 +378,28 @@ footer a { color: var(--muted); }
         <p class="sub">Hiring for evaluation, data or infrastructure work, or want to talk about a hard task? Every message here reaches me at vipul21435@iiitd.ac.in.</p>
       </div>
       <div class="connect">
-        <form class="form" id="mailForm" action="https://formsubmit.co/vipul21435@iiitd.ac.in" method="POST" novalidate>
+        <form class="form" id="mailForm" novalidate>
           <label for="fName">Your name<input id="fName" name="name" type="text" autocomplete="name" required></label>
           <label for="fEmail">Your email<input id="fEmail" name="email" type="email" autocomplete="email" required></label>
           <label for="fMsg">Message<textarea id="fMsg" name="message" required></textarea></label>
-          <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <p class="hint">Your message goes straight to my inbox at vipul21435@iiitd.ac.in, and I reply from there.</p>
           <button class="btn btn-gold" id="sendBtn" type="submit">Send message</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <div class="fallback" id="fallback" hidden>
+            <p>Your message is ready to send another way. Pick one and press send there:</p>
+            <div class="fallback-links">
+              <a class="btn btn-gold" id="fbGmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=vipul21435@iiitd.ac.in" target="_blank" rel="noopener">Send with Gmail</a>
+              <a class="btn btn-ghost" id="fbOutlook" href="https://outlook.office.com/mail/deeplink/compose?to=vipul21435@iiitd.ac.in" target="_blank" rel="noopener">Send with Outlook</a>
+              <a class="btn btn-ghost" id="fbApp" href="mailto:vipul21435@iiitd.ac.in">Use my email app</a>
+            </div>
+          </div>
         </form>
         <ul class="reach">
           <li>
             <span class="k">Email</span>
             <span class="mailrow"><a id="mailAddr" href="mailto:vipul21435@iiitd.ac.in">vipul21435@iiitd.ac.in</a><button class="copy" id="copyMail" type="button">Copy</button><span id="copyStatus" class="sr-only" aria-live="polite"></span></span>
+            <span class="mail-alt"><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=vipul21435@iiitd.ac.in" target="_blank" rel="noopener">Write in Gmail</a><a href="https://outlook.office.com/mail/deeplink/compose?to=vipul21435@iiitd.ac.in" target="_blank" rel="noopener">Write in Outlook</a></span>
           </li>
           <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">linkedin.com/in/vipul-raj-jha-491b2023a</a></li>
           <li><span class="k">GitHub</span><a href="https://github.com/vipul21435">github.com/vipul21435</a></li>
@@ -725,329 +431,6 @@ footer a { color: var(--muted); }
 <a class="to-top" id="toTop" href="#home" aria-label="Back to top" hidden>Top</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-(function () {
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // Header: solid background once the page scrolls, and the mobile menu.
-  var bar = document.getElementById("bar");
-  var menuBtn = document.getElementById("menuBtn");
-  var toTop = document.getElementById("toTop");
-  function setMenu(open) {
-    bar.classList.toggle("open", open);
-    menuBtn.setAttribute("aria-expanded", String(open));
-    menuBtn.textContent = open ? "Close" : "Menu";
-  }
-  menuBtn.addEventListener("click", function () { setMenu(!bar.classList.contains("open")); });
-  document.querySelectorAll(".nav a").forEach(function (a) {
-    a.addEventListener("click", function () { setMenu(false); });
-  });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && bar.classList.contains("open")) { setMenu(false); menuBtn.focus(); }
-  });
-
-  // Parallax on the hero, skipped for reduced motion.
-  var heroInner = document.getElementById("heroInner");
-  var mountains = document.getElementById("mountains");
-  var ticking = false;
-  function onScroll() {
-    var y = window.scrollY;
-    bar.classList.toggle("scrolled", y > 40);
-    toTop.hidden = y < 700;
-    if (!reduce && y < 1000) {
-      heroInner.style.transform = "translateY(" + (y * 0.35) + "px)";
-      heroInner.style.opacity = String(Math.max(0, 1 - y / 650));
-      mountains.style.transform = "translateY(" + (y * -0.12) + "px)";
-    }
-    ticking = false;
-  }
-  window.addEventListener("scroll", function () {
-    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
-  }, { passive: true });
-  onScroll();
-
-  // Highlight the nav link for the section in view.
-  var links = {};
-  document.querySelectorAll(".nav a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
-  if ("IntersectionObserver" in window) {
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting || !links[en.target.id]) return;
-        Object.keys(links).forEach(function (k) { links[k].removeAttribute("aria-current"); });
-        links[en.target.id].setAttribute("aria-current", "true");
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    Object.keys(links).forEach(function (id) {
-      var s = document.getElementById(id);
-      if (s) spy.observe(s);
-    });
-  }
-
-  // Typed roles in the hero.
-  var roles = [
-    "AI Data Engineer at Handshake",
-    "Shipped 11,000+ hours with a squad of 35",
-    "Builder of evaluation environments",
-    "Codeforces Specialist, 1485"
-  ];
-  var typed = document.getElementById("typed");
-  if (!reduce) {
-    var r = 0, c = roles[0].length, deleting = true;
-    setTimeout(function tick() {
-      if (deleting) {
-        c--;
-        typed.textContent = roles[r].slice(0, c);
-        if (c === 0) { deleting = false; r = (r + 1) % roles.length; }
-        setTimeout(tick, 35);
-      } else {
-        c++;
-        typed.textContent = roles[r].slice(0, c);
-        if (c === roles[r].length) { deleting = true; setTimeout(tick, 2200); }
-        else setTimeout(tick, 70);
-      }
-    }, 2400);
-  }
-
-  // Skills: cycle through each list and light up the matching chip.
-  if (!reduce) {
-    var rows = Array.prototype.slice.call(document.querySelectorAll("[data-rotate]"));
-    var step = 0;
-    var spin = function () {
-      rows.forEach(function (row) {
-        var items = row.querySelectorAll(".chips li");
-        var i = step % items.length;
-        items.forEach(function (li, j) { li.classList.toggle("on", j === i); });
-        row.querySelector(".rot").textContent = items[i].textContent;
-      });
-      step++;
-    };
-    spin();
-    setInterval(spin, 2200);
-  }
-
-  // Project filters.
-  var grid = document.getElementById("grid");
-  var cards = Array.prototype.slice.call(grid.querySelectorAll(".card"));
-  var status = document.getElementById("filterStatus");
-  var names = { work: "professional", oss: "open-source", ai: "AI and data", web: "web app" };
-  document.querySelectorAll(".filters button").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var f = btn.getAttribute("data-filter");
-      document.querySelectorAll(".filters button").forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
-      var n = 0;
-      cards.forEach(function (card) {
-        var show = f === "all" || card.getAttribute("data-tags").split(" ").indexOf(f) > -1;
-        card.hidden = !show;
-        if (show) n++;
-      });
-      status.textContent = f === "all" ? "Showing all " + n + " projects" : "Showing " + n + " " + names[f] + " projects";
-    });
-  });
-
-  // Contact: send the form to my inbox through FormSubmit.
-  var addr = "vipul21435@iiitd.ac.in";
-  var form = document.getElementById("mailForm");
-  var sendBtn = document.getElementById("sendBtn");
-  var formStatus = document.getElementById("formStatus");
-  function say(kind, html) {
-    formStatus.className = "form-status " + kind;
-    formStatus.innerHTML = html;
-  }
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var name = document.getElementById("fName").value.trim();
-    var email = document.getElementById("fEmail");
-    var msg = document.getElementById("fMsg").value.trim();
-    if (!name || !msg || !email.value.trim() || !email.checkValidity()) {
-      say("err", "Please add your name, a valid email address and a message.");
-      return;
-    }
-    if (form.querySelector("[name=_honey]").value) return;
-    sendBtn.disabled = true;
-    sendBtn.textContent = "Sending...";
-    say("", "");
-    fetch("https://formsubmit.co/ajax/" + addr, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        email: email.value.trim(),
-        message: msg,
-        _subject: "Portfolio message from " + name,
-        _replyto: email.value.trim(),
-        _template: "table"
-      })
-    }).then(function (res) {
-      return res.json().then(function (data) {
-        if (!res.ok || String(data.success) !== "true") throw new Error(data.message || "failed");
-      });
-    }).then(function () {
-      form.reset();
-      say("ok", "Thanks, your message is on its way. I will reply to the address you gave.");
-    }).catch(function () {
-      say("err", "The message did not go through. Please email me directly at <a href=\"mailto:" + addr + "\">" + addr + "</a>.");
-    }).then(function () {
-      sendBtn.disabled = false;
-      sendBtn.textContent = "Send message";
-    });
-  });
-  var copyBtn = document.getElementById("copyMail");
-  var copyStatus = document.getElementById("copyStatus");
-  function copied() {
-    copyBtn.textContent = "Copied";
-    copyStatus.textContent = "Email address copied";
-    setTimeout(function () { copyBtn.textContent = "Copy"; copyStatus.textContent = ""; }, 2000);
-  }
-  function selectAddr() {
-    var range = document.createRange();
-    range.selectNodeContents(document.getElementById("mailAddr"));
-    var sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-  }
-  copyBtn.addEventListener("click", function () {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(addr).then(copied, selectAddr);
-    } else {
-      selectAddr();
-    }
-  });
-
-  // Particle fields for the hero and contact backgrounds.
-  function field(canvas, count) {
-    var ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    var pts = [], w = 0, h = 0, running = false, raf = 0;
-    function size() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = canvas.clientWidth; h = canvas.clientHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var n = Math.round(count * Math.min(1, w / 1200));
-      pts = [];
-      for (var i = 0; i < n; i++) {
-        pts.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35, r: Math.random() * 1.6 + 0.6 });
-      }
-      draw();
-    }
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < pts.length; i++) {
-        var p = pts[i];
-        for (var j = i + 1; j < pts.length; j++) {
-          var q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = dx * dx + dy * dy;
-          if (d < 12000) {
-            ctx.strokeStyle = "rgba(200, 200, 210," + (0.16 * (1 - d / 12000)) + ")";
-            ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
-          }
-        }
-      }
-      ctx.fillStyle = "rgba(240, 240, 242, 0.55)";
-      for (var k = 0; k < pts.length; k++) {
-        ctx.beginPath(); ctx.arc(pts[k].x, pts[k].y, pts[k].r, 0, 6.2832); ctx.fill();
-      }
-    }
-    function frame() {
-      for (var i = 0; i < pts.length; i++) {
-        var p = pts[i];
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-      }
-      draw();
-      if (running) raf = requestAnimationFrame(frame);
-    }
-    size();
-    window.addEventListener("resize", size);
-    if (reduce || !("IntersectionObserver" in window)) return;
-    new IntersectionObserver(function (entries) {
-      var vis = entries[0].isIntersecting;
-      if (vis && !running) { running = true; raf = requestAnimationFrame(frame); }
-      if (!vis) { running = false; cancelAnimationFrame(raf); }
-    }).observe(canvas);
-  }
-  // 3D: a wireframe icosahedron and a ring of points turning behind the photo.
-  function scene3d(canvas) {
-    if (!window.THREE || !canvas) return;
-    var T = window.THREE, renderer;
-    try { renderer = new T.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true }); } catch (e) { return; }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    var scene = new T.Scene();
-    var camera = new T.PerspectiveCamera(40, 1, 0.1, 100);
-    camera.position.z = 9;
-    var group = new T.Group();
-    scene.add(group);
-
-    var ico = new T.IcosahedronGeometry(2.55, 1);
-    group.add(new T.LineSegments(new T.WireframeGeometry(ico), new T.LineBasicMaterial({ color: 0x8a8a94, transparent: true, opacity: 0.55 })));
-    group.add(new T.Points(ico, new T.PointsMaterial({ color: 0xf0f0f2, size: 0.09 })));
-
-    var n = 260, pos = new Float32Array(n * 3);
-    for (var i = 0; i < n; i++) {
-      var a = (i / n) * Math.PI * 2, r = 3.25 + (Math.random() - 0.5) * 0.25;
-      pos[i * 3] = Math.cos(a) * r;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 0.12;
-      pos[i * 3 + 2] = Math.sin(a) * r;
-    }
-    var ringGeo = new T.BufferGeometry();
-    ringGeo.setAttribute("position", new T.BufferAttribute(pos, 3));
-    var ring = new T.Points(ringGeo, new T.PointsMaterial({ color: 0xc8c8cf, size: 0.05, transparent: true, opacity: 0.85 }));
-    ring.rotation.x = 1.15;
-    ring.rotation.y = 0.35;
-    scene.add(ring);
-
-    var tx = 0, ty = 0, running = false;
-    function size() {
-      var s = canvas.clientWidth || 1;
-      renderer.setSize(s, s, false);
-      camera.aspect = 1;
-      camera.updateProjectionMatrix();
-      renderer.render(scene, camera);
-    }
-    function frame() {
-      group.rotation.y += 0.0035;
-      group.rotation.x += (ty * 0.5 - group.rotation.x) * 0.05;
-      group.rotation.z += (tx * 0.3 - group.rotation.z) * 0.05;
-      ring.rotation.z += 0.0025;
-      renderer.render(scene, camera);
-      if (running) requestAnimationFrame(frame);
-    }
-    group.rotation.set(0.35, 0.6, 0);
-    size();
-    window.addEventListener("resize", size);
-    if (reduce) return;
-    window.addEventListener("pointermove", function (e) {
-      tx = (e.clientX / window.innerWidth - 0.5) * 2;
-      ty = (e.clientY / window.innerHeight - 0.5) * 2;
-    }, { passive: true });
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        var vis = entries[0].isIntersecting;
-        if (vis && !running) { running = true; requestAnimationFrame(frame); }
-        if (!vis) running = false;
-      }).observe(canvas);
-    } else {
-      running = true; requestAnimationFrame(frame);
-    }
-  }
-  scene3d(document.getElementById("hero3d"));
-
-  // 3D tilt on project cards for mouse users.
-  if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    cards.forEach(function (card) {
-      card.addEventListener("pointermove", function (e) {
-        var r = card.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = "perspective(900px) rotateY(" + (x * 7) + "deg) rotateX(" + (y * -7) + "deg) translateY(-4px)";
-      });
-      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
-    });
-  }
-
-  field(document.getElementById("heroField"), 90);
-  field(document.getElementById("contactField"), 70);
-})();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>

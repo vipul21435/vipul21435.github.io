@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cab Booking System | Vipul Raj Jha</title>
+<meta name="description" content="Cab Booking System is fleet and booking management in PHP and MySQL with bound queries, bcrypt passwords and a Docker smoke test in CI.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:title" content="Cab Booking System | Vipul Raj Jha">
+<meta property="og:description" content="Cab Booking System is fleet and booking management in PHP and MySQL with bound queries, bcrypt passwords and a Docker smoke test in CI.">
+<meta property="og:image" content="https://vipul21435.github.io/profile.jpg">
+<meta property="og:url" content="https://vipul21435.github.io/projects/cab-booking.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">VIPUL RAJ JHA<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav aria-label="Site">
+      <ul class="nav" id="nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#squad">Squad lead</a></li>
+        <li><a href="../index.html#projects" aria-current="true">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="d-hero" aria-labelledby="title">
+    <canvas data-particles="60" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <ol class="flow" aria-label="Where you are">
+        <li><a href="../index.html#projects"><span class="num">1</span> Projects</a></li>
+        <li><span class="step" aria-current="step"><span class="num">2</span> Details</span></li>
+        <li><a href="https://github.com/vipul21435/CabBooking-PHP"><span class="num">3</span> Code on GitHub</a></li>
+      </ol>
+      <p class="eyebrow">Open source | PHP and MySQL | Runs in Docker</p>
+      <h1 id="title">Cab Booking System</h1>
+      <p class="lede">A cab booking and fleet management web app in PHP 8 and MySQL, built for the DBMS course at IIIT Delhi. Customers book a free cab and follow its status, drivers move each job through its stages, and staff run the fleet. The whole stack starts with one Docker command.</p>
+      <ul class="chips"><li>PHP 8</li><li>MySQL</li><li>AdminLTE 3</li><li>jQuery</li><li>Docker</li><li>GitHub Actions</li></ul>
+      <div class="cta">
+        <a class="btn btn-gold" href="https://github.com/vipul21435/CabBooking-PHP">View the code on GitHub</a>
+        <a class="btn btn-ghost" href="#flow">How a booking works</a>
+      </div>
+      <dl class="d-figs">
+        <div class="tile"><dt>4</dt><dd>roles: customer, driver, staff and admin</dd></div>
+        <div class="tile"><dt>5</dt><dd>booking states, from pending to dropped off</dd></div>
+        <div class="tile"><dt>6</dt><dd>tables in the MySQL schema</dd></div>
+        <div class="tile"><dt>3</dt><dd>PHP versions linted in CI</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="overview" aria-labelledby="overview-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">Overview</p>
+        <h2 id="overview-h">What it does</h2>
+        <div class="prose">
+          <p>Customers register, find a cab that is free, book it and follow the booking through Pending, Driver Confirmed, Picked-up and Dropped off. They can cancel while it is still pending. Drivers sign in as their cab and move each job forward. Staff manage categories, cabs, drivers and customers, including blocking an account, and administrators also manage staff accounts and site settings.</p>
+          <p>It is plain PHP with AdminLTE 3 and jQuery on the front end: no framework and no build step. <code>docker compose up</code> starts PHP 8.2 with Apache next to MySQL, and the schema and seed data load on first boot.</p>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Server-rendered web app</dd></div>
+        <div><dt>Stack</dt><dd>PHP 8, MySQL, AdminLTE 3, jQuery</dd></div>
+        <div><dt>Runs on</dt><dd>php:8.2-apache and MySQL via Docker Compose</dd></div>
+        <div><dt>Schema</dt><dd>6 tables with seed data</dd></div>
+        <div><dt>Code</dt><dd>66 PHP files</dd></div>
+        <div><dt>CI</dt><dd>GitHub Actions: lint, then a Docker smoke test</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="flow" aria-labelledby="flow-h">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 id="flow-h">A booking, end to end</h2>
+      <ol class="stages">
+        <li class="stage"><div class="stage-card"><h3>Route the request</h3><p>Every customer page goes through <code>index.php</code>. It loads the configuration, which reads the environment, starts the session and opens the database connection, then passes the page name through <code>safe_page_name()</code>. Only letters, digits, dashes, underscores and slashes get through, and anything else falls back to the home page.</p><p class="where">index.php, config.php, initialize.php</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>List the free cabs</h3><p>The available-cabs page shows every cab that has no booking in an active state.</p><p class="where">cab_available.php</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Book</h3><p>A signed-in customer picks a cab and the booking form opens in a modal for pickup and drop-off. Anyone who is not signed in is sent to the sign-in page first.</p><p class="where">booking.php</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Save the booking</h3><p>The form goes by AJAX to <code>Master::save_booking()</code>, which attaches the customer from the session and a reference code in the form YYYYMM-NNNNN, then answers with JSON.</p><p class="where">classes/Master.php</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Follow the status</h3><p>The customer's booking list is a bound query on their id, and a single booking is shown only to the people whose role lets them see it.</p><p class="where">booking_list.php, view_booking.php</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>The driver moves it forward</h3><p>The driver signs in as the cab and steps the job through confirmed, picked up and dropped off. Each step is a bound UPDATE in <code>update_booking_status()</code>.</p><p class="where">driver/, classes/Master.php</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="d-sec" id="signin" aria-labelledby="signin-h">
+    <div class="wrap">
+      <p class="eyebrow">Accounts</p>
+      <h2 id="signin-h">Signing in, and upgrading old passwords on the way</h2>
+      <div class="prose">
+        <p>There are three sign-in pages: customers use their email at <code>/</code>, staff a username at <code>/admin</code>, and drivers their cab registration code at <code>/driver</code>. All three end up in the same class.</p>
+      </div>
+      <ol class="stages">
+        <li class="stage"><div class="stage-card"><h3>Look up the account</h3><p>A bound <code>fetchOne()</code> on the customer, staff or cab table.</p><p class="where">classes/Login.php</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Check the password</h3><p><code>Password::verify()</code> uses <code>password_verify()</code> for bcrypt. A stored value of 32 hex characters is treated as a legacy MD5 hash and compared with <code>hash_equals()</code>.</p><p class="where">classes/Password.php</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Refuse blocked accounts</h3><p>Customers and drivers who have been blocked are turned away at this point.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Upgrade the hash</h3><p>If the stored hash is MD5, or bcrypt at an old cost, <code>upgradeHash()</code> writes a fresh bcrypt hash at cost 12 through a bound UPDATE. Old accounts move to bcrypt the next time they sign in, and nobody is locked out.</p><p class="where">Login::upgradeHash()</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>Start the session</h3><p><code>session_regenerate_id(true)</code> issues a new session id, the account row goes into the session without its password, and the browser is sent to the right area.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="d-sec" id="decisions" aria-labelledby="decisions-h">
+    <div class="wrap">
+      <p class="eyebrow">Engineering decisions</p>
+      <h2 id="decisions-h">Hardening in place</h2>
+      <div class="decisions">
+        <div class="decision"><h3>One prepared-statement helper</h3><p><code>DBConnection::run()</code> is the single place that calls <code>prepare()</code>. It works out an <code>i</code>, <code>d</code> or <code>s</code> type for each value and binds it. Helpers such as <code>fetchOne()</code> wrap it, <code>buildSet()</code> only accepts whitelisted column names, and <code>inList()</code> keeps only numeric ids. Sign-in, booking lookups and status changes all run through it.</p></div>
+        <div class="decision"><h3>bcrypt with an in-place upgrade</h3><p>New passwords are hashed with bcrypt at cost 12. Legacy MD5 hashes still verify, once, and are replaced on that sign-in. The seed script writes bcrypt, so a fresh install starts with no MD5 at all.</p></div>
+        <div class="decision"><h3>A router that only includes known pages</h3><p>Page names must match <code>^[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*$</code>. Anything else becomes the home page, and a name that matches no file gets <code>404.html</code>.</p></div>
+        <div class="decision"><h3>Secrets and internals out of reach</h3><p><code>.env</code> is git-ignored and never overrides a real environment variable. <code>.htaccess</code> returns 403 for the database and docker folders, <code>.git</code>, dotfiles and <code>.env</code>, <code>.sql</code> and <code>.yml</code> files, and sets nosniff, SAMEORIGIN and Referrer-Policy headers. Session cookies are HttpOnly and SameSite=Lax, and Secure over HTTPS.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="tests" aria-labelledby="tests-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">CI</p>
+        <h2 id="tests-h">How it is checked</h2>
+        <div class="prose">
+          <p><code>.github/workflows/ci.yml</code> runs on every push to main and on pull requests. The lint job runs <code>php -l</code> over all 66 PHP files on PHP 8.0, 8.2 and 8.3. The smoke job then boots the real stack with Docker Compose and checks it from the outside:</p>
+          <ul>
+            <li>the home page renders</li>
+            <li>the seeded admin can sign in</li>
+            <li>a wrong password is refused, and the response leaks no SQL</li>
+            <li>an account holding an MD5 hash signs in and comes back out of the database as bcrypt</li>
+            <li><code>.env</code>, the schema dump and <code>docker-compose.yml</code> are not served</li>
+            <li>a path-traversal page name does not expose the configuration</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p class="code-label">Run it yourself</p>
+        <pre class="code" tabindex="0"><code>git clone https://github.com/vipul21435/CabBooking-PHP.git
+cd CabBooking-PHP
+cp .env.example .env
+docker compose up
+<span class="c"># open http://localhost:8000</span></code></pre>
+        <p class="code-label">Demo accounts</p>
+        <div class="prose"><p>The seed data includes an administrator and a staff user at <code>/admin</code>, a customer at <code>/</code> and a driver at <code>/driver</code>. The README lists their demo passwords and says to change them before any real use.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="source" aria-labelledby="source-h">
+    <div class="wrap">
+      <div class="repo">
+        <div>
+          <p class="eyebrow">Step 3 of 3</p>
+          <h2 id="source-h">The code</h2>
+          <p>The PHP, the schema and seed data, the Docker setup and the CI workflow are all in the repository.</p>
+          <p class="path">github.com/vipul21435/CabBooking-PHP</p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-gold" href="https://github.com/vipul21435/CabBooking-PHP">Open on GitHub</a>
+        </div>
+      </div>
+      <nav class="pager" aria-label="More projects">
+        <a href="coursebot360.html"><span class="dir">Previous project</span>CourseBot360</a>
+        <a class="next" href="agent-evaluation.html"><span class="dir">Next project</span>Coding-agent evaluation</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Vipul Raj Jha, Delhi, India</span>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">LinkedIn</a></li>
+      <li><a href="https://github.com/vipul21435">GitHub</a></li>
+      <li><a href="https://codeforces.com/profile/Vipul21435">Codeforces</a></li>
+      <li><a href="https://leetcode.com/u/vipul_raj_jha/">LeetCode</a></li>
+      <li><a href="https://www.instagram.com/vxpuljha/">Instagram</a></li>
+      <li><a href="mailto:vipul21435@iiitd.ac.in">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<a class="to-top" id="toTop" href="#main" aria-label="Back to top" hidden>Top</a>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CourseBot360 | Vipul Raj Jha</title>
+<meta name="description" content="CourseBot360 answers questions about university courses with a deterministic intent engine that runs entirely in the browser.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:title" content="CourseBot360 | Vipul Raj Jha">
+<meta property="og:description" content="CourseBot360 answers questions about university courses with a deterministic intent engine that runs entirely in the browser.">
+<meta property="og:image" content="https://vipul21435.github.io/profile.jpg">
+<meta property="og:url" content="https://vipul21435.github.io/projects/coursebot360.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">VIPUL RAJ JHA<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav aria-label="Site">
+      <ul class="nav" id="nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#squad">Squad lead</a></li>
+        <li><a href="../index.html#projects" aria-current="true">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="d-hero" aria-labelledby="title">
+    <canvas data-particles="60" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <ol class="flow" aria-label="Where you are">
+        <li><a href="../index.html#projects"><span class="num">1</span> Projects</a></li>
+        <li><span class="step" aria-current="step"><span class="num">2</span> Details</span></li>
+        <li><a href="https://github.com/vipul21435/CourseBot360-main"><span class="num">3</span> Code on GitHub</a></li>
+      </ol>
+      <p class="eyebrow">Open source | JavaScript | Live on GitHub Pages</p>
+      <h1 id="title">CourseBot360</h1>
+      <p class="lede">A chat page that answers questions about 31 IIIT Delhi courses: what a course covers, how it is graded, whether it has a lab, what it needs first and what it unlocks. It runs in the browser from one JSON file, with no server and no language model.</p>
+      <ul class="chips"><li>JavaScript</li><li>Vite</li><li>vitest</li><li>jsdom</li><li>ESLint</li><li>GitHub Actions</li><li>GitHub Pages</li></ul>
+      <div class="cta">
+        <a class="btn btn-gold" href="https://github.com/vipul21435/CourseBot360-main">View the code on GitHub</a>
+        <a class="btn btn-ghost" href="https://vipul21435.github.io/CourseBot360-main/">Try it live</a>
+      </div>
+      <dl class="d-figs">
+        <div class="tile"><dt>108</dt><dd>tests in four suites</dd></div>
+        <div class="tile"><dt>31</dt><dd>courses across seven departments</dd></div>
+        <div class="tile"><dt>15</dt><dd>intents, plus a fallback for anything else</dd></div>
+        <div class="tile"><dt>~4 ms</dt><dd>for 1,200 replies in plain Node</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="overview" aria-labelledby="overview-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">Overview</p>
+        <h2 id="overview-h">What it does</h2>
+        <div class="prose">
+          <p>You type a question the way a student would ask it. "Is there a lab in OS?" "What are the pre-requisites of BIO213?" "List CSE courses with quizzes at most 10%." CourseBot360 works out what you are asking, finds the course or courses, and answers in the chat with a short reply and, where it helps, a table or a list.</p>
+          <p>There is no language model behind it, and that was a choice. A static site cannot hold an API key without handing it to every visitor, and for 31 fixed courses a parser is faster, free, and cannot invent a prerequisite that does not exist. When a prerequisite is missing from the data, the answer says "(not in this catalogue)" instead of guessing.</p>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Static web app</dd></div>
+        <div><dt>Stack</dt><dd>Vanilla JavaScript, Vite 5, vitest 2, ESLint 9</dd></div>
+        <div><dt>Data</dt><dd>31 courses in <code>public/data/courses.json</code></dd></div>
+        <div><dt>Tests</dt><dd>108 across four suites</dd></div>
+        <div><dt>Deploy</dt><dd>GitHub Actions to GitHub Pages</dd></div>
+        <div><dt>Licence</dt><dd>MIT</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="pipeline" aria-labelledby="pipeline-h">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 id="pipeline-h">From a typed question to a rendered answer</h2>
+      <ol class="stages">
+        <li class="stage"><div class="stage-card"><h3>Load the catalogue</h3><p><code>loadCatalogue()</code> fetches the course file once. The <code>Catalogue</code> constructor upper-cases codes and acronyms, tidies the prerequisite lists and builds lookup maps by code and by acronym.</p><p class="where">src/engine/catalogue.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Capture the question</h3><p><code>handle()</code> trims the typed text or the suggestion chip, posts it as your message and calls <code>respond()</code>.</p><p class="where">src/main.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Normalise</h3><p><code>parse()</code> trims the text, and course codes lose their spaces and are upper-cased, so "cse 101" becomes CSE101.</p><p class="where">src/engine/intents.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Detect the intent</h3><p>Commands such as help, clear and theme come first, then listing words like "list" or "which courses", then course questions in a fixed priority order: unlocks, anti-requisites, prerequisites, info, description, credits, components and assessment. Anything else about a course gets an overview.</p><p class="where">parse() in src/engine/intents.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Match the course and the filters</h3><p><code>findCourseToken()</code> tries a real course code first, then each word of two to six letters as an acronym, longest first. <code>findComponent()</code>, <code>findDepartments()</code> and <code>findComparison()</code> fill in the rest, such as "quizzes" and "at most 10%".</p><p class="where">src/engine/intents.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Query the catalogue</h3><p>Methods such as <code>inDepartment</code>, <code>unlockedBy</code>, <code>byComponentWeight</code> and <code>withCredits</code> do the lookups.</p><p class="where">src/engine/catalogue.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Build the answer as data</h3><p><code>respond()</code> returns <code>{ text, blocks }</code>, where each block is a heading, paragraph, list, facts table or link. No HTML is produced anywhere in the engine.</p><p class="where">src/engine/respond.js</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>Render it safely</h3><p><code>renderMessage()</code> builds every node with <code>createElement</code> and <code>textContent</code>, for your text and for the answer alike. The same text goes to a polite live region for screen readers and an optional read-aloud mode, which is off by default.</p><p class="where">src/ui/render.js, src/ui/speech.js</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="d-sec" id="decisions" aria-labelledby="decisions-h">
+    <div class="wrap">
+      <p class="eyebrow">Engineering decisions</p>
+      <h2 id="decisions-h">Why it is built this way</h2>
+      <div class="decisions">
+        <div class="decision"><h3>The engine never touches the page</h3><p>Nothing under <code>src/engine</code> refers to <code>document</code> or <code>window</code>. Even the clear command only returns a flag, and the page acts on it. That is why a whole conversation can run inside a test, and why 1,200 replies take about 4 ms in plain Node.</p></div>
+        <div class="decision"><h3>Answers come back as data</h3><p>Because <code>respond()</code> returns blocks instead of markup, the renderer never has to concatenate strings into <code>innerHTML</code>. The tests inject image and script markup as questions and assert that no element is created.</p></div>
+        <div class="decision"><h3>No language model</h3><p>A key in a static site is a key for everyone. A deterministic parser over 31 known courses costs nothing, answers instantly and can only say what is in the data.</p></div>
+        <div class="decision"><h3>Built for screen readers too</h3><p>A skip link, a transcript marked up as a list, a labelled input and a polite live region that announces each answer. Read-aloud is there for anyone who wants it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="demo" aria-labelledby="demo-h">
+    <div class="wrap">
+      <p class="eyebrow">Real answers</p>
+      <h2 id="demo-h">Questions and what it replied</h2>
+      <div class="prose"><p>These are real replies from the engine, copied exactly as it printed them.</p></div>
+      <div class="qa">
+        <div><p class="q">is there a lab in OS?</p><p class="a">No, CSE231 has no labs.</p></div>
+        <div><p class="q">list CSE courses with quizzes at most 10%</p><p class="a">CSE courses where quizzes are worth at most 10% (4)
+CSE102 - Data Structures &amp; Algorithms
+CSE201 - Advanced Programming
+CSE202 - Fundamentals of database management systems
+CSE231 - Operating Systems</p></div>
+        <div><p class="q">info about DSA</p><p class="a">CSE102 - Data Structures &amp; Algorithms</p><p class="note">Followed by a facts table, the course description, the assessment breakdown and a TechTree link.</p></div>
+      </div>
+      <div class="shots" style="margin-top: 1.5rem;">
+        <figure class="shot"><img src="img/coursebot-course-card.jpg" alt="CourseBot360 answering Give info about DSA with a card showing the acronym, 4 credits, the CSE101 prerequisite, the description and the assessment table." width="1280" height="800" loading="lazy"><figcaption>"Give info about DSA" returns a full course card.</figcaption></figure>
+        <figure class="shot"><img src="img/coursebot-dark-answers.jpg" alt="CourseBot360 in dark mode answering that CSE231 has no labs and listing four CSE courses whose quizzes are worth at most 10 percent." width="1280" height="800" loading="lazy"><figcaption>Dark mode, a yes or no answer and a filtered list.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="tests" aria-labelledby="tests-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">Tests and CI</p>
+        <h2 id="tests-h">How it is checked</h2>
+        <div class="prose">
+          <p>108 tests in four vitest suites, running in jsdom: catalogue (18), intents (44), respond (24) and ui (22). They cover catalogue lookups and load errors, every example question in the README, commands and junk input, a check that <code>respond()</code> never returns HTML, an answer for every one of the 31 courses, and rendering, escaping, speech and theme.</p>
+          <p>Two GitHub Actions workflows run on every push to main. <code>ci.yml</code> installs, lints, tests and builds on Node 20 and also runs on pull requests. <code>deploy.yml</code> tests and builds again, then publishes <code>dist/</code> to GitHub Pages in a concurrency group that never cancels a deploy halfway through.</p>
+        </div>
+      </div>
+      <div>
+        <p class="code-label">Run it yourself</p>
+        <pre class="code" tabindex="0"><code>git clone https://github.com/vipul21435/CourseBot360-main.git
+cd CourseBot360-main
+npm install
+npm run dev
+
+npm test          <span class="c"># 108 tests</span>
+npm run lint
+npm run build     <span class="c"># static site in dist/</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="source" aria-labelledby="source-h">
+    <div class="wrap">
+      <div class="repo">
+        <div>
+          <p class="eyebrow">Step 3 of 3</p>
+          <h2 id="source-h">The code</h2>
+          <p>Everything on this page is in the repository, with the tests, both workflows and the course data. MIT licensed.</p>
+          <p class="path">github.com/vipul21435/CourseBot360-main</p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-gold" href="https://github.com/vipul21435/CourseBot360-main">Open on GitHub</a>
+          <a class="btn btn-ghost" href="https://vipul21435.github.io/CourseBot360-main/">Try it live</a>
+        </div>
+      </div>
+      <nav class="pager" aria-label="More projects">
+        <a href="silverpass.html"><span class="dir">Previous project</span>SilverPass</a>
+        <a class="next" href="cab-booking.html"><span class="dir">Next project</span>Cab Booking System</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Vipul Raj Jha, Delhi, India</span>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">LinkedIn</a></li>
+      <li><a href="https://github.com/vipul21435">GitHub</a></li>
+      <li><a href="https://codeforces.com/profile/Vipul21435">Codeforces</a></li>
+      <li><a href="https://leetcode.com/u/vipul_raj_jha/">LeetCode</a></li>
+      <li><a href="https://www.instagram.com/vxpuljha/">Instagram</a></li>
+      <li><a href="mailto:vipul21435@iiitd.ac.in">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<a class="to-top" id="toTop" href="#main" aria-label="Back to top" hidden>Top</a>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

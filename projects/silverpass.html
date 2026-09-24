@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SilverPass | Vipul Raj Jha</title>
+<meta name="description" content="SilverPass is an accessible passport services app for older applicants: large text, high contrast, English and Hindi, Express and React.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:title" content="SilverPass | Vipul Raj Jha">
+<meta property="og:description" content="SilverPass is an accessible passport services app for older applicants: large text, high contrast, English and Hindi, Express and React.">
+<meta property="og:image" content="https://vipul21435.github.io/profile.jpg">
+<meta property="og:url" content="https://vipul21435.github.io/projects/silverpass.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">VIPUL RAJ JHA<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav aria-label="Site">
+      <ul class="nav" id="nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#squad">Squad lead</a></li>
+        <li><a href="../index.html#projects" aria-current="true">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="d-hero" aria-labelledby="title">
+    <canvas data-particles="60" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <ol class="flow" aria-label="Where you are">
+        <li><a href="../index.html#projects"><span class="num">1</span> Projects</a></li>
+        <li><span class="step" aria-current="step"><span class="num">2</span> Details</span></li>
+        <li><a href="https://github.com/vipul21435/SilverPass"><span class="num">3</span> Code on GitHub</a></li>
+      </ol>
+      <p class="eyebrow">Open source | Express and React | Accessibility first</p>
+      <h1 id="title">SilverPass</h1>
+      <p class="lede">A demo passport-services app built for someone who is 78, has never used a government website and cannot read 16px type. People compare services, work through a document checklist, book a quiet appointment and track their passport by reference number, with the interface in English or Hindi.</p>
+      <ul class="chips"><li>React 18</li><li>Vite</li><li>Express</li><li>MongoDB</li><li>Zod</li><li>node:test</li><li>Vitest</li><li>Testing Library</li><li>GitHub Actions</li></ul>
+      <div class="cta">
+        <a class="btn btn-gold" href="https://github.com/vipul21435/SilverPass">View the code on GitHub</a>
+        <a class="btn btn-ghost" href="#access">What makes it accessible</a>
+      </div>
+      <dl class="d-figs">
+        <div class="tile"><dt>135</dt><dd>tests: 92 on the server, 43 in the web client</dd></div>
+        <div class="tile"><dt>20px</dt><dd>base text, with two larger steps</dd></div>
+        <div class="tile"><dt>2</dt><dd>storage backends held to one contract test</dd></div>
+        <div class="tile"><dt>135</dt><dd>interface strings in each of English and Hindi</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="overview" aria-labelledby="overview-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">Overview</p>
+        <h2 id="overview-h">What it does</h2>
+        <div class="prose">
+          <p>People compare five passport services, start an application with a checklist of the documents they need and a fee quote, submit it, book a slot at one of five centres, and follow it by reference number without needing an account. The 10% senior concession is worked out from the applicant's date of birth.</p>
+          <p>It is a demonstration project. It is not affiliated with the Passport Seva Kendra or the Ministry of External Affairs, and it submits nothing real. The centres are made up too.</p>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>Web app, npm workspaces monorepo</dd></div>
+        <div><dt>Server</dt><dd>Express, Zod validation, JWT sign-in</dd></div>
+        <div><dt>Client</dt><dd>React 18 and Vite</dd></div>
+        <div><dt>Storage</dt><dd>JSON file or MongoDB, chosen at boot</dd></div>
+        <div><dt>Tests</dt><dd>135 with node:test, supertest and Vitest</dd></div>
+        <div><dt>Status</dt><dd>Demo, not a government service</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="access" aria-labelledby="access-h">
+    <div class="wrap">
+      <p class="eyebrow">Accessibility</p>
+      <h2 id="access-h">Designed around a 78-year-old first-time user</h2>
+      <div class="decisions">
+        <div class="decision"><h3>Large text by default</h3><p>Body text starts at 20px and steps up to 24px and about 29px from the bar at the top of every page. Lines stop at 62 characters and every target is at least 48px. Anyone who registers aged 60 or over starts with large text already on.</p></div>
+        <div class="decision"><h3>High contrast on request</h3><p>One switch turns the whole site black on white with flat tints, no shadows and a thicker focus ring.</p></div>
+        <div class="decision"><h3>English and Hindi</h3><p>The language buttons switch all 135 interface strings and the page's <code>lang</code> attribute together. A test fails the build if either language is missing a key or a placeholder.</p></div>
+        <div class="decision"><h3>Keyboard and screen readers</h3><p>A skip link, proper landmarks, fields whose hints and errors are tied to them with <code>aria-describedby</code>, errors announced straight away and everything else announced politely, a visible focus ring and respect for reduced motion.</p></div>
+        <div class="decision"><h3>Plain words, hard-to-misread codes</h3><p>Statuses and errors are written in plain language. Reference numbers leave out 0, O, 1 and I, and the centre picker shows step-free access and wheelchair availability up front.</p></div>
+        <div class="decision"><h3>Quiet slots for older people</h3><p>Every day at every centre, the first four half-hour slots are held for people aged 60 and over. In the words of the docs: "Queueing is the single biggest barrier... the quietest slots are reserved rather than left to whoever books fastest."</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="flow" aria-labelledby="flow-h">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 id="flow-h">Booking an appointment, from click to database</h2>
+      <ol class="stages">
+        <li class="stage"><div class="stage-card"><h3>Pick a slot</h3><p>The booking page loads the centres, the open dates and the free slots, and confirming calls the API.</p><p class="where">web/src/pages/BookAppointmentPage.jsx</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Call the API</h3><p><code>request()</code> adds the session token and turns any error response into an <code>ApiError</code> the page can show in plain words.</p><p class="where">web/src/lib/api.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Pass the middleware</h3><p>helmet headers, a CORS allow-list, a 100 KB body cap and a rate limit.</p><p class="where">server/src/app.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Authenticate and validate</h3><p><code>authenticate()</code> verifies the JWT and reloads the user. <code>validateBody()</code> checks the request against a Zod schema and answers with one clear message per field.</p><p class="where">server/src/routes/appointments.js, server/src/middleware/</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Apply the booking rules</h3><p><code>book()</code> checks, in order: the date window, that the application belongs to you, that it is not a draft or closed, that it has no booking yet, that the time exists, the quiet-slot rule and the four-seat cap. Each failure has its own status code, and wheelchair and interpreter needs are copied onto the appointment.</p><p class="where">server/src/services/appointmentService.js</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Store it</h3><p><code>buildStore()</code> picks the JSON store or MongoDB when the server starts, and the appointment is saved through the same interface either way.</p><p class="where">server/src/db/</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>Show the result</h3><p>The API answers 201 with the centre's details. Every error comes back in one shape, <code>{ error: { code, message, details } }</code>, and the application page reloads with its new status and the next steps allowed. Anyone can track by reference number, and the public tracking route returns no personal data.</p><p class="where">server/src/middleware/errorHandler.js, web/src/pages/TrackPage.jsx</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="d-sec" id="decisions" aria-labelledby="decisions-h">
+    <div class="wrap">
+      <p class="eyebrow">Engineering decisions</p>
+      <h2 id="decisions-h">Rules the code enforces</h2>
+      <div class="decisions">
+        <div class="decision"><h3>A status machine that refuses illegal jumps</h3><p>An application moves only along the arrows below. Anything else gets a 409 that lists the moves that are allowed. The comment in the code says why: an application must "never jump from, say, draft straight to delivered".</p></div>
+        <div class="decision"><h3>Two stores, one contract</h3><p>The JSON file store and the MongoDB store run the same ten contract cases: lookups by id and by email, missing rows, merging updates, per-user lists newest first, lookup by reference, seat counts that ignore cancellations, live appointments, returned copies and a full reset. The adapters are "interchangeable only if they behave identically", so the test makes sure they do.</p></div>
+        <div class="decision"><h3>Translations that cannot drift</h3><p>The strings test checks both languages for missing or extra keys, identical placeholders and empty strings. Without it, a dropped <code>{count}</code> would show up on screen as the literal text.</p></div>
+        <div class="decision"><h3>Validation at the edge</h3><p>The environment is checked with Zod when the server boots. Requests such as a booking are validated against a Zod schema before any business rule runs, and each field that fails gets its own plain message.</p></div>
+      </div>
+      <p class="code-label">Allowed status changes</p>
+      <pre class="code" tabindex="0"><code>draft                  -&gt; submitted, cancelled
+submitted              -&gt; document_verification, on_hold, cancelled
+document_verification  -&gt; police_verification, on_hold, rejected, cancelled
+police_verification    -&gt; printing, on_hold, rejected, cancelled
+printing               -&gt; dispatched, on_hold
+dispatched             -&gt; delivered
+on_hold                -&gt; document_verification, police_verification, rejected, cancelled
+<span class="c"># delivered, rejected and cancelled are final</span></code></pre>
+    </div>
+  </section>
+
+  <section class="d-sec" id="screens" aria-labelledby="screens-h">
+    <div class="wrap">
+      <p class="eyebrow">Screens</p>
+      <h2 id="screens-h">What it looks like</h2>
+      <div class="shots">
+        <figure class="shot wide"><img src="img/silverpass-home.jpg" alt="SilverPass home page in English with the text size, contrast and language controls across the top, a navy header and a large Start an application button." width="1280" height="800" loading="lazy"><figcaption>The home page. Text size, contrast and language sit above everything else.</figcaption></figure>
+        <figure class="shot"><img src="img/silverpass-quiet-slots.jpg" alt="Appointment time picker where the four slots from 9:30 to 11:00 am are marked Quiet slot and the later slots show 4 seats left." width="1280" height="800" loading="lazy"><figcaption>For an account aged 60 or over, the morning slots are marked quiet.</figcaption></figure>
+        <figure class="shot"><img src="img/silverpass-hindi-contrast.jpg" alt="A passport renewal application shown in Hindi with the largest text size and high contrast, including a status pill, the applicant details and the fee after the senior concession." width="1280" height="800" loading="lazy"><figcaption>The same app in Hindi, at the largest text size, in high contrast.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="tests" aria-labelledby="tests-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">Tests and CI</p>
+        <h2 id="tests-h">How it is checked</h2>
+        <div class="prose">
+          <p>135 tests. The server has 92, written with node:test and supertest against a throwaway store: unit 21, config 9, auth 14, applications 19, appointments 19 and the storage contract 10. The web client has 43, written with Vitest, jsdom and Testing Library: strings 5, formatting 5, accessibility 14, application 7 and user flows 12.</p>
+          <p>CI has four jobs. A quality job runs lint and the format check. The server job runs twice in a matrix, once on the JSON store and once on MongoDB 7 in Docker. The web job runs the client tests and a production build. Once the server and web jobs pass, a smoke job seeds data, boots the API, checks health, signs in and reads applications back.</p>
+        </div>
+      </div>
+      <div>
+        <p class="code-label">Run it yourself</p>
+        <pre class="code" tabindex="0"><code>git clone https://github.com/vipul21435/SilverPass.git
+cd SilverPass
+npm install
+cp .env.example .env
+npm run seed --workspace server   <span class="c"># optional demo data</span>
+npm run dev                       <span class="c"># API on :4000, web on :5173</span></code></pre>
+        <div class="prose"><p>Needs Node 20.11 or newer. The demo sign-ins are listed in the README.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="source" aria-labelledby="source-h">
+    <div class="wrap">
+      <div class="repo">
+        <div>
+          <p class="eyebrow">Step 3 of 3</p>
+          <h2 id="source-h">The code</h2>
+          <p>The Express API, the React client, both storage adapters, the tests, the CI workflow and the accessibility notes are all in the repository.</p>
+          <p class="path">github.com/vipul21435/SilverPass</p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-gold" href="https://github.com/vipul21435/SilverPass">Open on GitHub</a>
+        </div>
+      </div>
+      <nav class="pager" aria-label="More projects">
+        <a href="research-harvest.html"><span class="dir">Previous project</span>research-harvest</a>
+        <a class="next" href="coursebot360.html"><span class="dir">Next project</span>CourseBot360</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Vipul Raj Jha, Delhi, India</span>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">LinkedIn</a></li>
+      <li><a href="https://github.com/vipul21435">GitHub</a></li>
+      <li><a href="https://codeforces.com/profile/Vipul21435">Codeforces</a></li>
+      <li><a href="https://leetcode.com/u/vipul_raj_jha/">LeetCode</a></li>
+      <li><a href="https://www.instagram.com/vxpuljha/">Instagram</a></li>
+      <li><a href="mailto:vipul21435@iiitd.ac.in">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<a class="to-top" id="toTop" href="#main" aria-label="Back to top" hidden>Top</a>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>research-harvest | Vipul Raj Jha</title>
+<meta name="description" content="research-harvest searches PubMed and OpenAlex, merges and deduplicates the results, and extracts methods, cohort sizes and scores from abstracts.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:title" content="research-harvest | Vipul Raj Jha">
+<meta property="og:description" content="research-harvest searches PubMed and OpenAlex, merges and deduplicates the results, and extracts methods, cohort sizes and scores from abstracts.">
+<meta property="og:image" content="https://vipul21435.github.io/profile.jpg">
+<meta property="og:url" content="https://vipul21435.github.io/projects/research-harvest.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">VIPUL RAJ JHA<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav aria-label="Site">
+      <ul class="nav" id="nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#squad">Squad lead</a></li>
+        <li><a href="../index.html#projects" aria-current="true">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="d-hero" aria-labelledby="title">
+    <canvas data-particles="60" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <ol class="flow" aria-label="Where you are">
+        <li><a href="../index.html#projects"><span class="num">1</span> Projects</a></li>
+        <li><span class="step" aria-current="step"><span class="num">2</span> Details</span></li>
+        <li><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper"><span class="num">3</span> Code on GitHub</a></li>
+      </ol>
+      <p class="eyebrow">Open source | Python | CLI and library</p>
+      <h1 id="title">research-harvest</h1>
+      <p class="lede">A command-line tool and Python library for literature screening. It searches PubMed and OpenAlex, merges and deduplicates the results, reads every abstract for the methods used, the cohort size and the best score reported, and writes it all to JSONL, CSV or Excel.</p>
+      <ul class="chips"><li>Python 3.9+</li><li>requests</li><li>pytest</li><li>responses</li><li>ruff</li><li>openpyxl</li><li>GitHub Actions</li></ul>
+      <div class="cta">
+        <a class="btn btn-gold" href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">View the code on GitHub</a>
+        <a class="btn btn-ghost" href="#pipeline">How it works</a>
+      </div>
+      <dl class="d-figs">
+        <div class="tile"><dt>115</dt><dd>tests, all running offline</dd></div>
+        <div class="tile"><dt>95%</dt><dd>test coverage, and CI fails below 90%</dd></div>
+        <div class="tile"><dt>5</dt><dd>Python versions in CI, 3.9 to 3.13</dd></div>
+        <div class="tile"><dt>114</dt><dd>method names it recognises, in six families</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="overview" aria-labelledby="overview-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">Overview</p>
+        <h2 id="overview-h">What it does</h2>
+        <div class="prose">
+          <p>Screening papers by hand means opening every abstract to find out what was done, on how much data, and how well it worked. research-harvest does that first pass. Give it a query and it returns one row per paper with the models the abstract mentions, the size of the dataset or cohort, and the headline score, ready to sort and filter.</p>
+          <p>It talks to both catalogues over their official REST APIs and paces itself to each one's rate limit: 3 requests a second for PubMed, or 9 with an NCBI key, and 5 for OpenAlex. If one source fails, the error is recorded and the run carries on with the other.</p>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Type</dt><dd>CLI and Python library</dd></div>
+        <div><dt>Language</dt><dd>Python 3.9 or newer</dd></div>
+        <div><dt>Dependencies</dt><dd>requests, plus openpyxl for Excel output</dd></div>
+        <div><dt>Sources</dt><dd>PubMed E-utilities and OpenAlex</dd></div>
+        <div><dt>Output</dt><dd>JSONL, CSV or Excel</dd></div>
+        <div><dt>Licence</dt><dd>MIT</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="pipeline" aria-labelledby="pipeline-h">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 id="pipeline-h">From a search query to a spreadsheet</h2>
+      <ol class="stages">
+        <li class="stage"><div class="stage-card"><h3>Read the command</h3><p><code>main()</code> validates the flags, exits with status 2 on bad input, and turns the filters into a <code>FilterSpec</code>.</p><p class="where">src/research_harvest/cli.py</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Run every source</h3><p><code>harvest()</code> runs each source in turn. A <code>SourceError</code> is recorded in the result and the remaining sources still run.</p><p class="where">src/research_harvest/harvest.py</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Search PubMed</h3><p>esearch returns the matching ids as JSON, and efetch returns the records as XML, 200 per call.</p><p class="where">sources/pubmed.py</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Search OpenAlex</h3><p>Results come back page by page with a cursor, and each abstract is rebuilt from OpenAlex's inverted index. Both sources share one HTTP client with a rate limiter and produce the same <code>Article</code> model.</p><p class="where">sources/openalex.py, sources/base.py, models.py</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Clean the text</h3><p>Unescape HTML entities, strip tags and cut the copyright notices that publishers append to abstracts.</p><p class="where">pipeline/clean.py</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Remove duplicates</h3><p>Records match on DOI first, then on source id, then on normalised title. When two match, the fuller one stays: the longer abstract, then more authors, then a DOI, then a year. A report counts what was removed at each step.</p><p class="where">pipeline/dedupe.py</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Read the abstracts</h3><p><code>find_terms()</code>, <code>extract_dataset_size()</code> and <code>extract_headline_metric()</code> pull the methods, the cohort size and the best score out of each abstract.</p><p class="where">pipeline/enrich.py</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Filter</h3><p>Year range, required abstract or DOI, words that must be mentioned, method families and a minimum dataset size.</p><p class="where">pipeline/filters.py</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>Export</h3><p>JSONL to a file or to stdout, CSV, or an Excel workbook. The run summary goes to stderr, so it never mixes with the data.</p><p class="where">src/research_harvest/export.py</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="d-sec" id="decisions" aria-labelledby="decisions-h">
+    <div class="wrap">
+      <p class="eyebrow">Engineering decisions</p>
+      <h2 id="decisions-h">The parts that took the most thought</h2>
+      <div class="decisions">
+        <div class="decision"><h3>Narrow extraction, on purpose</h3><p>In the words of the code: anything clever enough to catch every phrasing will also catch a p-value or a year and report it as a cohort size. So a number only counts as a cohort when it sits next to a cue, as in "n = 500", "1,234 patients" or "a dataset of 2000". Values from 2 to 50,000,000 are kept, and the largest wins.</p><p>"Published in 2021 with p &lt; 0.001." gives no cohort at all.</p></div>
+        <div class="decision"><h3>Scores on one scale</h3><p>The metric name has to come right before the number, optionally joined by "of" or "=". Percentages and rates above 1 are divided by 100, anything still outside 0 to 1 is dropped, and error measures such as RMSE and MAE never outrank a rate. "accuracy of 97.8%" becomes ACCURACY 0.978.</p></div>
+        <div class="decision"><h3>Methods matched longest first</h3><p>114 method names in six families are tried longest first, so "Convolutional Neural Network" wins over "CNN". Word-boundary lookarounds stop short names from matching inside other words, so "GAN" never fires on "organ".</p></div>
+        <div class="decision"><h3>Paced to the limit, retried with care</h3><p>Requests are paced to each API's published ceiling, which the code notes is also faster than sleeping a fixed amount. HTTP 429 and 5xx responses get three attempts with backoff. Any other 4xx fails at once, because a 400 will fail the same way forever.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="demo" aria-labelledby="demo-h">
+    <div class="wrap">
+      <p class="eyebrow">Real output</p>
+      <h2 id="demo-h">Three rows from a live run</h2>
+      <div class="prose"><p>A live PubMed query for "blood brain barrier machine learning" on 24 September 2026, limited to three papers with abstracts. Where a cell says none, the extractor found nothing it was confident about.</p></div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Live output rows">
+        <table class="table">
+          <thead><tr><th scope="col">Title</th><th scope="col">Year</th><th scope="col">Methods</th><th scope="col">Dataset size</th><th scope="col">Best score</th></tr></thead>
+          <tbody>
+            <tr><td>Blood Brain Barrier Permeability Prediction Using Machine Learning Techniques: An Update</td><td class="num">2019</td><td class="none">none</td><td class="none">none</td><td class="none">none</td></tr>
+            <tr><td>Machine learning based dynamic consensus model for predicting blood-brain barrier permeability</td><td class="num">2023</td><td>XGBoost; Random Forest</td><td class="num">8153</td><td class="num">ACCURACY 0.978</td></tr>
+            <tr><td>Exploring blood-brain barrier passage using atomic weighted vector and machine learning</td><td class="num">2024</td><td>Gradient Boosting; SVM</td><td class="none">none</td><td class="num">ACCURACY 0.98</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="code-label">What deduplication reports, from the sample run in the README</p>
+      <pre class="code" tabindex="0"><code>400 record(s) in, 361 kept, 39 duplicate(s) removed (doi: 37, source id: 0, title: 2).
+12 record(s) removed by filters. 349 record(s) kept.</code></pre>
+    </div>
+  </section>
+
+  <section class="d-sec" id="tests" aria-labelledby="tests-h">
+    <div class="wrap d-cols">
+      <div>
+        <p class="eyebrow">Tests and CI</p>
+        <h2 id="tests-h">How it is checked</h2>
+        <div class="prose">
+          <p>115 tests run with pytest in under five seconds: pipeline 48, sources 26, cli 14, export 11, models 10 and harvest 6. None of them touch the network. The responses library answers every HTTP call from recorded fixtures, a real PubMed query and a set of OpenAlex works. Coverage is 95%.</p>
+          <p>The GitHub Actions workflow tests on Python 3.9, 3.10, 3.11, 3.12 and 3.13 and fails below 90% coverage, lints with ruff, and on main runs a live smoke test against PubMed that checks every row has a title and an abstract.</p>
+        </div>
+      </div>
+      <div>
+        <p class="code-label">Run it yourself</p>
+        <pre class="code" tabindex="0"><code>git clone https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper.git
+cd Web-Scraping-Tools-for-Research-Paper
+python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+pip install -e ".[dev]"
+
+research-harvest "blood brain barrier permeability" \
+  --source pubmed openalex --year-from 2018 \
+  --require-abstract --format xlsx -o out/bbb.xlsx</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="source" aria-labelledby="source-h">
+    <div class="wrap">
+      <div class="repo">
+        <div>
+          <p class="eyebrow">Step 3 of 3</p>
+          <h2 id="source-h">The code</h2>
+          <p>The package, the recorded fixtures, the test suite and the CI workflow are all in the repository. MIT licensed.</p>
+          <p class="path">github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper</p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-gold" href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">Open on GitHub</a>
+        </div>
+      </div>
+      <nav class="pager" aria-label="More projects">
+        <a href="llm-data-programme.html"><span class="dir">Previous project</span>LLM coding-data programme</a>
+        <a class="next" href="silverpass.html"><span class="dir">Next project</span>SilverPass</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Vipul Raj Jha, Delhi, India</span>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">LinkedIn</a></li>
+      <li><a href="https://github.com/vipul21435">GitHub</a></li>
+      <li><a href="https://codeforces.com/profile/Vipul21435">Codeforces</a></li>
+      <li><a href="https://leetcode.com/u/vipul_raj_jha/">LeetCode</a></li>
+      <li><a href="https://www.instagram.com/vxpuljha/">Instagram</a></li>
+      <li><a href="mailto:vipul21435@iiitd.ac.in">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<a class="to-top" id="toTop" href="#main" aria-label="Back to top" hidden>Top</a>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

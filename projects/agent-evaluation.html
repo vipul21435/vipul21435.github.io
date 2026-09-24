@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coding-agent evaluation | Vipul Raj Jha</title>
+<meta name="description" content="How Vipul Raj Jha builds hard, verifiable tasks, reproducible environments and submission tooling for evaluating AI coding agents at Handshake.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:title" content="Coding-agent evaluation | Vipul Raj Jha">
+<meta property="og:description" content="How Vipul Raj Jha builds hard, verifiable tasks, reproducible environments and submission tooling for evaluating AI coding agents at Handshake.">
+<meta property="og:image" content="https://vipul21435.github.io/profile.jpg">
+<meta property="og:url" content="https://vipul21435.github.io/projects/agent-evaluation.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">VIPUL RAJ JHA<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav aria-label="Site">
+      <ul class="nav" id="nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#squad">Squad lead</a></li>
+        <li><a href="../index.html#projects" aria-current="true">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="d-hero" aria-labelledby="title">
+    <canvas data-particles="60" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <ol class="flow" aria-label="Where you are">
+        <li><a href="../index.html#projects"><span class="num">1</span> Projects</a></li>
+        <li><span class="step" aria-current="step"><span class="num">2</span> Details</span></li>
+        <li><span class="step off"><span class="num">3</span> Source: private client work</span></li>
+      </ol>
+      <p class="eyebrow">Professional | Handshake | Jul 2026 to present</p>
+      <h1 id="title">Coding-agent evaluation</h1>
+      <p class="lede">At Handshake I build hard, verifiable tasks for testing AI coding agents, the environments those tasks run in, and the tooling that carries each one through review. Every submission I have made across three programmes has been accepted.</p>
+      <ul class="chips"><li>Docker</li><li>pytest</li><li>Python</li><li>Integer linear algebra</li><li>Modular arithmetic</li><li>Git and pull requests</li></ul>
+      <div class="cta">
+        <a class="btn btn-gold" href="#tasks">How a task is built</a>
+        <a class="btn btn-ghost" href="../index.html#contact">Ask me about it</a>
+      </div>
+      <dl class="d-figs">
+        <div class="tile"><dt>100%</dt><dd>of my submissions accepted</dd></div>
+        <div class="tile"><dt>3</dt><dd>programmes worked on</dd></div>
+        <div class="tile"><dt>byte-exact</dt><dd>grading of the agent's real output</dd></div>
+        <div class="tile"><dt>1 Dockerfile</dt><dd>builds the environment for agent and verifier</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="d-sec" id="tasks" aria-labelledby="tasks-h">
+    <div class="wrap">
+      <p class="eyebrow">Workstream 1</p>
+      <h2 id="tasks-h">Adversarial evaluation tasks</h2>
+      <div class="prose">
+        <p>A task is only useful if a strong model can fail it for a real reason. Mine have to meet three conditions at the same time. The naive reading of the data looks correct and is wrong. The cases that decide the answer are hidden from the sample the agent sees, yet fully determined by it. And the result can still be graded byte-exact, so passing or failing is never a judgement call.</p>
+        <p>Each task ships self-contained. This is the path one task takes from idea to accepted submission.</p>
+      </div>
+      <ol class="stages">
+        <li class="stage"><div class="stage-card"><h3>Design the trap</h3><p>Choose a problem where the obvious interpretation of the data is plausible and wrong, and where the deciding cases never appear in the sample but follow from it.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Generate the data</h3><p>Build a synthetic corpus for the task instead of borrowing real data, which keeps every case that matters under control.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Prove there is exactly one answer</h3><p>Show computationally that the corpus admits exactly one consistent interpretation. Where a task hides structure, I recover it with integer linear algebra and modular arithmetic.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Write the reference solution</h3><p>Solve the task by genuine computation, the way an agent would have to, with nothing hard-coded.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Pin the environment</h3><p>A digest-pinned Dockerfile builds the environment for both the agent and the verifier, so both work against the same pinned environment.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Grade the real output</h3><p>A pytest suite checks what the agent actually produced, byte-exact, instead of matching strings in its answer.</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>Pass the review gates</h3><p>The task goes in as a pull request and iterates against automated review gates until every check is green. Across three programmes, every one of my submissions has been accepted.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="d-sec" id="environments" aria-labelledby="env-h">
+    <div class="wrap">
+      <p class="eyebrow">Workstream 2</p>
+      <h2 id="env-h">Repositories rebuilt at a historical commit</h2>
+      <div class="prose">
+        <p>Some tasks start from real open-source code. The job is to take an arbitrary repository at a specific commit from its history and make it build and test again, reproducibly.</p>
+      </div>
+      <ol class="stages">
+        <li class="stage"><div class="stage-card"><h3>Check out the commit</h3><p>Start from the exact historical commit the task is based on.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Write a build recipe</h3><p>Capture how that repository builds in its own recipe, so the environment comes out the same every time it is rebuilt.</p></div></li>
+        <li class="stage"><div class="stage-card"><h3>Pin until the suite flips</h3><p>Pin dependencies until the test suite that failed before the fix passes after it.</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>Verify against the reference</h3><p>Confirm that fail-to-pass flip against the reference solution before the environment ships.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="d-sec" id="tooling" aria-labelledby="tool-h">
+    <div class="wrap">
+      <p class="eyebrow">Workstream 3</p>
+      <h2 id="tool-h">Submission pipeline tooling</h2>
+      <div class="prose">
+        <p>Tasks move through a submission pipeline that spans several folders, and a pipeline like that will happily build the same thing twice. I wrote the tooling that stops it.</p>
+      </div>
+      <div class="decisions">
+        <div class="decision"><h3>Per-repository build recipes</h3><p>Every repository gets its own recipe, so its environment can be rebuilt the same way on any day.</p></div>
+        <div class="decision"><h3>Collision detection</h3><p>New work is checked against a shared ledger, so two submissions do not end up covering the same ground.</p></div>
+        <div class="decision"><h3>Build locks</h3><p>Only one build of the same thing can run at a time.</p></div>
+        <div class="decision"><h3>Dedupe caches</h3><p>Work that has already been built is recognised and reused instead of being built again.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="source" aria-labelledby="source-h">
+    <div class="wrap">
+      <div class="repo">
+        <div>
+          <p class="eyebrow">Step 3 of 3</p>
+          <h2 id="source-h">Source code</h2>
+          <p>This work belongs to the client, so the tasks, environments and tools are not public. Ask me about the engineering, or read the code of my open-source projects.</p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-gold" href="../index.html#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="research-harvest.html">Open-source work</a>
+        </div>
+      </div>
+      <nav class="pager" aria-label="More projects">
+        <a href="cab-booking.html"><span class="dir">Previous project</span>Cab Booking System</a>
+        <a class="next" href="llm-data-programme.html"><span class="dir">Next project</span>LLM coding-data programme</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Vipul Raj Jha, Delhi, India</span>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">LinkedIn</a></li>
+      <li><a href="https://github.com/vipul21435">GitHub</a></li>
+      <li><a href="https://codeforces.com/profile/Vipul21435">Codeforces</a></li>
+      <li><a href="https://leetcode.com/u/vipul_raj_jha/">LeetCode</a></li>
+      <li><a href="https://www.instagram.com/vxpuljha/">Instagram</a></li>
+      <li><a href="mailto:vipul21435@iiitd.ac.in">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<a class="to-top" id="toTop" href="#main" aria-label="Back to top" hidden>Top</a>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>
