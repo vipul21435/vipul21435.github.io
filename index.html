@@ -4,272 +4,300 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vipul Raj Jha</title>
-<meta name="description" content="Vipul Raj Jha, AI Data Engineer in Delhi. Evaluation environments and tooling for coding agents, and four rebuilt projects with the before and after.">
+<meta name="description" content="Vipul Raj Jha, AI Data Engineer at Handshake. Evaluation environments and tooling for coding agents, squad lead for a team of 35 at Scale AI, and four rebuilt open-source projects.">
+<meta name="theme-color" content="#0f0028">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700;800&display=swap">
 <style>
 :root {
-  color-scheme: light;
-  --paper: #f2f5f7;
-  --surface: #ffffff;
-  --ink: #15202b;
-  --muted: #556473;
-  --rule: #d5dde4;
-  --accent: #1e5a9c;
-  --accent-soft: #e2ecf6;
-  --del-ink: #8e2424;
-  --del-bg: #fbeaea;
-  --add-ink: #17613d;
-  --add-bg: #e5f3ea;
-  --focus: #1e5a9c;
-
-  --f-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-  --s-0: 0.875rem;
-  --s-1: 1.0625rem;
-  --s-2: 1.25rem;
-  --s-3: 1.625rem;
-  --s-4: clamp(2.5rem, 7vw, 4.25rem);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --paper: #10161d;
-    --surface: #161e27;
-    --ink: #e4e9ee;
-    --muted: #9aa8b6;
-    --rule: #2a3542;
-    --accent: #8cb8ec;
-    --accent-soft: #1a2a3c;
-    --del-ink: #f3aaaa;
-    --del-bg: #2b1a1c;
-    --add-ink: #9fdbb7;
-    --add-bg: #14261c;
-    --focus: #8cb8ec;
-  }
-}
-:root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #10161d;
-  --surface: #161e27;
-  --ink: #e4e9ee;
-  --muted: #9aa8b6;
-  --rule: #2a3542;
-  --accent: #8cb8ec;
-  --accent-soft: #1a2a3c;
-  --del-ink: #f3aaaa;
-  --del-bg: #2b1a1c;
-  --add-ink: #9fdbb7;
-  --add-bg: #14261c;
-  --focus: #8cb8ec;
+  --bg: #0f0028;
+  --bg-2: #160735;
+  --card: #1d0c42;
+  --card-2: #261256;
+  --line: #3b2372;
+  --ink: #f2edff;
+  --muted: #bcaedf;
+  --violet: #8033fc;
+  --violet-2: #a979ff;
+  --gold: #ffbf00;
+  --pink: #f44185;
+  --was: #ff9fb8;
+  --was-bg: #3a0f2e;
+  --now: #8fe8b6;
+  --now-bg: #0f2f2a;
+
+  --f-sans: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bar-h: 4.25rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-
+html { scroll-padding-top: calc(var(--bar-h) + 0.75rem); }
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
-  font-family: var(--f-body);
-  font-size: var(--s-1);
-  line-height: 1.6;
+  font-family: var(--f-sans);
+  font-size: 1rem;
+  line-height: 1.7;
   -webkit-text-size-adjust: 100%;
 }
-
-a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
-
+img, svg, canvas { max-width: 100%; }
+a { color: var(--violet-2); }
+a:hover { color: var(--gold); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip {
-  position: absolute; left: 1rem; top: -4rem;
-  background: var(--ink); color: var(--paper);
-  padding: 0.6rem 1rem; font-family: var(--f-display); font-weight: 700;
-  z-index: 10;
+  position: absolute; left: 1rem; top: -5rem; z-index: 50;
+  background: var(--gold); color: var(--bg); font-weight: 700;
+  padding: 0.6rem 1rem; border-radius: 6px; text-decoration: none;
 }
 .skip:focus { top: 1rem; }
 
-.wrap {
-  max-width: 64rem;
-  margin: 0 auto;
-  padding-inline: max(1rem, env(safe-area-inset-left, 0px));
-}
+.wrap { max-width: 72rem; margin: 0 auto; padding-inline: max(1rem, env(safe-area-inset-left, 0px)); }
 
 /* Top bar */
 .bar {
-  border-bottom: 1px solid var(--rule);
+  position: fixed; inset: 0 0 auto 0; z-index: 40;
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.bar .wrap {
-  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
-  gap: 0.5rem 1.5rem;
-  padding-block: 1rem;
+.bar.scrolled { background: rgba(15, 0, 40, 0.92); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(8px); }
+.bar .wrap { height: var(--bar-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.logo { color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: 0.06em; font-size: 1.05rem; }
+.logo span { color: var(--gold); }
+.menu-btn {
+  display: none; background: none; color: var(--ink); font: 600 0.9rem var(--f-sans);
+  border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 1rem; cursor: pointer;
 }
-.bar .name {
-  font-family: var(--f-display); font-weight: 800; font-size: var(--s-1);
-  color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
+.nav { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
+.nav a {
+  display: block; color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.92rem;
+  padding: 0.4rem 0.8rem; border-radius: 999px; transition: color 0.2s, background-color 0.2s;
 }
-.bar ul {
-  list-style: none; margin: 0; padding: 0;
-  display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem;
-  font-family: var(--f-display); font-weight: 500; font-size: var(--s-0);
-}
-.bar ul a { color: var(--muted); text-decoration: none; }
-.bar ul a:hover { color: var(--ink); text-decoration: underline; }
+.nav a:hover { color: var(--ink); background: var(--card); }
+.nav a[aria-current="true"] { color: var(--bg); background: var(--gold); }
 
 /* Hero */
-.hero { padding-block: clamp(2.5rem, 7vw, 5rem) 2.5rem; }
+.hero {
+  position: relative; overflow: hidden;
+  min-height: min(100svh, 52rem);
+  display: grid; align-items: center;
+  background: linear-gradient(180deg, #0f0028 0%, #2a0c62 55%, #5a22c4 100%);
+  padding-block: calc(var(--bar-h) + 3rem) 9rem;
+}
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-inner { position: relative; z-index: 2; width: 100%; }
+.hello { margin: 0; color: var(--gold); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.9rem; }
 .hero h1 {
-  font-family: var(--f-display); font-weight: 800;
-  font-size: var(--s-4); line-height: 1.02; letter-spacing: -0.03em;
-  margin: 0 0 1.25rem;
-  text-wrap: balance;
+  margin: 0.4rem 0 0.2rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em;
+  font-size: clamp(2.75rem, 9vw, 5.75rem);
 }
-.hero h1 .who {
-  display: block;
-  font-size: var(--s-2); font-weight: 500; letter-spacing: 0;
-  color: var(--muted); margin-bottom: 0.75rem;
+.typed-line { margin: 0; font-size: clamp(1.25rem, 3.4vw, 2rem); font-weight: 600; min-height: 1.6em; }
+.typed {
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.hero .lede { font-size: var(--s-2); line-height: 1.5; max-width: 38rem; margin: 0 0 0.75rem; }
-.hero .lede + .lede { font-size: var(--s-1); }
-.hero .where { color: var(--muted); margin: 0; }
-
-.figures {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0; margin: 2.5rem 0 0; padding: 0;
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+.caret { display: inline-block; width: 0.08em; height: 1em; margin-left: 0.1em; background: var(--gold); vertical-align: -0.12em; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero .intro { max-width: 36rem; color: var(--muted); font-size: 1.08rem; margin: 1rem 0 2rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font: 600 1rem var(--f-sans); text-decoration: none; cursor: pointer;
+  padding: 0.8rem 1.5rem; border-radius: 999px; border: 2px solid transparent;
+  transition: transform 0.2s ease, background-color 0.2s, color 0.2s;
 }
-.figures div { padding: 1rem 1.25rem 1.1rem 0; }
-.figures div + div { padding-left: 1.25rem; border-left: 1px solid var(--rule); }
-.figures dt {
-  font-family: var(--f-mono); font-weight: 500; font-size: var(--s-3);
-  font-variant-numeric: tabular-nums; letter-spacing: -0.02em; color: var(--ink);
-}
-.figures dd { margin: 0.2rem 0 0; font-size: var(--s-0); line-height: 1.45; color: var(--muted); }
+.btn:hover { transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--bg); }
+.btn-gold:hover { background: #ffd24d; color: var(--bg); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: rgba(15, 0, 40, 0.35); }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+.mountains { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 1; pointer-events: none; }
+.mountains svg { display: block; width: 100%; height: clamp(7rem, 18vw, 14rem); }
+.m1 { fill: #3a168a; }
+.m2 { fill: #22094f; }
+.m3 { fill: #0f0028; }
 
 /* Sections */
-section { padding-block: 3rem; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
-.hero + section { border-top: 0; }
-.sec {
-  display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem 2.5rem;
+.sec { padding-block: 5.5rem; }
+.sec-alt { background: var(--bg-2); }
+.head { text-align: center; margin: 0 auto 3rem; max-width: 42rem; }
+.eyebrow { margin: 0; color: var(--gold); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.head h2 {
+  margin: 0.3rem 0 0; font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 800; line-height: 1.15;
+  background: linear-gradient(90deg, var(--ink) 20%, var(--violet-2)); -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-wrap: balance;
 }
-.sec > h2 {
-  font-family: var(--f-display); font-weight: 700; font-size: var(--s-0);
-  text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
-  margin: 0.35rem 0 0;
-}
-.sec > .body { min-width: 0; }
-.body > p, .body > ul { max-width: 40rem; }
+.head p.sub { color: var(--muted); margin: 0.8rem 0 0; }
 
-/* Work */
-.job { display: grid; gap: 0.6rem; }
-.job + .job { margin-top: 2.25rem; padding-top: 2.25rem; border-top: 1px dashed var(--rule); }
-.job header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
-.job h3 { font-family: var(--f-display); font-weight: 700; font-size: var(--s-2); margin: 0; letter-spacing: -0.01em; }
-.when { font-family: var(--f-mono); font-size: var(--s-0); color: var(--muted); font-variant-numeric: tabular-nums; }
-.job p { margin: 0; max-width: 40rem; }
-.job ul { margin: 0; padding-left: 1.15rem; max-width: 40rem; display: grid; gap: 0.4rem; }
-.job li::marker { color: var(--muted); }
-.job .summary { color: var(--muted); }
-.streams { display: grid; gap: 1.1rem; margin-top: 0.4rem; }
-.stream { display: grid; gap: 0.3rem; padding-left: 1rem; border-left: 2px solid var(--rule); }
-.stream h4 { font-family: var(--f-display); font-weight: 700; font-size: var(--s-1); margin: 0; }
-.stream .tag { font-family: var(--f-mono); font-size: 0.78rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 3rem; align-items: start; }
+.about p { margin: 0 0 1rem; color: var(--muted); font-size: 1.05rem; }
+.about p strong { color: var(--ink); font-weight: 600; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; margin: 0; }
+.tile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.2rem; }
+.tile dt { font-family: var(--f-mono); font-weight: 500; font-size: 1.75rem; line-height: 1.2; color: var(--gold); font-variant-numeric: tabular-nums; }
+.tile dd { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.45; }
 
-.lead {
-  background: var(--surface); border: 1px solid var(--rule); border-radius: 6px;
-  padding: clamp(1rem, 3vw, 1.5rem); display: grid; gap: 0.8rem; scroll-margin-top: 1rem;
-}
-.lead .eyebrow {
-  font-family: var(--f-display); font-weight: 700; font-size: 0.78rem;
-  text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 0;
-}
-.lead h4 { font-family: var(--f-display); font-weight: 800; font-size: var(--s-2); margin: 0; letter-spacing: -0.01em; }
-.lead ol { margin: 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; max-width: 40rem; }
-.lead ol li::marker { font-family: var(--f-mono); color: var(--muted); font-size: 0.85em; }
-.lead-figs { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; margin: 0.2rem 0 0; padding-top: 0.8rem; border-top: 1px solid var(--rule); }
-.lead-figs div { display: grid; gap: 0.1rem; }
-.lead-figs dt { font-family: var(--f-mono); font-weight: 500; font-size: var(--s-2); font-variant-numeric: tabular-nums; }
-.lead-figs dd { margin: 0; font-size: var(--s-0); color: var(--muted); }
+/* Skills */
+.skills { display: grid; gap: 1.2rem; max-width: 56rem; margin: 0 auto; }
+.skill { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem 1.5rem; display: grid; gap: 0.8rem; }
+.skill .say { margin: 0; font-size: clamp(1.1rem, 2.6vw, 1.4rem); font-weight: 600; }
+.skill .rot { color: var(--gold); display: inline-block; min-width: 8ch; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.chips li { font-size: 0.84rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: var(--card-2); border: 1px solid var(--line); color: var(--ink); }
+.chips li.on { background: var(--violet); border-color: var(--violet); }
 
-.stat {
-  font-family: var(--f-mono); font-size: 0.92em; font-weight: 500;
-  background: var(--accent-soft); color: var(--ink);
-  padding: 0.05em 0.35em; border-radius: 3px; white-space: nowrap;
+/* Experience */
+.timeline { list-style: none; margin: 0 auto; padding: 0; max-width: 56rem; position: relative; display: grid; gap: 1.6rem; }
+.timeline::before { content: ""; position: absolute; left: 0.55rem; top: 0.5rem; bottom: 0.5rem; width: 2px; background: linear-gradient(var(--gold), var(--violet), transparent); }
+.job { position: relative; padding-left: 2.6rem; }
+.job::before { content: ""; position: absolute; left: 0.15rem; top: 1.6rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--bg); border: 3px solid var(--gold); }
+.job-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.4rem 1.5rem; }
+.job-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.2rem 1rem; }
+.job h3 { margin: 0; font-size: 1.3rem; font-weight: 700; }
+.when { font-family: var(--f-mono); font-size: 0.82rem; color: var(--muted); }
+.role { margin: 0.1rem 0 0.8rem; color: var(--gold); font-weight: 600; font-size: 0.98rem; }
+.job ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.45rem; color: var(--muted); }
+.job li::marker { color: var(--violet-2); }
+.job li strong { color: var(--ink); font-weight: 600; }
+
+/* Squad lead */
+.squad {
+  background: linear-gradient(135deg, #2b0f63 0%, #1a0842 60%, #0f0028 100%);
+  border: 1px solid var(--line); border-radius: 22px; padding: clamp(1.5rem, 4vw, 3rem);
+  display: grid; gap: 2rem;
 }
+.squad-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; }
+.squad-top p { margin: 0; color: var(--muted); font-size: 1.08rem; max-width: 38rem; }
+.squad-top p strong { color: var(--ink); }
+.big35 { text-align: center; }
+.big35 b { display: block; font-size: clamp(4.5rem, 12vw, 7rem); line-height: 1; font-weight: 800; background: linear-gradient(180deg, var(--gold), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.big35 span { color: var(--muted); font-size: 0.9rem; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; counter-reset: step; }
+.steps li { counter-increment: step; background: rgba(15, 0, 40, 0.55); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem; }
+.steps li::before { content: "0" counter(step); content: "0" counter(step) / ""; display: block; font-family: var(--f-mono); color: var(--gold); font-size: 0.85rem; margin-bottom: 0.3rem; }
+.steps h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+.steps p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
+.squad-figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.squad-figs dt { font-family: var(--f-mono); font-size: 1.6rem; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+.squad-figs dd { margin: 0; color: var(--muted); font-size: 0.88rem; }
 
 /* Projects */
-.intro { margin: 0 0 2rem; color: var(--muted); max-width: 40rem; }
-.projects { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
-.project {
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: clamp(1.1rem, 3vw, 1.75rem);
-  display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; min-width: 0;
+.filters { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem; margin: 0 0 1rem; }
+.filters .lbl { color: var(--muted); font-size: 0.9rem; margin-right: 0.3rem; }
+.filters button {
+  font: 500 0.9rem var(--f-sans); color: var(--ink); background: var(--card); cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 1.1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
-.project header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
-.project h3 { font-family: var(--f-display); font-weight: 800; font-size: var(--s-3); letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
-.project h3 a { color: var(--ink); text-decoration: none; }
-.project h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
-.tech { font-family: var(--f-mono); font-size: var(--s-0); color: var(--muted); }
-.project > p { margin: 0; max-width: 42rem; }
-
-.diff {
-  font-family: var(--f-mono); font-size: 0.85rem; line-height: 1.55;
-  border: 1px solid var(--rule); border-radius: 4px; overflow: hidden;
+.filters button:hover { border-color: var(--gold); }
+.filters button[aria-pressed="true"] { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.filter-status { text-align: center; color: var(--muted); font-size: 0.88rem; margin: 0 0 2rem; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+  display: flex; flex-direction: column; min-width: 0;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.diff h4 {
-  margin: 0; padding: 0.45rem 0.9rem;
-  font-family: var(--f-mono); font-weight: 500; font-size: 0.78rem;
-  letter-spacing: 0.04em; color: var(--muted);
-  border-bottom: 1px solid var(--rule);
+.card:hover { transform: translateY(-4px); border-color: var(--violet); box-shadow: 0 18px 40px -20px rgba(128, 51, 252, 0.7); }
+.cover {
+  position: relative; height: 7.5rem; padding: 1rem 1.2rem; display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(135deg, var(--c1, #5a22c4), var(--c2, #1d0c42));
 }
-.diff ul { list-style: none; margin: 0; padding: 0.4rem 0; }
-.diff li { padding: 0.12rem 0.9rem 0.12rem 2.2rem; position: relative; }
-.diff li::before { position: absolute; left: 0.9rem; font-weight: 500; }
-.diff .was { background: var(--del-bg); color: var(--del-ink); }
-.diff .was li::before { content: "-"; content: "-" / ""; }
-.diff .now { background: var(--add-bg); color: var(--add-ink); }
-.diff .now li::before { content: "+"; content: "+" / ""; }
-.diff .was + .now { border-top: 1px solid var(--rule); }
-.diff code { font-family: inherit; }
+.cover .kind { align-self: flex-start; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(15, 0, 40, 0.55); padding: 0.2rem 0.65rem; border-radius: 999px; }
+.cover code { font-family: var(--f-mono); font-size: 0.85rem; color: #fff; opacity: 0.92; overflow-wrap: anywhere; }
+.cover code::before { content: "$ "; content: "$ " / ""; color: var(--gold); }
+.card-body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
+.card h3 { margin: 0; font-size: 1.3rem; line-height: 1.25; }
+.card .org { margin: -0.5rem 0 0; color: var(--gold); font-size: 0.88rem; font-weight: 500; }
+.card p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.65; }
+.card code { font-family: var(--f-mono); font-size: 0.85em; }
+.ba { display: grid; gap: 0.5rem; font-size: 0.88rem; line-height: 1.5; }
+.ba div { border-radius: 10px; padding: 0.6rem 0.8rem; }
+.ba .was { background: var(--was-bg); color: var(--was); }
+.ba .now { background: var(--now-bg); color: var(--now); }
+.ba b { display: block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.1rem; }
+.card .chips li { font-size: 0.78rem; padding: 0.15rem 0.6rem; }
+.card-links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; padding-top: 0.4rem; }
+.card-links a { font-weight: 600; font-size: 0.92rem; text-decoration: none; color: var(--gold); }
+.card-links a:hover { text-decoration: underline; }
+.card-links .private { font-size: 0.85rem; color: var(--muted); }
 
-.sample {
-  margin: 0; font-family: var(--f-mono); font-size: 0.8rem; line-height: 1.5;
-  background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
-  padding: 0.75rem 0.9rem; overflow-x: auto; white-space: pre;
-}
-.sample-label { font-family: var(--f-display); font-size: var(--s-0); color: var(--muted); margin: 0 0 -0.5rem; }
-
-.note { margin: 0; font-size: var(--s-0); color: var(--muted); max-width: 42rem; font-style: italic; }
-
-.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; font-family: var(--f-display); font-weight: 500; font-size: var(--s-0); }
-
-/* Stack */
-.stack { display: grid; gap: 0.9rem; margin: 0; }
-.stack div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 0.25rem 1rem; }
-.stack dt { font-family: var(--f-display); font-weight: 700; font-size: var(--s-0); padding-top: 0.15rem; }
-.stack dd { margin: 0; }
+/* Achievements */
+.wins { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.win { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; display: grid; gap: 0.4rem; align-content: start; }
+.win b { font-family: var(--f-mono); font-weight: 500; font-size: 1.9rem; color: var(--gold); line-height: 1.2; }
+.win h3 { margin: 0; font-size: 1.02rem; }
+.win p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
 
 /* Contact */
-.contact { display: grid; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
-.contact li { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; align-items: baseline; }
-.contact .k { font-family: var(--f-display); font-weight: 700; font-size: var(--s-0); color: var(--muted); }
-.contact a { overflow-wrap: anywhere; }
-
-footer.foot { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color: var(--muted); font-size: var(--s-0); }
-
-@media (max-width: 760px) {
-  .sec { grid-template-columns: minmax(0, 1fr); }
-  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .figures div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .figures div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+.contact { position: relative; overflow: hidden; background: linear-gradient(0deg, #30073f 0%, #1c0845 60%, var(--bg-2) 100%); }
+.contact canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.contact .wrap { position: relative; z-index: 1; }
+.connect { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.form { background: rgba(15, 0, 40, 0.7); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem; display: grid; gap: 1rem; }
+.form label { display: grid; gap: 0.35rem; font-weight: 500; font-size: 0.92rem; }
+.form input, .form textarea {
+  font: 400 1rem var(--f-sans); color: var(--ink); background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; padding: 0.7rem 0.9rem; width: 100%;
 }
-@media (max-width: 480px) {
-  .stack div, .contact li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
-  .figures dt { font-size: var(--s-2); }
+.form textarea { min-height: 8rem; resize: vertical; }
+.form input:focus-visible, .form textarea:focus-visible { outline-offset: 1px; }
+.form .hint { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.form .btn { justify-self: start; }
+.reach { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
+.reach li { background: rgba(15, 0, 40, 0.7); border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1.1rem; display: grid; gap: 0.1rem; }
+.reach .k { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.reach a { color: var(--ink); font-weight: 500; overflow-wrap: anywhere; text-decoration: none; }
+.reach a:hover { color: var(--gold); text-decoration: underline; }
+.mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
+.copy { font: 600 0.8rem var(--f-sans); background: var(--card-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.8rem; cursor: pointer; }
+.copy:hover { border-color: var(--gold); }
+
+footer { background: var(--bg); border-top: 1px solid var(--line); padding-block: 1.6rem 2rem; color: var(--muted); font-size: 0.9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.6rem 1.5rem; }
+footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0; padding: 0; }
+footer a { color: var(--muted); }
+
+.to-top {
+  position: fixed; right: max(1rem, env(safe-area-inset-right, 0px)); bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 30;
+  background: var(--gold); color: var(--bg); font: 700 0.85rem var(--f-sans); text-decoration: none;
+  width: 3.2rem; height: 3.2rem; border-radius: 50%; display: grid; place-items: center;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
+}
+.to-top:hover { color: var(--bg); transform: translateY(-2px); }
+
+@media (max-width: 900px) {
+  .about, .connect { grid-template-columns: minmax(0, 1fr); }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wins { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .menu-btn { display: inline-block; }
+  .nav {
+    position: absolute; top: calc(var(--bar-h) + env(safe-area-inset-top, 0px)); left: 0; right: 0;
+    flex-direction: column; gap: 0; padding: 0.5rem 1rem 1rem;
+    background: rgba(15, 0, 40, 0.97); border-bottom: 1px solid var(--line);
+  }
+  .nav a { padding: 0.7rem 1rem; }
+  .bar:not(.open) .nav { display: none; }
+  .bar.open { background: rgba(15, 0, 40, 0.97); }
+}
+@media (max-width: 680px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .squad-top { grid-template-columns: minmax(0, 1fr); }
+  .big35 { text-align: left; }
+  .squad-figs { grid-template-columns: minmax(0, 1fr); }
+  .sec { padding-block: 4rem; }
+}
+@media (max-width: 440px) {
+  .steps, .wins, .tiles { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .card:hover, .btn:hover { transform: none; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -279,256 +307,376 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; c
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<nav class="bar" aria-label="Site">
+<header class="bar" id="bar">
   <div class="wrap">
-    <a class="name" href="#top">Vipul Raj Jha</a>
-    <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#squad">Squad lead</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a class="logo" href="#home">VIPUL RAJ JHA<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav aria-label="Sections">
+      <ul class="nav" id="nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#squad">Squad lead</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>
 
-<main id="main" class="wrap">
+<main id="main">
 
-  <header class="hero" id="top">
-    <h1><span class="who">Vipul Raj Jha</span>AI Data Engineer.</h1>
-    <p class="lede">I build evaluation environments and tooling for coding agents. Containers that build and verify reproducibly, tasks hard enough to defeat frontier models, and the pipelines that gate all of it.</p>
-    <p class="lede">Before that I was a squad lead at Scale AI, running an LLM coding-data programme from scoping through delivery.</p>
-    <p class="where">CS and Social Sciences from IIIT Delhi, 2025. Based in Delhi.</p>
-
-    <dl class="figures">
-      <div><dt>100%</dt><dd>of task submissions accepted at Handshake</dd></div>
-      <div><dt>11,000+</dt><dd>hours shipped at Scale AI, 3.9/5 average quality</dd></div>
-      <div><dt>4.3/5</dt><dd>across 51 internal quality reviews</dd></div>
-      <div><dt>1485</dt><dd>Codeforces rating, Specialist</dd></div>
-    </dl>
-  </header>
-
-  <section id="work" aria-labelledby="work-h">
-    <div class="sec">
-      <h2 id="work-h">Work</h2>
-      <div class="body">
-
-        <article class="job">
-          <header><h3>Handshake</h3><span class="when">Jul 2026 to now</span></header>
-          <p class="summary">Evaluation tasks and environments for coding agents. Every submission I have made across three programmes has been accepted, a <span class="stat">100%</span> acceptance rate.</p>
-          <div class="streams">
-            <div class="stream">
-              <h4>Adversarial evaluation tasks</h4>
-              <p>Hard, verifiable tasks for coding-agent evaluation. Each ships self-contained: a digest-pinned Dockerfile that builds the environment for both the agent and the verifier, a reference solution that solves the problem by genuine computation, and a pytest suite that grades the agent's real output instead of matching strings.</p>
-              <p>A task is only hard if the naive reading of the data looks correct and is wrong, and the deciding cases are hidden from the sample but fully determined by it. It still has to be gradeable byte-exact. Getting there has meant generating synthetic corpora, proving computationally that each admits exactly one consistent interpretation, and recovering hidden structure with integer linear algebra and modular arithmetic.</p>
-            </div>
-            <div class="stream">
-              <h4>Repositories rebuilt at a historical commit</h4>
-              <p>Reproducible environments for arbitrary open-source repositories at a specific commit. I pin dependencies until a suite that failed before a fix passes after it, then verify that flip against the reference solution.</p>
-            </div>
-            <div class="stream">
-              <h4>Submission pipeline tooling</h4>
-              <p>Per-repository build recipes, collision detection against a shared ledger, build locks, dedupe caches, and the scripts that stop a multi-folder submission pipeline from burning the same work twice. Every task goes in as a pull request and iterates against automated review gates until each check is green.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="job">
-          <header><h3>Scale AI</h3><span class="when">Jul 2025 to Jul 2026</span></header>
-          <p class="summary">A year on LLM coding and reasoning data: leading a squad, reviewing other people's work, and building the pipelines that checked it.</p>
-
-          <div class="lead" id="squad">
-            <p class="eyebrow">Squad lead</p>
-            <h4>LLM coding-data programme</h4>
-            <p>I led a distributed technical squad on this programme and owned it from scope to delivery.</p>
-            <ol>
-              <li>Scoped the task sets the squad worked from.</li>
-              <li>Wrote the evaluation rubrics and the technical assessments.</li>
-              <li>Built the review workflow.</li>
-              <li>Ran delivery.</li>
-            </ol>
-            <dl class="lead-figs">
-              <div><dt>11,000+</dt><dd>hours of task work shipped</dd></div>
-              <div><dt>3.9/5</dt><dd>average quality rating</dd></div>
-            </dl>
-          </div>
-
-          <div class="streams">
-            <div class="stream">
-              <h4>Multi-model coding and reasoning evaluation</h4>
-              <p>Lead reviewer here and on more than half the projects I was assigned. That work earned <span class="stat">4.3/5</span> across 51 internal quality reviews, a promotion into the platform's senior reviewer tier, and its top contributor designation.</p>
-            </div>
-            <div class="stream">
-              <h4>Validation, feedback and fine-tuning</h4>
-              <p>Python validation pipelines for data quality assurance and model output monitoring. RLHF and SFT feedback loops, fine-tuning with LoRA and PEFT, and RAG pipelines using Model Context Protocol for context-aware evaluation.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="job">
-          <header><h3>Zinnia Digital Services</h3><span class="when">Apr 2025 to Jun 2025</span></header>
-          <p>End-to-end QA automation in Python and Selenium for insurance client applications, and two phases of their CI/CD pipeline. Regression testing time came down about <span class="stat">65%</span>, and manual estimation lost more than three hours per release cycle. REST API contract validation across several releases.</p>
-        </article>
-
-        <article class="job">
-          <header><h3>IIIT Delhi labs</h3><span class="when">Jul 2023 to Aug 2024</span></header>
-          <ul>
-            <li>HCD Lab, with Ariel University, Israel. AI-assisted design evaluation modules in Java across 150+ structured design evaluations. Co-authored a peer-reviewed publication.</li>
-            <li>ETiDM Lab. A Blender-inspired 3D modelling application in Unity and C#, with 3-axis manipulation, validated through user testing.</li>
-          </ul>
-        </article>
-
+  <section class="hero" id="home" aria-labelledby="name">
+    <canvas id="heroField" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner" id="heroInner">
+      <p class="hello">Hi, I'm</p>
+      <h1 id="name">Vipul Raj Jha</h1>
+      <p class="typed-line" aria-hidden="true"><span class="typed" id="typed">AI Data Engineer at Handshake</span><span class="caret"></span></p>
+      <p class="sr-only">AI Data Engineer at Handshake. Squad lead for a team of 35 at Scale AI. Builder of evaluation environments for coding agents. Codeforces Specialist, rated 1485.</p>
+      <p class="intro">I build the tasks, containers and tooling used to evaluate coding agents. Most of my day is production code. Based in Delhi, India.</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="#projects">See my work</a>
+        <a class="btn btn-ghost" href="#contact">Say hello</a>
       </div>
+    </div>
+    <div class="mountains" id="mountains" aria-hidden="true">
+      <svg viewBox="0 0 1440 240" preserveAspectRatio="none" focusable="false">
+        <path class="m1" d="M0 240 L0 120 L110 70 L220 115 L340 40 L470 105 L600 55 L720 110 L850 30 L980 100 L1110 50 L1240 105 L1350 65 L1440 95 L1440 240 Z"/>
+        <path class="m2" d="M0 240 L0 165 L130 120 L260 160 L390 105 L520 150 L660 115 L790 165 L930 110 L1060 155 L1190 120 L1320 160 L1440 130 L1440 240 Z"/>
+        <path class="m3" d="M0 240 L0 205 L150 180 L300 200 L460 170 L620 198 L780 176 L940 202 L1100 180 L1260 200 L1440 185 L1440 240 Z"/>
+      </svg>
     </div>
   </section>
 
-  <section id="projects" aria-labelledby="projects-h">
-    <div class="sec">
-      <h2 id="projects-h">Projects</h2>
-      <div class="body">
-        <p class="intro">Four old repositories I rebuilt in September 2026. Each one was broken when I started. The red lines are what I found, the green lines are what is on main now, with CI passing.</p>
-
-        <div class="projects">
-
-          <article class="project" aria-labelledby="p1">
-            <header>
-              <h3 id="p1"><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">research-harvest</a></h3>
-              <span class="tech">Python</span>
-            </header>
-            <p>Searches PubMed and OpenAlex, merges the results, drops papers that appear in both, and reads what each abstract reports: the methods used, the cohort size and the best score claimed. The extraction is the hard part. An abstract is written for a human, so anything clever enough to catch every phrasing also catches a p-value and calls it a cohort.</p>
-            <div class="diff">
-              <h4>research-harvest, before and after</h4>
-              <ul class="was" aria-label="Before">
-                <li>Two scripts driving headless Chrome over PubMed and Google Scholar</li>
-                <li>A five second sleep between every article</li>
-                <li>35 MB of <code>chromedriver.exe</code> committed, twice</li>
-                <li>Scholar output empty, because Scholar blocks automated access</li>
-              </ul>
-              <ul class="now" aria-label="After">
-                <li>PubMed and OpenAlex over their official REST APIs</li>
-                <li>Dedupe on DOI, then source id, then normalised title, keeping the fuller record</li>
-                <li>115 tests, 95% coverage, run offline against recorded PubMed XML and OpenAlex JSON</li>
-              </ul>
-            </div>
-            <p class="sample-label">A real output row</p>
-            <pre class="sample" tabindex="0" aria-label="Sample output row">Machine learning based dynamic consensus model for predicting blood-brain barrier permeability | 2023 | XGBoost; Random Forest | 8153 | ACCURACY 0.978</pre>
-            <ul class="links"><li><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">Source on GitHub</a></li></ul>
-          </article>
-
-          <article class="project" aria-labelledby="p2">
-            <header>
-              <h3 id="p2"><a href="https://github.com/vipul21435/SilverPass">SilverPass</a></h3>
-              <span class="tech">Express, React, MongoDB</span>
-            </header>
-            <p>Passport services for someone who is 78, has never used a government site and cannot read 16px type. Text starts at 20px with three size steps in the top bar, there is a high contrast mode, and everything is in English and Hindi. The first two hours of every day at every centre are held for applicants aged 60 and over, because the queue is the real barrier.</p>
-            <div class="diff">
-              <h4>SilverPass, before and after</h4>
-              <ul class="was" aria-label="Before">
-                <li>A 28-line <code>server.js</code> that crashed on startup</li>
-                <li>It required a <code>routes/</code> folder that was never committed</li>
-              </ul>
-              <ul class="now" aria-label="After">
-                <li>Express API and React client, 135 strings in each language</li>
-                <li>A test fails the build if either language is missing a key or a placeholder</li>
-                <li>A status machine that refuses illegal transitions</li>
-                <li>JSON file store and MongoDB held to one contract test so neither can drift</li>
-                <li>135 tests, and CI runs the server suite twice, once per backend</li>
-              </ul>
-            </div>
-            <ul class="links"><li><a href="https://github.com/vipul21435/SilverPass">Source on GitHub</a></li></ul>
-          </article>
-
-          <article class="project" aria-labelledby="p3">
-            <header>
-              <h3 id="p3"><a href="https://github.com/vipul21435/CourseBot360-main">CourseBot360</a></h3>
-              <span class="tech">JavaScript, GitHub Pages</span>
-            </header>
-            <p>Answers questions about university courses. Try "info about DSA", "is there a lab in OS?" or "list CSE courses with quizzes under 10%". The intent engine never touches the DOM, so a whole conversation runs in a test in milliseconds. Answers come back as data, which keeps string concatenation out of <code>innerHTML</code> entirely.</p>
-            <div class="diff">
-              <h4>CourseBot360, before and after</h4>
-              <ul class="was" aria-label="Before">
-                <li>An extracted zip committed whole, nested folder and all</li>
-                <li><code>ReferenceError: speak is not defined</code> on every single reply</li>
-              </ul>
-              <ul class="now" aria-label="After">
-                <li>Intent engine separated from the page, answers returned as <code>{ text, blocks }</code></li>
-                <li>108 tests, deployed by GitHub Actions</li>
-              </ul>
-            </div>
-            <p class="note">There is no language model in it, on purpose. A static site cannot hold an API key without handing it to every visitor. For 31 fixed courses a parser over a local JSON file is faster, costs nothing, works offline and cannot invent a prerequisite.</p>
-            <ul class="links">
-              <li><a href="https://vipul21435.github.io/CourseBot360-main/">Try it live</a></li>
-              <li><a href="https://github.com/vipul21435/CourseBot360-main">Source on GitHub</a></li>
-            </ul>
-          </article>
-
-          <article class="project" aria-labelledby="p4">
-            <header>
-              <h3 id="p4"><a href="https://github.com/vipul21435/CabBooking-PHP">Cab Booking System</a></h3>
-              <span class="tech">PHP, MySQL, Docker</span>
-            </header>
-            <p>Fleet and booking management. Customers book and track rides, drivers see their jobs, admins manage the fleet and staff. It runs with <code>docker compose up</code>.</p>
-            <div class="diff">
-              <h4>Cab Booking System, before and after</h4>
-              <ul class="was" aria-label="Before">
-                <li>A free template with a hardcoded admin backdoor</li>
-                <li>Database credentials in the source</li>
-                <li>Unsalted MD5 passwords, one seeded hash was literally "password"</li>
-                <li>60 queries built by string concatenation, several taking <code>$_GET</code> straight into SQL</li>
-                <li>Local file inclusion in the page router</li>
-                <li><code>.env</code> and the schema dump reachable over HTTP</li>
-              </ul>
-              <ul class="now" aria-label="After">
-                <li>All 60 queries bound</li>
-                <li>bcrypt at cost 12, with an in-place migration so no existing account was locked out</li>
-                <li>CI runs <code>php -l</code> on PHP 8.0, 8.2 and 8.3</li>
-                <li>A Docker smoke test boots the stack and signs the admin in</li>
-                <li>It checks a wrong password leaks no SQL and an MD5 account comes back as bcrypt</li>
-              </ul>
-            </div>
-            <ul class="links"><li><a href="https://github.com/vipul21435/CabBooking-PHP">Source on GitHub</a></li></ul>
-          </article>
-
+  <section class="sec" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Who I am</p>
+        <h2 id="about-h">About me</h2>
+      </div>
+      <div class="about">
+        <div>
+          <p>I'm an <strong>AI Data Engineer at Handshake</strong>. I build the hard, verifiable tasks used to evaluate coding agents, along with the environments they run in and the tooling that gets them through review. That means digest-pinned Dockerfiles, reference solutions that really compute the answer, and pytest suites that grade real output.</p>
+          <p>Before that I spent a year at <strong>Scale AI</strong>. There I led a distributed technical squad of <strong>35</strong> on an LLM coding-data programme, from scoping the task sets through to delivery, and I was lead reviewer on more than half of my assigned projects.</p>
+          <p>I studied <strong>Computer Science and Social Sciences at IIIT Delhi</strong>, graduating in 2025 with a Dean's List year behind me. On Codeforces I'm a Specialist. I also like taking broken old code and making it trustworthy again, and the open-source projects below are four of those.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="stack" aria-labelledby="stack-h">
-    <div class="sec">
-      <h2 id="stack-h">Stack</h2>
-      <div class="body">
-        <dl class="stack">
-          <div><dt>Languages</dt><dd>Python, C++, JavaScript, Java, SQL, PHP, C#, Bash</dd></div>
-          <div><dt>Build and test</dt><dd>Docker, GitHub Actions, pytest, vitest, node:test</dd></div>
-          <div><dt>ML</dt><dd>PyTorch, Hugging Face, scikit-learn, LoRA and PEFT, RAG, embeddings and vector search</dd></div>
-          <div><dt>Web and data</dt><dd>Node, React, Express, Vite, MySQL, MongoDB, Selenium</dd></div>
+        <dl class="tiles">
+          <div class="tile"><dt>35</dt><dd>people in the squad I led at Scale AI</dd></div>
+          <div class="tile"><dt>100%</dt><dd>of my task submissions accepted at Handshake</dd></div>
+          <div class="tile"><dt>11,000+</dt><dd>hours shipped at a 3.9/5 average quality rating</dd></div>
+          <div class="tile"><dt>4.3/5</dt><dd>across 51 internal quality reviews</dd></div>
+          <div class="tile"><dt>65%</dt><dd>less regression testing time at Zinnia</dd></div>
+          <div class="tile"><dt>1485</dt><dd>Codeforces rating, Specialist</dd></div>
         </dl>
       </div>
     </div>
   </section>
 
-  <section id="more" aria-labelledby="more-h">
-    <div class="sec">
-      <h2 id="more-h">Education</h2>
-      <div class="body">
-        <article class="job">
-          <header><h3>IIIT Delhi</h3><span class="when">Aug 2021 to May 2025</span></header>
-          <p>B.Tech in Computer Science and Social Sciences. Dean's List 2023-24.</p>
-          <p>Codeforces Specialist, rated 1485, with a world rank of 979 in Round 994 out of more than 35,000 entrants. Over 1000 DSA problems solved.</p>
-        </article>
+  <section class="sec sec-alt" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">2023 to now</p>
+        <h2 id="exp-h">Where I have worked</h2>
+      </div>
+      <ol class="timeline" reversed>
+        <li class="job">
+          <article class="job-card">
+            <div class="job-top"><h3>Handshake</h3><span class="when">Jul 2026 to present</span></div>
+            <p class="role">AI Data Engineer</p>
+            <ul>
+              <li>Build hard, verifiable tasks for coding-agent evaluation. Each ships with a digest-pinned Dockerfile for both agent and verifier, a reference solution that solves it by genuine computation, and a pytest suite that grades real output.</li>
+              <li>Design tasks that defeat frontier models: the naive reading looks right and is wrong, the deciding cases are hidden but fully determined, and grading is still byte-exact.</li>
+              <li>Rebuild open-source repositories at a historical commit and prove a failing suite passes after the fix.</li>
+              <li>Wrote the pipeline tooling: build recipes, collision detection against a shared ledger, build locks and dedupe caches.</li>
+              <li><strong>100% acceptance rate</strong> across all three programmes.</li>
+            </ul>
+          </article>
+        </li>
+        <li class="job">
+          <article class="job-card">
+            <div class="job-top"><h3>Scale AI</h3><span class="when">Jul 2025 to Jul 2026</span></div>
+            <p class="role">AI Engineer and squad lead</p>
+            <ul>
+              <li>Led a distributed technical squad of <strong>35</strong> on an LLM coding-data programme. I scoped the task sets, wrote the rubrics and technical assessments, built the review workflow and ran delivery.</li>
+              <li><strong>11,000+ hours</strong> shipped at a <strong>3.9/5</strong> average quality rating.</li>
+              <li>Lead reviewer on more than half my assigned projects, including multi-model coding and reasoning evaluation. <strong>4.3/5</strong> across 51 internal quality reviews.</li>
+              <li>Promoted to the platform's senior reviewer tier and held its top contributor designation.</li>
+              <li>Python validation pipelines, RLHF and SFT feedback loops, fine-tuning with LoRA and PEFT, and RAG pipelines with Model Context Protocol.</li>
+            </ul>
+          </article>
+        </li>
+        <li class="job">
+          <article class="job-card">
+            <div class="job-top"><h3>Zinnia Digital Services</h3><span class="when">Apr 2025 to Jun 2025</span></div>
+            <p class="role">Automation and AI Intern</p>
+            <ul>
+              <li>End-to-end QA automation in Python and Selenium for insurance client applications.</li>
+              <li>Delivered two phases of the CI/CD pipeline. Regression testing time fell about <strong>65%</strong>, and each release cycle lost more than three hours of manual estimation.</li>
+              <li>REST API contract validation across several releases.</li>
+            </ul>
+          </article>
+        </li>
+        <li class="job">
+          <article class="job-card">
+            <div class="job-top"><h3>ETiDM Lab, IIIT Delhi</h3><span class="when">Jan 2024 to Aug 2024</span></div>
+            <p class="role">VR Developer</p>
+            <ul>
+              <li>A Blender-inspired 3D modelling application in Unity and C#, with 3-axis manipulation, validated through user testing.</li>
+            </ul>
+          </article>
+        </li>
+        <li class="job">
+          <article class="job-card">
+            <div class="job-top"><h3>HCD Lab, IIIT Delhi, with Ariel University</h3><span class="when">Jul 2023 to May 2024</span></div>
+            <p class="role">Research Intern</p>
+            <ul>
+              <li>AI-assisted design evaluation modules in Java, used across 150+ structured design evaluations.</li>
+              <li>Co-authored a peer-reviewed publication.</li>
+            </ul>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="squad" aria-labelledby="squad-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Scale AI, 2025 to 2026</p>
+        <h2 id="squad-h">Leading a squad of 35</h2>
+      </div>
+      <div class="squad">
+        <div class="squad-top">
+          <p>On an <strong>LLM coding-data programme</strong> I was squad lead for a distributed technical team of 35. I owned the programme end to end, from deciding what the squad would build to deciding whether it was good enough to ship.</p>
+          <div class="big35" aria-hidden="true"><b>35</b><span>people, one squad</span></div>
+        </div>
+        <ol class="steps">
+          <li><h3>Scope</h3><p>Scoped the task sets the squad worked from.</p></li>
+          <li><h3>Standards</h3><p>Wrote the evaluation rubrics and the technical assessments.</p></li>
+          <li><h3>Review</h3><p>Built the review workflow every piece of work went through.</p></li>
+          <li><h3>Delivery</h3><p>Ran delivery for the whole distributed squad.</p></li>
+        </ol>
+        <dl class="squad-figs">
+          <div><dt>11,000+</dt><dd>hours of task work shipped</dd></div>
+          <div><dt>3.9/5</dt><dd>average quality rating</dd></div>
+          <div><dt>4.3/5</dt><dd>my own score across 51 quality reviews</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <section id="contact" aria-labelledby="contact-h">
-    <div class="sec">
-      <h2 id="contact-h">Contact</h2>
-      <div class="body">
-        <ul class="contact">
-          <li><span class="k">Email</span><a href="mailto:vipul21435@iiitd.ac.in">vipul21435@iiitd.ac.in</a></li>
-          <li><span class="k">GitHub</span><a href="https://github.com/vipul21435">github.com/vipul21435</a></li>
+  <section class="sec sec-alt" id="projects" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">10 projects</p>
+        <h2 id="proj-h">What I have built</h2>
+        <p class="sub">Six from work, described without client details, and four open-source repositories I rebuilt from broken states.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <span class="lbl">Filter by:</span>
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="work" aria-pressed="false">Professional</button>
+        <button type="button" data-filter="oss" aria-pressed="false">Open source</button>
+        <button type="button" data-filter="ai" aria-pressed="false">AI and data</button>
+        <button type="button" data-filter="web" aria-pressed="false">Web apps</button>
+      </div>
+      <p class="filter-status" id="filterStatus" aria-live="polite">Showing all 10 projects</p>
+
+      <div class="grid" id="grid">
+
+        <article class="card" data-tags="work ai" aria-labelledby="c1">
+          <div class="cover" style="--c1:#7a2cff;--c2:#2a0c62"><span class="kind">Professional</span><code>grade --byte-exact</code></div>
+          <div class="card-body">
+            <h3 id="c1">Adversarial coding-agent tasks</h3>
+            <p class="org">Handshake</p>
+            <p>Tasks where the naive reading of the data looks correct and is wrong, and the deciding cases are hidden from the sample but fully determined by it. I generate synthetic corpora, prove computationally that each admits exactly one consistent interpretation, and recover hidden structure with integer linear algebra and modular arithmetic.</p>
+            <ul class="chips"><li>Docker</li><li>pytest</li><li>Python</li><li>Linear algebra</li></ul>
+            <div class="card-links"><span class="private">Client work, source not public</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="work ai" aria-labelledby="c2">
+          <div class="cover" style="--c1:#c2318a;--c2:#2a0c62"><span class="kind">Professional</span><code>fail -> pass, verified</code></div>
+          <div class="card-body">
+            <h3 id="c2">Repositories rebuilt at a historical commit</h3>
+            <p class="org">Handshake</p>
+            <p>Reproducible environments for arbitrary open-source repositories at a specific commit. I pin dependencies until a test suite that failed before a fix passes after it, then verify that flip against the reference solution.</p>
+            <ul class="chips"><li>Docker</li><li>Dependency pinning</li><li>pytest</li></ul>
+            <div class="card-links"><span class="private">Client work, source not public</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="work" aria-labelledby="c3">
+          <div class="cover" style="--c1:#4b3bd6;--c2:#1d0c42"><span class="kind">Professional</span><code>build-lock acquired</code></div>
+          <div class="card-body">
+            <h3 id="c3">Submission pipeline tooling</h3>
+            <p class="org">Handshake</p>
+            <p>Per-repository build recipes, collision detection against a shared ledger, build locks, dedupe caches, and the scripts that stop a multi-folder submission pipeline from burning the same work twice. Every task goes in as a pull request and iterates against automated review gates until each check is green.</p>
+            <ul class="chips"><li>Build recipes</li><li>Locks and caches</li><li>Pull request gates</li></ul>
+            <div class="card-links"><span class="private">Client work, source not public</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="work ai" aria-labelledby="c4">
+          <div class="cover" style="--c1:#e0a100;--c2:#5a22c4"><span class="kind">Squad lead</span><code>squad=35 hours=11000+</code></div>
+          <div class="card-body">
+            <h3 id="c4">LLM coding-data programme</h3>
+            <p class="org">Scale AI</p>
+            <p>Led a distributed squad of 35 from scope to delivery. I scoped the task sets, wrote the rubrics and technical assessments, and built the review workflow. The programme shipped 11,000+ hours at a 3.9/5 average quality rating.</p>
+            <ul class="chips"><li>Leadership</li><li>Rubric design</li><li>Review workflow</li></ul>
+            <div class="card-links"><a href="#squad">How I ran it</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="work ai" aria-labelledby="c5">
+          <div class="cover" style="--c1:#9b2cc9;--c2:#1d0c42"><span class="kind">Professional</span><code>reviews=51 score=4.3</code></div>
+          <div class="card-body">
+            <h3 id="c5">Multi-model coding and reasoning evaluation</h3>
+            <p class="org">Scale AI</p>
+            <p>Lead reviewer on multi-model coding and reasoning evaluation, and on more than half the projects I was assigned. Scored 4.3/5 across 51 internal quality reviews, was promoted into the platform's senior reviewer tier and held its top contributor designation.</p>
+            <ul class="chips"><li>LLM evaluation</li><li>Code review</li><li>Reasoning</li></ul>
+            <div class="card-links"><span class="private">Client work, source not public</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="work ai" aria-labelledby="c6">
+          <div class="cover" style="--c1:#2d6be0;--c2:#2a0c62"><span class="kind">Professional</span><code>rlhf sft lora peft rag</code></div>
+          <div class="card-body">
+            <h3 id="c6">Validation and fine-tuning pipelines</h3>
+            <p class="org">Scale AI</p>
+            <p>Python validation pipelines for data quality assurance and model output monitoring. RLHF and SFT feedback loops, fine-tuning with LoRA and PEFT, and RAG pipelines using Model Context Protocol for context-aware evaluation.</p>
+            <ul class="chips"><li>Python</li><li>LoRA and PEFT</li><li>RLHF</li><li>RAG</li><li>MCP</li></ul>
+            <div class="card-links"><span class="private">Client work, source not public</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="oss ai" aria-labelledby="c7">
+          <div class="cover" style="--c1:#1f9a6e;--c2:#1d0c42"><span class="kind">Open source</span><code>115 passed, 95% coverage</code></div>
+          <div class="card-body">
+            <h3 id="c7">research-harvest</h3>
+            <p>Searches PubMed and OpenAlex, merges the results, removes papers found in both, and reads the methods, cohort size and best score out of each abstract. The extraction is the hard part: anything clever enough to catch every phrasing also catches a p-value and calls it a cohort.</p>
+            <div class="ba">
+              <div class="was"><b>Was</b>Headless Chrome with a five second sleep per article, 35 MB of committed <code>chromedriver.exe</code>, and empty Scholar output.</div>
+              <div class="now"><b>Now</b>Official REST APIs, dedupe on DOI then source id then title, and 115 tests that run offline against recorded fixtures.</div>
+            </div>
+            <ul class="chips"><li>Python</li><li>REST APIs</li><li>pytest</li></ul>
+            <div class="card-links"><a href="https://github.com/vipul21435/Web-Scraping-Tools-for-Research-Paper">Source on GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="oss web" aria-labelledby="c8">
+          <div class="cover" style="--c1:#d65a2c;--c2:#2a0c62"><span class="kind">Open source</span><code>135 tests x 2 backends</code></div>
+          <div class="card-body">
+            <h3 id="c8">SilverPass</h3>
+            <p>Passport services for someone who is 78 and cannot read 16px type. 20px base text with three size steps, high contrast mode, full English and Hindi, and the first two hours at every centre held for applicants aged 60 and over.</p>
+            <div class="ba">
+              <div class="was"><b>Was</b>A 28-line <code>server.js</code> that crashed on startup, requiring a <code>routes/</code> folder that was never committed.</div>
+              <div class="now"><b>Now</b>Express and React, a status machine that refuses illegal transitions, and two storage backends held to one contract test.</div>
+            </div>
+            <ul class="chips"><li>Express</li><li>React</li><li>MongoDB</li><li>Accessibility</li></ul>
+            <div class="card-links"><a href="https://github.com/vipul21435/SilverPass">Source on GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="oss web" aria-labelledby="c9">
+          <div class="cover" style="--c1:#0f8fb3;--c2:#1d0c42"><span class="kind">Open source</span><code>108 tests, deployed</code></div>
+          <div class="card-body">
+            <h3 id="c9">CourseBot360</h3>
+            <p>Answers questions like "is there a lab in OS?" about 31 university courses. It is a deterministic intent parser on purpose: a static site cannot hide an API key, and a parser is fast, free, works offline and cannot invent a prerequisite.</p>
+            <div class="ba">
+              <div class="was"><b>Was</b>A zip committed whole that threw <code>ReferenceError: speak is not defined</code> on every reply.</div>
+              <div class="now"><b>Now</b>An intent engine that never touches the DOM and returns answers as data, so a whole conversation runs in a test.</div>
+            </div>
+            <ul class="chips"><li>JavaScript</li><li>Testing</li><li>GitHub Pages</li></ul>
+            <div class="card-links"><a href="https://vipul21435.github.io/CourseBot360-main/">Try it live</a><a href="https://github.com/vipul21435/CourseBot360-main">Source on GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="oss web" aria-labelledby="c10">
+          <div class="cover" style="--c1:#b8324f;--c2:#2a0c62"><span class="kind">Open source</span><code>php -l 8.0 8.2 8.3 ok</code></div>
+          <div class="card-body">
+            <h3 id="c10">Cab Booking System</h3>
+            <p>Fleet and booking management in PHP and MySQL for customers, drivers and admins. It runs with <code>docker compose up</code>.</p>
+            <div class="ba">
+              <div class="was"><b>Was</b>A hardcoded admin backdoor, unsalted MD5 passwords, 60 injectable queries and a file inclusion hole in the router.</div>
+              <div class="now"><b>Now</b>Every query bound, bcrypt at cost 12 with an in-place migration, and a Docker smoke test in CI that signs in and checks for leaks.</div>
+            </div>
+            <ul class="chips"><li>PHP</li><li>MySQL</li><li>Docker</li><li>Security</li></ul>
+            <div class="card-links"><a href="https://github.com/vipul21435/CabBooking-PHP">Source on GitHub</a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Stack</p>
+        <h2 id="skills-h">Skills</h2>
+      </div>
+      <div class="skills">
+        <div class="skill" data-rotate>
+          <p class="say">I write production code in <span class="rot" aria-hidden="true">Python</span></p>
+          <ul class="chips" aria-label="Languages"><li>Python</li><li>C++</li><li>JavaScript</li><li>Java</li><li>SQL</li><li>PHP</li><li>C#</li><li>Bash</li></ul>
+        </div>
+        <div class="skill" data-rotate>
+          <p class="say">I ship and test with <span class="rot" aria-hidden="true">Docker</span></p>
+          <ul class="chips" aria-label="Build and test"><li>Docker</li><li>GitHub Actions</li><li>pytest</li><li>vitest</li><li>node:test</li></ul>
+        </div>
+        <div class="skill" data-rotate>
+          <p class="say">On the ML side I use <span class="rot" aria-hidden="true">PyTorch</span></p>
+          <ul class="chips" aria-label="Machine learning"><li>PyTorch</li><li>Hugging Face</li><li>scikit-learn</li><li>LoRA and PEFT</li><li>RAG</li><li>Embeddings and vector search</li></ul>
+        </div>
+        <div class="skill" data-rotate>
+          <p class="say">For the web I build with <span class="rot" aria-hidden="true">Node</span></p>
+          <ul class="chips" aria-label="Web and data"><li>Node</li><li>React</li><li>Express</li><li>Vite</li><li>MySQL</li><li>MongoDB</li><li>Selenium</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt" id="achievements" aria-labelledby="ach-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Beyond work</p>
+        <h2 id="ach-h">Achievements</h2>
+      </div>
+      <div class="wins">
+        <div class="win"><b>1485</b><h3>Codeforces Specialist</h3><p>World rank 979 in Round 994, out of more than 35,000 entrants.</p></div>
+        <div class="win"><b>1000+</b><h3>DSA problems solved</h3><p>Data structures and algorithms, built up through competitive programming.</p></div>
+        <div class="win"><b>2023-24</b><h3>Dean's List</h3><p>IIIT Delhi, B.Tech in Computer Science and Social Sciences, 2021 to 2025.</p></div>
+        <div class="win"><b>1</b><h3>Peer-reviewed paper</h3><p>Co-authored from the HCD Lab's work with Ariel University, Israel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact" aria-labelledby="contact-h">
+    <canvas id="contactField" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="contact-h">Let's connect</h2>
+        <p class="sub">Hiring for evaluation, data or infrastructure work, or want to talk about a hard task? Write to me.</p>
+      </div>
+      <div class="connect">
+        <form class="form" id="mailForm" novalidate>
+          <label for="fName">Your name<input id="fName" name="name" type="text" autocomplete="name"></label>
+          <label for="fSubject">Subject<input id="fSubject" name="subject" type="text" value="Hello from your portfolio"></label>
+          <label for="fMsg">Message<textarea id="fMsg" name="message"></textarea></label>
+          <p class="hint">Sending opens your email app with this message ready to go.</p>
+          <button class="btn btn-gold" type="submit">Send by email</button>
+        </form>
+        <ul class="reach">
+          <li>
+            <span class="k">Email</span>
+            <span class="mailrow"><a id="mailAddr" href="mailto:vipul21435@iiitd.ac.in">vipul21435@iiitd.ac.in</a><button class="copy" id="copyMail" type="button">Copy</button><span id="copyStatus" class="sr-only" aria-live="polite"></span></span>
+          </li>
           <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">linkedin.com/in/vipul-raj-jha-491b2023a</a></li>
+          <li><span class="k">GitHub</span><a href="https://github.com/vipul21435">github.com/vipul21435</a></li>
           <li><span class="k">Codeforces</span><a href="https://codeforces.com/profile/Vipul21435">codeforces.com/profile/Vipul21435</a></li>
         </ul>
       </div>
@@ -537,8 +685,227 @@ footer.foot { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; c
 
 </main>
 
-<footer class="foot">
-  <div class="wrap">Vipul Raj Jha, Delhi. Plain HTML and CSS, no JavaScript.</div>
+<footer>
+  <div class="wrap">
+    <span>Vipul Raj Jha, Delhi, India</span>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/vipul-raj-jha-491b2023a/">LinkedIn</a></li>
+      <li><a href="https://github.com/vipul21435">GitHub</a></li>
+      <li><a href="https://codeforces.com/profile/Vipul21435">Codeforces</a></li>
+    </ul>
+  </div>
 </footer>
+
+<a class="to-top" id="toTop" href="#home" aria-label="Back to top" hidden>Top</a>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Header: solid background once the page scrolls, and the mobile menu.
+  var bar = document.getElementById("bar");
+  var menuBtn = document.getElementById("menuBtn");
+  var toTop = document.getElementById("toTop");
+  function setMenu(open) {
+    bar.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.textContent = open ? "Close" : "Menu";
+  }
+  menuBtn.addEventListener("click", function () { setMenu(!bar.classList.contains("open")); });
+  document.querySelectorAll(".nav a").forEach(function (a) {
+    a.addEventListener("click", function () { setMenu(false); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && bar.classList.contains("open")) { setMenu(false); menuBtn.focus(); }
+  });
+
+  // Parallax on the hero, skipped for reduced motion.
+  var heroInner = document.getElementById("heroInner");
+  var mountains = document.getElementById("mountains");
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY;
+    bar.classList.toggle("scrolled", y > 40);
+    toTop.hidden = y < 700;
+    if (!reduce && y < 1000) {
+      heroInner.style.transform = "translateY(" + (y * 0.35) + "px)";
+      heroInner.style.opacity = String(Math.max(0, 1 - y / 650));
+      mountains.style.transform = "translateY(" + (y * -0.12) + "px)";
+    }
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  // Highlight the nav link for the section in view.
+  var links = {};
+  document.querySelectorAll(".nav a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting || !links[en.target.id]) return;
+        Object.keys(links).forEach(function (k) { links[k].removeAttribute("aria-current"); });
+        links[en.target.id].setAttribute("aria-current", "true");
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    Object.keys(links).forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s) spy.observe(s);
+    });
+  }
+
+  // Typed roles in the hero.
+  var roles = [
+    "AI Data Engineer at Handshake",
+    "Squad lead for a team of 35",
+    "Builder of evaluation environments",
+    "Codeforces Specialist, 1485"
+  ];
+  var typed = document.getElementById("typed");
+  if (!reduce) {
+    var r = 0, c = roles[0].length, deleting = true;
+    setTimeout(function tick() {
+      if (deleting) {
+        c--;
+        typed.textContent = roles[r].slice(0, c);
+        if (c === 0) { deleting = false; r = (r + 1) % roles.length; }
+        setTimeout(tick, 35);
+      } else {
+        c++;
+        typed.textContent = roles[r].slice(0, c);
+        if (c === roles[r].length) { deleting = true; setTimeout(tick, 2200); }
+        else setTimeout(tick, 70);
+      }
+    }, 2400);
+  }
+
+  // Skills: cycle through each list and light up the matching chip.
+  if (!reduce) {
+    var rows = Array.prototype.slice.call(document.querySelectorAll("[data-rotate]"));
+    var step = 0;
+    var spin = function () {
+      rows.forEach(function (row) {
+        var items = row.querySelectorAll(".chips li");
+        var i = step % items.length;
+        items.forEach(function (li, j) { li.classList.toggle("on", j === i); });
+        row.querySelector(".rot").textContent = items[i].textContent;
+      });
+      step++;
+    };
+    spin();
+    setInterval(spin, 2200);
+  }
+
+  // Project filters.
+  var grid = document.getElementById("grid");
+  var cards = Array.prototype.slice.call(grid.querySelectorAll(".card"));
+  var status = document.getElementById("filterStatus");
+  var names = { work: "professional", oss: "open-source", ai: "AI and data", web: "web app" };
+  document.querySelectorAll(".filters button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var f = btn.getAttribute("data-filter");
+      document.querySelectorAll(".filters button").forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+      var n = 0;
+      cards.forEach(function (card) {
+        var show = f === "all" || card.getAttribute("data-tags").split(" ").indexOf(f) > -1;
+        card.hidden = !show;
+        if (show) n++;
+      });
+      status.textContent = f === "all" ? "Showing all " + n + " projects" : "Showing " + n + " " + names[f] + " projects";
+    });
+  });
+
+  // Contact: build an email from the form, and copy the address.
+  var addr = "vipul21435@iiitd.ac.in";
+  document.getElementById("mailForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("fName").value.trim();
+    var subject = document.getElementById("fSubject").value.trim() || "Hello";
+    var msg = document.getElementById("fMsg").value.trim();
+    var body = msg + (name ? "\n\n" + name : "");
+    window.location.href = "mailto:" + addr + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  });
+  var copyBtn = document.getElementById("copyMail");
+  var copyStatus = document.getElementById("copyStatus");
+  function copied() {
+    copyBtn.textContent = "Copied";
+    copyStatus.textContent = "Email address copied";
+    setTimeout(function () { copyBtn.textContent = "Copy"; copyStatus.textContent = ""; }, 2000);
+  }
+  function selectAddr() {
+    var range = document.createRange();
+    range.selectNodeContents(document.getElementById("mailAddr"));
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+  copyBtn.addEventListener("click", function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(copied, selectAddr);
+    } else {
+      selectAddr();
+    }
+  });
+
+  // Particle fields for the hero and contact backgrounds.
+  function field(canvas, count) {
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    var pts = [], w = 0, h = 0, running = false, raf = 0;
+    function size() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.round(count * Math.min(1, w / 1200));
+      pts = [];
+      for (var i = 0; i < n; i++) {
+        pts.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35, r: Math.random() * 1.6 + 0.6 });
+      }
+      draw();
+    }
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < pts.length; i++) {
+        var p = pts[i];
+        for (var j = i + 1; j < pts.length; j++) {
+          var q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = dx * dx + dy * dy;
+          if (d < 12000) {
+            ctx.strokeStyle = "rgba(169, 121, 255," + (0.35 * (1 - d / 12000)) + ")";
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+          }
+        }
+      }
+      ctx.fillStyle = "rgba(242, 237, 255, 0.85)";
+      for (var k = 0; k < pts.length; k++) {
+        ctx.beginPath(); ctx.arc(pts[k].x, pts[k].y, pts[k].r, 0, 6.2832); ctx.fill();
+      }
+    }
+    function frame() {
+      for (var i = 0; i < pts.length; i++) {
+        var p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+      }
+      draw();
+      if (running) raf = requestAnimationFrame(frame);
+    }
+    size();
+    window.addEventListener("resize", size);
+    if (reduce || !("IntersectionObserver" in window)) return;
+    new IntersectionObserver(function (entries) {
+      var vis = entries[0].isIntersecting;
+      if (vis && !running) { running = true; raf = requestAnimationFrame(frame); }
+      if (!vis) { running = false; cancelAnimationFrame(raf); }
+    }).observe(canvas);
+  }
+  field(document.getElementById("heroField"), 90);
+  field(document.getElementById("contactField"), 70);
+})();
+</script>
 </body>
 </html>
