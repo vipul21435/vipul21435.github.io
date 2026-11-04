@@ -103,13 +103,12 @@
         <li class="job">
           <article class="job-card">
             <div class="job-top"><h3>Solumn AI</h3><span class="when">Jul 2026 to present, part-time</span></div>
-            <p class="role">Principal Architect &amp; Research Engineer</p>
+            <p class="role">AI Data Engineer</p>
             <ul>
-              <li>I design and run an evaluation programme for AI coding agents, from research question to delivered benchmark.</li>
-              <li>The pipeline I built reconstructs open-source projects at exact historical commits in digest-pinned Docker images, verifies that each project's own tests fail before the fix and pass after it, and attaches a reference solution and an automated grader, so every task is reproducible and comparable across agents.</li>
-              <li>Around that core sit a registry of candidate repositories, a static screen against the acceptance bar, deduplication, independent audit and a review-and-rework loop.</li>
-              <li>Much of the execution is done by model agents in separate lanes; my part is the protocols, the routing and budget rules, and the judgement calls.</li>
-              <li>On the research side I keep the definitions honest: what counts as a valid task, a taxonomy of failures, and every reviewer return treated as data that changes the bar. Reviewer acceptance has stayed at 100% across three programmes.</li>
+              <li>Coding-agent evaluation data, part-time. Each task rebuilds an open-source project at a historical commit in a digest-pinned Docker image, checks that the project's own tests fail before the fix and pass after it, and ships with a reference solution and an automated grader.</li>
+              <li>I keep the tooling around it running: a registry of candidate repositories, a pre-check against the acceptance bar, duplicate detection, build caching and an audit step before anything is submitted.</li>
+              <li>Part of the pipeline runs through model agents in separate lanes; I write the protocols they follow, set their budgets and check what they produce.</li>
+              <li>Each reviewer return is logged and read back into the pre-check, so the same miss is not made twice. Submissions so far have all been accepted.</li>
             </ul>
             <p class="job-link"><a href="projects/agent-evaluation.html">How this work is built</a></p>
           </article>
@@ -183,7 +182,7 @@
       <div class="head">
         <p class="eyebrow">What I have studied</p>
         <h2 id="research-h">Research</h2>
-        <p class="sub">A published study of design cognition, the evaluation research behind a coding-agent benchmark, and a literature tool built along the way.</p>
+        <p class="sub">A published study of design cognition, the evaluation data behind a coding-agent benchmark, and a literature tool built along the way.</p>
       </div>
       <div class="decisions three">
         <div class="decision">
@@ -193,10 +192,10 @@
           <p><a href="projects/linkography-study.html">How the study was done</a> &middot; <a href="https://repository.iiitd.edu.in/xmlui/handle/123456789/1604">Read the paper</a></p>
         </div>
         <div class="decision">
-          <h3>Evaluation research at Solumn AI</h3>
-          <p>At Solumn AI I keep the definitions of the benchmark honest: what counts as a valid task, a taxonomy of failures, and every reviewer return treated as data that changes the bar.</p>
-          <p>The pipeline under it reconstructs open-source projects at exact historical commits, verifies that each project's own tests fail before the fix and pass after it, and attaches a reference solution and an automated grader, so every task is reproducible and comparable across agents.</p>
-          <p><a href="projects/agent-evaluation.html">How the programme is built</a></p>
+          <h3>Evaluation data at Solumn AI</h3>
+          <p>The question at Solumn AI is what makes a benchmark task valid. I keep a written definition that every task is screened against, a list of the ways a task goes wrong, and a log of reviewer returns; each return changes the pre-check.</p>
+          <p>The pipeline under it rebuilds open-source projects at exact historical commits, checks that each project's own tests fail before the fix and pass after it, and attaches a reference solution and an automated grader, so every task is reproducible and comparable across agents.</p>
+          <p><a href="projects/agent-evaluation.html">How the work is built</a></p>
         </div>
         <div class="decision">
           <h3>research-harvest, applied research tooling</h3>
@@ -228,9 +227,9 @@
     <span id="squad"></span><span id="leadership"></span>
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow">Two kinds of team</p>
-        <h2 id="squad-h">Teams I have led</h2>
-        <p class="sub">A squad of 35 people at Scale AI, and a fleet of model agents at Solumn AI.</p>
+        <p class="eyebrow">Squad lead at Scale AI</p>
+        <h2 id="squad-h">The team I have led</h2>
+        <p class="sub">A distributed squad of 35 people on an LLM coding-data programme.</p>
       </div>
       <div class="squad">
         <div class="squad-top">
@@ -249,17 +248,6 @@
           <div><dt>4.3/5</dt><dd>my own score across 51 quality reviews</dd></div>
         </dl>
         <p class="squad-more"><a class="btn btn-ghost" href="projects/llm-data-programme.html">Read how I ran it</a></p>
-      </div>
-      <div class="squad fleet">
-        <div class="squad-top">
-          <p>At <strong>Solumn AI</strong> the team is a fleet of model agents. Much of the execution is done by those agents in separate lanes; my part is the protocols they follow, the routing and budget rules, and the judgement calls that no rule covers.</p>
-        </div>
-        <ol class="steps">
-          <li><h3>Lanes</h3><p>Each agent works in its own lane, on its own slice of the pipeline.</p></li>
-          <li><h3>Protocols</h3><p>Written protocols say what each lane produces and how it is checked.</p></li>
-          <li><h3>Routing and budget</h3><p>Rules decide which work goes where and how much it may cost.</p></li>
-          <li><h3>Judgement</h3><p>The calls that no rule covers stay with me.</p></li>
-        </ol>
       </div>
     </div>
   </section>

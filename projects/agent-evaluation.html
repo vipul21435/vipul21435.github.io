@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Coding-agent evaluation | Vipul Raj Jha</title>
-<meta name="description" content="How Vipul Raj Jha designs and runs an evaluation programme for AI coding agents at Solumn AI and Handshake AI: reproducible tasks, verified fixes, graders, and the research behind the bar.">
+<meta name="description" content="How Vipul Raj Jha builds evaluation data for AI coding agents at Handshake AI and Solumn AI: reproducible tasks, verified fixes, graders, and the checks behind the bar.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:title" content="Coding-agent evaluation | Vipul Raj Jha">
-<meta property="og:description" content="How Vipul Raj Jha designs and runs an evaluation programme for AI coding agents at Solumn AI and Handshake AI: reproducible tasks, verified fixes, graders, and the research behind the bar.">
+<meta property="og:description" content="How Vipul Raj Jha builds evaluation data for AI coding agents at Handshake AI and Solumn AI: reproducible tasks, verified fixes, graders, and the checks behind the bar.">
 <meta property="og:image" content="https://vipul21435.github.io/profile.jpg">
 <meta property="og:url" content="https://vipul21435.github.io/projects/agent-evaluation.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,9 +45,9 @@
         <li><span class="step" aria-current="step"><span class="num">2</span> Details</span></li>
         <li><span class="step off"><span class="num">3</span> Source: private client work</span></li>
       </ol>
-      <p class="eyebrow">Computer science and research | Solumn AI and Handshake AI | Jul 2026 to present</p>
+      <p class="eyebrow">Computer science | AI Data Engineer at Handshake AI and Solumn AI | Jul 2026 to present</p>
       <h1 id="title">Coding-agent evaluation</h1>
-      <p class="lede">At Solumn AI I design and run an evaluation programme for AI coding agents, from research question to delivered benchmark. At Handshake AI I am a Platinum Fellow on coding-agent evaluation, where each task reconstructs an open-source project at a historical commit, reproduces a reported defect, verifies the maintainers' fix against the project's own tests, and ships as a reproducible benchmark item. Reviewer acceptance has stayed at 100% across three programmes.</p>
+      <p class="lede">AI Data Engineer on coding-agent evaluation at Handshake AI, as a Platinum Fellow, and part-time at Solumn AI. Each task reconstructs an open-source project at a historical commit, reproduces a reported defect, verifies the maintainers' fix against the project's own tests, and ships as a reproducible benchmark item with a reference solution and an automated grader. Reviewer acceptance has stayed at 100% across three programmes.</p>
       <ul class="chips"><li>Docker</li><li>pytest</li><li>Python</li><li>Integer linear algebra</li><li>Modular arithmetic</li><li>Git and pull requests</li><li>Evaluation protocols</li></ul>
       <div class="cta">
         <a class="btn btn-gold" href="#tasks">How a task is built</a>
@@ -55,7 +55,7 @@
       </div>
       <dl class="d-figs">
         <div class="tile"><dt>100%</dt><dd>reviewer acceptance across three programmes</dd></div>
-        <div class="tile"><dt>2</dt><dd>organisations: Solumn AI and Handshake AI</dd></div>
+        <div class="tile"><dt>2</dt><dd>organisations: Handshake AI and Solumn AI</dd></div>
         <div class="tile"><dt>byte-exact</dt><dd>grading of the agent's real output</dd></div>
         <div class="tile"><dt>1 Dockerfile</dt><dd>builds the environment for agent and verifier</dd></div>
       </dl>
@@ -103,7 +103,7 @@
       <p class="eyebrow">Workstream 3</p>
       <h2 id="tool-h">Submission pipeline tooling</h2>
       <div class="prose">
-        <p>Around the core sits the tooling I built around the platform's own checks, so quality held while volume grew. Much of the execution is done by model agents in separate lanes; my part is the protocols, the routing and budget rules, and the judgement calls.</p>
+        <p>Around the core sits the tooling I built around the platform's own checks, so quality held while volume grew. Part of the pipeline runs through model agents in separate lanes; I write the protocols they follow, set their budgets and check what they produce.</p>
       </div>
       <div class="decisions">
         <div class="decision"><h3>Repository registry</h3><p>A registry of candidate repositories, so the next task starts from a known pool instead of a fresh search.</p></div>
@@ -116,10 +116,10 @@
 
   <section class="d-sec" id="research" aria-labelledby="research-h">
     <div class="wrap">
-      <p class="eyebrow">Research side</p>
-      <h2 id="research-h">Keeping the definitions honest</h2>
+      <p class="eyebrow">The bar</p>
+      <h2 id="research-h">What the tasks are held to</h2>
       <div class="prose">
-        <p>A benchmark is only as good as what it counts as a task. On the research side I keep the definitions honest: what counts as a valid task, a taxonomy of failures, and every reviewer return treated as data that changes the bar.</p>
+        <p>A benchmark is only as good as what it counts as a task. I keep a written definition that every task is screened against, a list of the ways a task goes wrong, and a log of reviewer returns, and the bar changes when the returns say it should.</p>
       </div>
       <div class="decisions">
         <div class="decision"><h3>What counts as a valid task</h3><p>A written definition that every task is screened against, so the benchmark measures the same thing from one task to the next.</p></div>
