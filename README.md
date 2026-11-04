@@ -7,11 +7,11 @@ Plain HTML, CSS and a little vanilla JavaScript. No build step, no framework, no
 ## Layout
 
 ```
-index.html                 home page: about, experience, squad lead, projects, skills, contact
+index.html                 home page: about, experience, research, mathematics, leadership, projects, skills, contact
 profile.jpg                profile photo
 assets/style.css           shared styles for every page
 assets/site.js             shared behaviour; each feature runs only where its elements exist
-projects/*.html            one detail page per project
+projects/*.html            one detail page per project, plus linkography-study.html for the research study
 projects/img/              screenshots used on the detail pages
 ```
 
@@ -19,7 +19,7 @@ projects/img/              screenshots used on the detail pages
 
 1. A card in the Projects section on the home page.
 2. The project's detail page: what it does, how it works stage by stage, the engineering decisions, tests and CI, and how to run it.
-3. The GitHub repository, linked at the end of each detail page. Work done for clients has no public repository, so those pages end with a way to get in touch.
+3. The GitHub repository, linked at the end of each detail page. Work done for clients has no public repository, so those pages end with a way to get in touch; the research study ends with the published paper.
 
 ## Contact form
 

@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Coding-agent evaluation | Vipul Raj Jha</title>
-<meta name="description" content="How Vipul Raj Jha builds hard, verifiable tasks, reproducible environments and submission tooling for evaluating AI coding agents at Handshake.">
+<meta name="description" content="How Vipul Raj Jha designs and runs an evaluation programme for AI coding agents at Solumn AI and Handshake AI: reproducible tasks, verified fixes, graders, and the research behind the bar.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:title" content="Coding-agent evaluation | Vipul Raj Jha">
-<meta property="og:description" content="How Vipul Raj Jha builds hard, verifiable tasks, reproducible environments and submission tooling for evaluating AI coding agents at Handshake.">
+<meta property="og:description" content="How Vipul Raj Jha designs and runs an evaluation programme for AI coding agents at Solumn AI and Handshake AI: reproducible tasks, verified fixes, graders, and the research behind the bar.">
 <meta property="og:image" content="https://vipul21435.github.io/profile.jpg">
 <meta property="og:url" content="https://vipul21435.github.io/projects/agent-evaluation.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,8 @@
       <ul class="nav" id="nav">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#squad">Squad lead</a></li>
+        <li><a href="../index.html#research">Research</a></li>
+        <li><a href="../index.html#leadership">Leadership</a></li>
         <li><a href="../index.html#projects" aria-current="true">Projects</a></li>
         <li><a href="../index.html#contact">Contact</a></li>
       </ul>
@@ -44,17 +45,17 @@
         <li><span class="step" aria-current="step"><span class="num">2</span> Details</span></li>
         <li><span class="step off"><span class="num">3</span> Source: private client work</span></li>
       </ol>
-      <p class="eyebrow">Professional | Handshake | Jul 2026 to present</p>
+      <p class="eyebrow">Computer science and research | Solumn AI and Handshake AI | Jul 2026 to present</p>
       <h1 id="title">Coding-agent evaluation</h1>
-      <p class="lede">At Handshake I build hard, verifiable tasks for testing AI coding agents, the environments those tasks run in, and the tooling that carries each one through review. Every submission I have made across three programmes has been accepted.</p>
-      <ul class="chips"><li>Docker</li><li>pytest</li><li>Python</li><li>Integer linear algebra</li><li>Modular arithmetic</li><li>Git and pull requests</li></ul>
+      <p class="lede">At Solumn AI I design and run an evaluation programme for AI coding agents, from research question to delivered benchmark. At Handshake AI I am a Platinum Fellow on coding-agent evaluation, where each task reconstructs an open-source project at a historical commit, reproduces a reported defect, verifies the maintainers' fix against the project's own tests, and ships as a reproducible benchmark item. Reviewer acceptance has stayed at 100% across three programmes.</p>
+      <ul class="chips"><li>Docker</li><li>pytest</li><li>Python</li><li>Integer linear algebra</li><li>Modular arithmetic</li><li>Git and pull requests</li><li>Evaluation protocols</li></ul>
       <div class="cta">
         <a class="btn btn-gold" href="#tasks">How a task is built</a>
         <a class="btn btn-ghost" href="../index.html#contact">Ask me about it</a>
       </div>
       <dl class="d-figs">
-        <div class="tile"><dt>100%</dt><dd>of my submissions accepted</dd></div>
-        <div class="tile"><dt>3</dt><dd>programmes worked on</dd></div>
+        <div class="tile"><dt>100%</dt><dd>reviewer acceptance across three programmes</dd></div>
+        <div class="tile"><dt>2</dt><dd>organisations: Solumn AI and Handshake AI</dd></div>
         <div class="tile"><dt>byte-exact</dt><dd>grading of the agent's real output</dd></div>
         <div class="tile"><dt>1 Dockerfile</dt><dd>builds the environment for agent and verifier</dd></div>
       </dl>
@@ -86,7 +87,7 @@
       <p class="eyebrow">Workstream 2</p>
       <h2 id="env-h">Repositories rebuilt at a historical commit</h2>
       <div class="prose">
-        <p>Some tasks start from real open-source code. The job is to take an arbitrary repository at a specific commit from its history and make it build and test again, reproducibly.</p>
+        <p>Most tasks start from real open-source code. The job is to reconstruct a project at an exact historical commit in a digest-pinned Docker image, reproduce a reported defect, and verify that the project's own tests fail before the maintainers' fix and pass after it, then attach a reference solution and an automated grader so the task is reproducible and comparable across agents.</p>
       </div>
       <ol class="stages">
         <li class="stage"><div class="stage-card"><h3>Check out the commit</h3><p>Start from the exact historical commit the task is based on.</p></div></li>
@@ -102,13 +103,29 @@
       <p class="eyebrow">Workstream 3</p>
       <h2 id="tool-h">Submission pipeline tooling</h2>
       <div class="prose">
-        <p>Tasks move through a submission pipeline that spans several folders, and a pipeline like that will happily build the same thing twice. I wrote the tooling that stops it.</p>
+        <p>Around the core sits the tooling I built around the platform's own checks, so quality held while volume grew. Much of the execution is done by model agents in separate lanes; my part is the protocols, the routing and budget rules, and the judgement calls.</p>
       </div>
       <div class="decisions">
-        <div class="decision"><h3>Per-repository build recipes</h3><p>Every repository gets its own recipe, so its environment can be rebuilt the same way on any day.</p></div>
-        <div class="decision"><h3>Collision detection</h3><p>New work is checked against a shared ledger, so two submissions do not end up covering the same ground.</p></div>
-        <div class="decision"><h3>Build locks</h3><p>Only one build of the same thing can run at a time.</p></div>
-        <div class="decision"><h3>Dedupe caches</h3><p>Work that has already been built is recognised and reused instead of being built again.</p></div>
+        <div class="decision"><h3>Repository registry</h3><p>A registry of candidate repositories, so the next task starts from a known pool instead of a fresh search.</p></div>
+        <div class="decision"><h3>Static screen against the bar</h3><p>Pre-checks against the review bar before anything is built, so work that cannot pass is never started.</p></div>
+        <div class="decision"><h3>Duplicate detection and build caching</h3><p>Work that has already been done is recognised and reused instead of being built again.</p></div>
+        <div class="decision"><h3>Independent audit and rework</h3><p>An independent audit before submission, and a review-and-rework loop after it: returned tasks are taken through rework rather than dropped.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-sec" id="research" aria-labelledby="research-h">
+    <div class="wrap">
+      <p class="eyebrow">Research side</p>
+      <h2 id="research-h">Keeping the definitions honest</h2>
+      <div class="prose">
+        <p>A benchmark is only as good as what it counts as a task. On the research side I keep the definitions honest: what counts as a valid task, a taxonomy of failures, and every reviewer return treated as data that changes the bar.</p>
+      </div>
+      <div class="decisions">
+        <div class="decision"><h3>What counts as a valid task</h3><p>A written definition that every task is screened against, so the benchmark measures the same thing from one task to the next.</p></div>
+        <div class="decision"><h3>A taxonomy of failures</h3><p>The ways a task can go wrong, named and sorted, so a failure is classified rather than described from scratch each time.</p></div>
+        <div class="decision"><h3>Reviewer returns as data</h3><p>Every return from review is recorded and read as evidence about the bar, and the bar changes when the evidence says it should.</p></div>
+        <div class="decision"><h3>Comparable across agents</h3><p>Reproducible environments, verified fixes and automated graders mean the same task gives every agent the same test.</p></div>
       </div>
     </div>
   </section>

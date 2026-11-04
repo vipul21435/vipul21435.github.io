@@ -68,10 +68,10 @@
   var typed = byId("typed");
   if (typed && !reduce) {
     var roles = [
-      "AI Data Engineer at Handshake",
-      "Shipped 11,000+ hours with a squad of 35",
-      "Builder of evaluation environments",
-      "Codeforces Specialist, 1485"
+      "Computer scientist",
+      "Researcher",
+      "Mathematics in the work",
+      "Team lead"
     ];
     var r = 0, c = roles[0].length, deleting = true;
     setTimeout(function tick() {
@@ -111,7 +111,7 @@
   var cards = grid ? Array.prototype.slice.call(grid.querySelectorAll(".card")) : [];
   var filterStatus = byId("filterStatus");
   if (grid && filterStatus) {
-    var names = { work: "professional", oss: "open-source", ai: "AI and data", web: "web app" };
+    var names = { work: "professional", oss: "open-source", research: "research", ai: "AI and data", web: "web app" };
     document.querySelectorAll(".filters button").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var f = btn.getAttribute("data-filter");
