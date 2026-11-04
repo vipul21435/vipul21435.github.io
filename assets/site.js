@@ -68,10 +68,10 @@
   var typed = byId("typed");
   if (typed && !reduce) {
     var roles = [
-      "Computer scientist",
-      "Researcher",
-      "Mathematics in the work",
-      "Team lead"
+      "AI Data Engineer at Handshake AI",
+      "Evaluating AI coding agents",
+      "Research in design cognition",
+      "Led a team of 35"
     ];
     var r = 0, c = roles[0].length, deleting = true;
     setTimeout(function tick() {
@@ -83,10 +83,10 @@
       } else {
         c++;
         typed.textContent = roles[r].slice(0, c);
-        if (c === roles[r].length) { deleting = true; setTimeout(tick, 2200); }
+        if (c === roles[r].length) { deleting = true; setTimeout(tick, r === 0 ? 4200 : 2200); }
         else setTimeout(tick, 70);
       }
-    }, 2400);
+    }, 4200);
   }
 
   // Skills: cycle through each list and light up the matching chip.

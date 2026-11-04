@@ -27,7 +27,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
         <li><a href="../index.html#research">Research</a></li>
-        <li><a href="../index.html#leadership">Leadership</a></li>
+        <li><a href="../index.html#teams">Teams</a></li>
         <li><a href="../index.html#projects" aria-current="true">Projects</a></li>
         <li><a href="../index.html#contact">Contact</a></li>
       </ul>
@@ -67,7 +67,7 @@
       <p class="eyebrow">Workstream 1</p>
       <h2 id="tasks-h">Adversarial evaluation tasks</h2>
       <div class="prose">
-        <p>A task is only useful if a strong model can fail it for a real reason. Mine have to meet three conditions at the same time. The naive reading of the data looks correct and is wrong. The cases that decide the answer are hidden from the sample the agent sees, yet fully determined by it. And the result can still be graded byte-exact, so passing or failing is never a judgement call.</p>
+        <p>A task is only useful if a capable model can fail it for a real reason. Each of mine has to meet three conditions at the same time. The naive reading of the data looks correct and is wrong. The cases that decide the answer are hidden from the sample the agent sees, yet fully determined by it. And the result can still be graded byte-exact, so passing or failing is never a judgement call.</p>
         <p>Each task ships self-contained. This is the path one task takes from idea to accepted submission.</p>
       </div>
       <ol class="stages">
@@ -77,7 +77,7 @@
         <li class="stage"><div class="stage-card"><h3>Write the reference solution</h3><p>Solve the task by genuine computation, the way an agent would have to, with nothing hard-coded.</p></div></li>
         <li class="stage"><div class="stage-card"><h3>Pin the environment</h3><p>A digest-pinned Dockerfile builds the environment for both the agent and the verifier, so both work against the same pinned environment.</p></div></li>
         <li class="stage"><div class="stage-card"><h3>Grade the real output</h3><p>A pytest suite checks what the agent actually produced, byte-exact, instead of matching strings in its answer.</p></div></li>
-        <li class="stage final"><div class="stage-card"><h3>Pass the review gates</h3><p>The task goes in as a pull request and iterates against automated review gates until every check is green. Across three programmes, every one of my submissions has been accepted.</p></div></li>
+        <li class="stage final"><div class="stage-card"><h3>Pass the review gates</h3><p>The task goes in as a pull request and iterates against automated review gates until every check is green.</p></div></li>
       </ol>
     </div>
   </section>

@@ -7,7 +7,7 @@ Plain HTML, CSS and a little vanilla JavaScript. No build step, no framework, no
 ## Layout
 
 ```
-index.html                 home page: about, experience, research, mathematics, leadership, projects, skills, contact
+index.html                 home page: about, experience, research, mathematics, teams, projects, skills, contact
 profile.jpg                profile photo
 assets/style.css           shared styles for every page
 assets/site.js             shared behaviour; each feature runs only where its elements exist
